@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
+[*] Mon Jun 16 12:52:08 2025
+[*]
+[dumpfile] "(null)"
+[savefile] "/media/carlos/Work/VLSI/femtoRV/test_femto.gtkw"
+[timestart] 0
+[size] 960 461
+[pos] -1 -1
+*-30.000000 48000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] femto_TB.
+[sst_width] 278
+[signals_width] 438
+[sst_expanded] 1
+[sst_vpaned_height] 138
+@28
+femto_TB.uut.clk
+femto_TB.uut.spi_clk
+femto_TB.uut.spi_cs_n
+femto_TB.uut.spi_miso
+femto_TB.uut.spi_mosi
+femto_TB.uut.\CPU.mem_rbusy
+@800022
+#{PC} femto_TB.uut.\CPU.PC[23] femto_TB.uut.\CPU.PC[22] femto_TB.uut.\CPU.PC[21] femto_TB.uut.\CPU.PC[20] femto_TB.uut.\CPU.PC[19] femto_TB.uut.\CPU.PC[18] femto_TB.uut.\CPU.PC[17] femto_TB.uut.\CPU.PC[16] femto_TB.uut.\CPU.PC[15] femto_TB.uut.\CPU.PC[14] femto_TB.uut.\CPU.PC[13] femto_TB.uut.\CPU.PC[12] femto_TB.uut.\CPU.PC[11] femto_TB.uut.\CPU.PC[10] femto_TB.uut.\CPU.PC[9] femto_TB.uut.\CPU.PC[8] femto_TB.uut.\CPU.PC[7] femto_TB.uut.\CPU.PC[6] femto_TB.uut.\CPU.PC[5] femto_TB.uut.\CPU.PC[4] femto_TB.uut.\CPU.PC[3] femto_TB.uut.\CPU.PC[2] femto_TB.uut.\CPU.PC[1]
+@28
+femto_TB.uut.TXD
+femto_TB.uut.\per_uart.uart0.tx_wr
+femto_TB.uut.\CPU.mem_rstrb
+femto_TB.uut.\CPU.writeBack
+@800022
+#{femto_TB.uut.\RAM.MEM[15][31:0]} femto_TB.uut.\RAM.MEM[15][31] femto_TB.uut.\RAM.MEM[15][30] femto_TB.uut.\RAM.MEM[15][29] femto_TB.uut.\RAM.MEM[15][28] femto_TB.uut.\RAM.MEM[15][27] femto_TB.uut.\RAM.MEM[15][26] femto_TB.uut.\RAM.MEM[15][25] femto_TB.uut.\RAM.MEM[15][24] femto_TB.uut.\RAM.MEM[15][23] femto_TB.uut.\RAM.MEM[15][22] femto_TB.uut.\RAM.MEM[15][21] femto_TB.uut.\RAM.MEM[15][20] femto_TB.uut.\RAM.MEM[15][19] femto_TB.uut.\RAM.MEM[15][18] femto_TB.uut.\RAM.MEM[15][17] femto_TB.uut.\RAM.MEM[15][16] femto_TB.uut.\RAM.MEM[15][15] femto_TB.uut.\RAM.MEM[15][14] femto_TB.uut.\RAM.MEM[15][13] femto_TB.uut.\RAM.MEM[15][12] femto_TB.uut.\RAM.MEM[15][11] femto_TB.uut.\RAM.MEM[15][10] femto_TB.uut.\RAM.MEM[15][9] femto_TB.uut.\RAM.MEM[15][8] femto_TB.uut.\RAM.MEM[15][7] femto_TB.uut.\RAM.MEM[15][6] femto_TB.uut.\RAM.MEM[15][5] femto_TB.uut.\RAM.MEM[15][4] femto_TB.uut.\RAM.MEM[15][3] femto_TB.uut.\RAM.MEM[15][2] femto_TB.uut.\RAM.MEM[15][1] femto_TB.uut.\RAM.MEM[15][0]
+@1001200
+-group_end
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0

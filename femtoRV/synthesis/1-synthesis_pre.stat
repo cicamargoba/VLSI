@@ -1,0 +1,45 @@
+
+56. Printing statistics.
+
+=== SOC_flash ===
+
+   Number of wires:               9239
+   Number of wire bits:          12098
+   Number of public wires:         131
+   Number of public wire bits:    2789
+   Number of ports:                  9
+   Number of port bits:              9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              11915
+     $_ANDNOT_                     214
+     $_AND_                       2287
+     $_DFFE_NP_                   1036
+     $_DFFE_PN0N_                    1
+     $_DFFE_PN0P_                   32
+     $_DFFE_PP_                   1145
+     $_DFF_N_                        4
+     $_DFF_PN0_                      3
+     $_DFF_P_                       38
+     $_DLATCH_N_                    46
+     $_MUX_                       1126
+     $_NAND_                      3610
+     $_NOR_                        317
+     $_NOT_                         19
+     $_ORNOT_                      851
+     $_OR_                         680
+     $_SDFFCE_PN0P_                  5
+     $_SDFFCE_PP0P_                  2
+     $_SDFFE_NN0P_                  71
+     $_SDFFE_NN1P_                   1
+     $_SDFFE_PN0P_                 143
+     $_SDFFE_PN1P_                   1
+     $_SDFF_NN0_                     1
+     $_SDFF_NP0_                     6
+     $_SDFF_PN0_                     9
+     $_SDFF_PP0_                    14
+     $_SDFF_PP1_                     2
+     $_XNOR_                       147
+     $_XOR_                        104
+

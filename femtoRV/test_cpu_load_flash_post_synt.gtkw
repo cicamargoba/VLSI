@@ -1,0 +1,106 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Tue Apr 29 15:49:51 2025
+[*]
+[dumpfile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/bench.vcd"
+[dumpfile_mtime] "Tue Apr 29 15:47:11 2025"
+[dumpfile_size] 43224106
+[savefile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/test_cpu_load_flash_post_synt.gtkw"
+[timestart] 0
+[size] 2560 1531
+[pos] -60 -72
+*-54.000000 5490000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bench.
+[treeopen] bench.uut.
+[treeopen] bench.uut.per_uart.
+[sst_width] 569
+[signals_width] 390
+[sst_expanded] 1
+[sst_vpaned_height] 937
+@28
+bench.uut.clk
+bench.uut.\CPU.reset
+@22
+[color] 2
+bench.uut.\mapped_spi_flash.word_address[19:0]
+@28
+[color] 2
+bench.uut.\mapped_spi_flash.MISO
+[color] 2
+bench.uut.\mapped_spi_flash.CLK
+[color] 2
+bench.uut.\mapped_spi_flash.MOSI
+[color] 2
+bench.uut.\mapped_spi_flash.CS_N
+[color] 2
+bench.uut.\mapped_spi_flash.clk
+@22
+[color] 2
+bench.uut.\mapped_spi_flash.snd_bitcount[5:0]
+[color] 2
+bench.uut.\mapped_spi_flash.rcv_bitcount[5:0]
+[color] 2
+bench.uut.\mapped_spi_flash.rdata[31:0]
+[color] 2
+bench.uut.\mapped_spi_flash.word_address[19:0]
+bench.uut.\CPU.PC[23:0]
+@c00022
+bench.uut.\CPU.mem_rdata[31:0]
+@28
+(0)bench.uut.\CPU.mem_rdata[31:0]
+(1)bench.uut.\CPU.mem_rdata[31:0]
+(2)bench.uut.\CPU.mem_rdata[31:0]
+(3)bench.uut.\CPU.mem_rdata[31:0]
+(4)bench.uut.\CPU.mem_rdata[31:0]
+(5)bench.uut.\CPU.mem_rdata[31:0]
+(6)bench.uut.\CPU.mem_rdata[31:0]
+(7)bench.uut.\CPU.mem_rdata[31:0]
+(8)bench.uut.\CPU.mem_rdata[31:0]
+(9)bench.uut.\CPU.mem_rdata[31:0]
+(10)bench.uut.\CPU.mem_rdata[31:0]
+(11)bench.uut.\CPU.mem_rdata[31:0]
+(12)bench.uut.\CPU.mem_rdata[31:0]
+(13)bench.uut.\CPU.mem_rdata[31:0]
+(14)bench.uut.\CPU.mem_rdata[31:0]
+(15)bench.uut.\CPU.mem_rdata[31:0]
+(16)bench.uut.\CPU.mem_rdata[31:0]
+(17)bench.uut.\CPU.mem_rdata[31:0]
+(18)bench.uut.\CPU.mem_rdata[31:0]
+(19)bench.uut.\CPU.mem_rdata[31:0]
+(20)bench.uut.\CPU.mem_rdata[31:0]
+(21)bench.uut.\CPU.mem_rdata[31:0]
+(22)bench.uut.\CPU.mem_rdata[31:0]
+(23)bench.uut.\CPU.mem_rdata[31:0]
+(24)bench.uut.\CPU.mem_rdata[31:0]
+(25)bench.uut.\CPU.mem_rdata[31:0]
+(26)bench.uut.\CPU.mem_rdata[31:0]
+(27)bench.uut.\CPU.mem_rdata[31:0]
+(28)bench.uut.\CPU.mem_rdata[31:0]
+(29)bench.uut.\CPU.mem_rdata[31:0]
+(30)bench.uut.\CPU.mem_rdata[31:0]
+(31)bench.uut.\CPU.mem_rdata[31:0]
+@1401200
+-group_end
+@22
+bench.uut.\CPU.instr[31:2]
+bench.uut.\CPU.rs1[31:0]
+bench.uut.\CPU.rs2[31:0]
+bench.uut.\CPU.aluIn1[31:0]
+bench.uut.\CPU.aluIn2[31:0]
+@28
+bench.uut.RXD
+bench.uut.TXD
+@22
+bench.uut.\CPU.mem_rdata[31:0]
+@28
+bench.uut.\CPU.mem_rbusy
+@22
+bench.uut.\CPU.registerFile[0][31:0]
+@23
+bench.uut.\CPU.registerFile[4][31:0]
+bench.uut.\CPU.registerFile[5][31:0]
+bench.uut.\CPU.registerFile[6][31:0]
+bench.uut.\CPU.registerFile[7][31:0]
+bench.uut.\CPU.registerFile[8][31:0]
+[pattern_trace] 1
+[pattern_trace] 0
