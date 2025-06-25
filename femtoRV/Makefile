@@ -42,6 +42,7 @@ prepare_libs:
 	mkdir -p tmp/routing
 	mkdir -p tmp/synthesis/blackbox
 	mkdir -p tmp/cts
+	mkdir -p synthesis/blackbox/
 	rm -rf tmp/synthesis/*.list  tmp/cts/*
 
 #	scripts/openroad -exit -no_init -python scripts/odbpy/lefutil.py get_metal_layers -o tmp/layers.list /home/carlos/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
@@ -58,6 +59,7 @@ prepare_libs:
 	cat ${SKY_LIB_TECH}/sky130_fd_sc_hd/drc_exclude.cells > tmp/cts/cts-slowest.lib.exclude.list
 	scripts/libtrim.py --cell-file tmp/cts/cts-slowest.lib.exclude.list --output tmp/cts/cts-slowest.lib /home/carlos/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib
 	scripts/new_tracks.py -i /home/carlos/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o tmp/routing/config.tracks
+	cp /home/carlos/.volare/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v  synthesis/blackbox/
 	yosys -c scripts/yosys/blackbox.tcl
 	verilator -Wall --lint-only --Wno-DECLFILENAME --top-module ${TARGET} synthesis/blackbox/sky130_fd_sc_hd__blackbox.v ${OBJS}  -Wno-fatal --relative-includes > logs/synthesis/linter.log 
 	sed -E 's/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g' /home/carlos/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib
