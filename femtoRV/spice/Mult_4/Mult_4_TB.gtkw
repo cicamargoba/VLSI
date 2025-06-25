@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed May 21 18:17:06 2025
+[*]
+[dumpfile] "/Work/VLSI/Mult_4/Mult_4_TB.vcd"
+[dumpfile_mtime] "Wed May 21 18:16:20 2025"
+[dumpfile_size] 98059
+[savefile] "/Work/VLSI/Mult_4/Mult_4_TB.gtkw"
+[timestart] 0
+[size] 2560 1531
+[pos] -88 -88
+*-17.000000 410900 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] mult_TB.
+[sst_width] 331
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 457
+@28
+mult_TB.clk
+mult_TB.done
+mult_TB.init
+@22
+mult_TB.op_A[3:0]
+mult_TB.op_B[3:0]
+@28
+mult_TB.uut.\control0.add
+@29
+mult_TB.uut.\control0.sh
+@28
+mult_TB.reset
+@22
+mult_TB.result[7:0]
+@800028
+#{mult_TB.uut.\control0.state[2:0]} mult_TB.uut.\control0.state[2] mult_TB.uut.\control0.state[1] mult_TB.uut.\control0.state[0]
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0

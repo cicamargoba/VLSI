@@ -73,7 +73,6 @@ prepare_libs:
 
 
 sim_post_syn_sky: prepare_libs
-	yosys -l synth.log -c synth.tcl
 	cp out.v $(TOP)_synth_sky.v 
 	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v ${TARGET}_sky.v ${SIM_OBJS} ${SIM_OBJS_SKY}
 	vvp $@_PS.vpp
