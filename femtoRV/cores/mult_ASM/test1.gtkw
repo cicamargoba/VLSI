@@ -1,0 +1,28 @@
+[*]
+[*] GTKWave Analyzer v3.3.38 (w)1999-2012 BSI
+[*] Mon Sep 24 14:53:15 2012
+[*]
+[dumpfile] "/home/cain/Embedded/ingenic/SIE/Examples/Multiplier/simulation/top_multiplier_TB.vcd"
+[dumpfile_mtime] "Mon Sep 24 14:51:15 2012"
+[dumpfile_size] 3940
+[savefile] "/home/cain/Embedded/ingenic/SIE/Examples/Multiplier/test1.gtkw"
+[timestart] 124500
+[size] 1000 523
+[pos] -1 -1
+*-17.000000 353200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_multiplier_TB.
+[treeopen] top_multiplier_TB.uut.
+[sst_width] 223
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 125
+@25
+top_multiplier_TB.uut.in_A[7:0]
+top_multiplier_TB.uut.in_B[7:0]
+top_multiplier_TB.uut.pp[15:0]
+@28
+top_multiplier_TB.uut.reset
+top_multiplier_TB.uut.start
+top_multiplier_TB.uut.ctrl.state[1:0]
+[pattern_trace] 1
+[pattern_trace] 0

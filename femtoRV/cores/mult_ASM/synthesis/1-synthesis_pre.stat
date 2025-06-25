@@ -1,0 +1,30 @@
+
+53. Printing statistics.
+
+=== mult_32 ===
+
+   Number of wires:                303
+   Number of wire bits:            486
+   Number of public wires:          15
+   Number of public wire bits:     127
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                414
+     $_ANDNOT_                      73
+     $_AND_                         16
+     $_DFFE_NP_                     30
+     $_DFFE_PP_                      4
+     $_MUX_                         32
+     $_NAND_                        21
+     $_NOR_                         30
+     $_NOT_                          6
+     $_ORNOT_                       11
+     $_OR_                          68
+     $_SDFFCE_NN0P_                  2
+     $_SDFFCE_PN0P_                  4
+     $_SDFFE_NP0P_                  48
+     $_SDFF_PP0_                     3
+     $_XNOR_                        36
+     $_XOR_                         30
+

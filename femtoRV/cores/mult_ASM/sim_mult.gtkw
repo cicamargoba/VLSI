@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Apr 24 20:05:28 2025
+[*]
+[dumpfile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/cores/mult_ASM/mult_32_TB.vcd"
+[dumpfile_mtime] "Thu Apr 24 20:03:42 2025"
+[dumpfile_size] 5303
+[savefile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/cores/mult_ASM/sim_mult.gtkw"
+[timestart] 0
+[size] 2560 1531
+[pos] -1 -1
+*-16.000000 965100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] mult_32_TB.
+[treeopen] mult_32_TB.uut.
+[sst_width] 331
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 184
+@28
+mult_32_TB.uut.rst
+mult_32_TB.uut.clk
+mult_32_TB.uut.init
+@22
+mult_32_TB.uut.A[15:0]
+mult_32_TB.uut.B[15:0]
+@24
+mult_32_TB.uut.control0.state[2:0]
+@820
+mult_32_TB.uut.control0.state_name[320:1]
+@28
+mult_32_TB.uut.control0.add
+mult_32_TB.uut.control0.sh
+mult_32_TB.uut.control0.z
+mult_32_TB.uut.done
+@22
+mult_32_TB.uut.pp[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,107 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Apr 24 20:45:37 2025
+[*]
+[dumpfile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/cores/mult_ASM/mult_32_TB.vcd"
+[dumpfile_mtime] "Thu Apr 24 20:30:44 2025"
+[dumpfile_size] 23900
+[savefile] "/Work/Proyects/ecb_T8_T113/femtoRV/basic/rtl/cores/mult_ASM/sim_post_route.gtkw"
+[timestart] 0
+[size] 2560 1531
+[pos] -30 -30
+*-18.000000 770000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] mult_32_TB.
+[sst_width] 331
+[signals_width] 220
+[sst_expanded] 1
+[sst_vpaned_height] 937
+@c00023
+#{A} mult_32_TB.uut.\A[15] mult_32_TB.uut.\A[14] mult_32_TB.uut.\A[13] mult_32_TB.uut.\A[12] mult_32_TB.uut.\A[11] mult_32_TB.uut.\A[10] mult_32_TB.uut.\A[9] mult_32_TB.uut.\A[8] mult_32_TB.uut.\A[7] mult_32_TB.uut.\A[6] mult_32_TB.uut.\A[5] mult_32_TB.uut.\A[4] mult_32_TB.uut.\A[3] mult_32_TB.uut.\A[2] mult_32_TB.uut.\A[1] mult_32_TB.uut.\A[0]
+@28
+mult_32_TB.uut.\A[0]
+mult_32_TB.uut.\A[1]
+mult_32_TB.uut.\A[2]
+mult_32_TB.uut.\A[3]
+mult_32_TB.uut.\A[4]
+mult_32_TB.uut.\A[5]
+mult_32_TB.uut.\A[6]
+mult_32_TB.uut.\A[7]
+mult_32_TB.uut.\A[8]
+mult_32_TB.uut.\A[9]
+mult_32_TB.uut.\A[10]
+mult_32_TB.uut.\A[11]
+mult_32_TB.uut.\A[12]
+mult_32_TB.uut.\A[13]
+mult_32_TB.uut.\A[14]
+mult_32_TB.uut.\A[15]
+@1401201
+-group_end
+@c00022
+#{B} mult_32_TB.uut.\B[15] mult_32_TB.uut.\B[14] mult_32_TB.uut.\B[13] mult_32_TB.uut.\B[12] mult_32_TB.uut.\B[11] mult_32_TB.uut.\B[10] mult_32_TB.uut.\B[9] mult_32_TB.uut.\B[8] mult_32_TB.uut.\B[7] mult_32_TB.uut.\B[6] mult_32_TB.uut.\B[5] mult_32_TB.uut.\B[4] mult_32_TB.uut.\B[3] mult_32_TB.uut.\B[2] mult_32_TB.uut.\B[1] mult_32_TB.uut.\B[0]
+@28
+mult_32_TB.uut.\B[0]
+mult_32_TB.uut.\B[1]
+mult_32_TB.uut.\B[2]
+mult_32_TB.uut.\B[3]
+mult_32_TB.uut.\B[4]
+mult_32_TB.uut.\B[5]
+mult_32_TB.uut.\B[6]
+mult_32_TB.uut.\B[7]
+mult_32_TB.uut.\B[8]
+mult_32_TB.uut.\B[9]
+mult_32_TB.uut.\B[10]
+mult_32_TB.uut.\B[11]
+mult_32_TB.uut.\B[12]
+mult_32_TB.uut.\B[13]
+mult_32_TB.uut.\B[14]
+mult_32_TB.uut.\B[15]
+@1401200
+-group_end
+@28
+mult_32_TB.uut.rst
+mult_32_TB.uut._w_add
+mult_32_TB.uut._w_reset
+mult_32_TB.uut._w_sh
+mult_32_TB.uut.clk
+@c00022
+#{PP} mult_32_TB.uut.\pp[31] mult_32_TB.uut.\pp[30] mult_32_TB.uut.\pp[29] mult_32_TB.uut.\pp[28] mult_32_TB.uut.\pp[27] mult_32_TB.uut.\pp[26] mult_32_TB.uut.\pp[25] mult_32_TB.uut.\pp[24] mult_32_TB.uut.\pp[23] mult_32_TB.uut.\pp[22] mult_32_TB.uut.\pp[21] mult_32_TB.uut.\pp[20] mult_32_TB.uut.\pp[19] mult_32_TB.uut.\pp[18] mult_32_TB.uut.\pp[17] mult_32_TB.uut.\pp[16] mult_32_TB.uut.\pp[15] mult_32_TB.uut.\pp[14] mult_32_TB.uut.\pp[13] mult_32_TB.uut.\pp[12] mult_32_TB.uut.\pp[11] mult_32_TB.uut.\pp[10] mult_32_TB.uut.\pp[9] mult_32_TB.uut.\pp[8] mult_32_TB.uut.\pp[7] mult_32_TB.uut.\pp[6] mult_32_TB.uut.\pp[5] mult_32_TB.uut.\pp[4] mult_32_TB.uut.\pp[3] mult_32_TB.uut.\pp[2] mult_32_TB.uut.\pp[1] mult_32_TB.uut.\pp[0]
+@28
+mult_32_TB.uut.\pp[0]
+mult_32_TB.uut.\pp[1]
+mult_32_TB.uut.\pp[2]
+mult_32_TB.uut.\pp[3]
+mult_32_TB.uut.\pp[4]
+mult_32_TB.uut.\pp[5]
+mult_32_TB.uut.\pp[6]
+mult_32_TB.uut.\pp[7]
+mult_32_TB.uut.\pp[8]
+mult_32_TB.uut.\pp[9]
+mult_32_TB.uut.\pp[10]
+mult_32_TB.uut.\pp[11]
+mult_32_TB.uut.\pp[12]
+mult_32_TB.uut.\pp[13]
+mult_32_TB.uut.\pp[14]
+mult_32_TB.uut.\pp[15]
+mult_32_TB.uut.\pp[16]
+mult_32_TB.uut.\pp[17]
+mult_32_TB.uut.\pp[18]
+mult_32_TB.uut.\pp[19]
+mult_32_TB.uut.\pp[20]
+mult_32_TB.uut.\pp[21]
+mult_32_TB.uut.\pp[22]
+mult_32_TB.uut.\pp[23]
+mult_32_TB.uut.\pp[24]
+mult_32_TB.uut.\pp[25]
+mult_32_TB.uut.\pp[26]
+mult_32_TB.uut.\pp[27]
+mult_32_TB.uut.\pp[28]
+mult_32_TB.uut.\pp[29]
+mult_32_TB.uut.\pp[30]
+mult_32_TB.uut.\pp[31]
+@1401200
+-group_end
+@28
+mult_32_TB.uut.done
+mult_32_TB.uut.init
+[pattern_trace] 1
+[pattern_trace] 0

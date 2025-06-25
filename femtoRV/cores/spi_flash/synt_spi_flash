@@ -1,0 +1,26 @@
+read_liberty -lib ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog MappedSPIFlash_V3.v
+hierarchy -check -top MappedSPIFlash
+proc   # convert RTL processes into multiplexers and registers
+fsm
+opt 
+memory -nomap
+opt
+techmap
+opt -fast
+#extract_fa -v
+techmap -map ../../../PDK/open_pdks/sky130/openlane/sky130_fd_sc_hd/fa_map.v
+opt -fast
+abc -liberty  ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt -fast
+check
+## write synthesized design
+write_verilog  -attr2comment MappedSPIFlash_synth_sky.v
+show -prefix /Work/VLSI/femtoRV/ MappedSPIFlash
+## show design stats
+stat -liberty  ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+
+
+
+#write_verilog  -attr2comment mult_32_synth_sky.v

@@ -1,0 +1,25 @@
+
+59. Printing statistics.
+
+=== mult_32 ===
+
+   Number of wires:                528
+   Number of wire bits:            711
+   Number of public wires:          15
+   Number of public wire bits:     127
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                639
+     $_ANDNOT_                      73
+     $_AND_                         16
+     $_MUX_                        177
+     $_NAND_                        21
+     $_NOR_                         30
+     $_NOT_                         86
+     $_ORNOT_                       11
+     $_OR_                          68
+     $_XNOR_                        36
+     $_XOR_                         30
+     sky130_fd_sc_hd__dfxtp_1       91
+
