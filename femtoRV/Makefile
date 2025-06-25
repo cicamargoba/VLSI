@@ -42,6 +42,7 @@ prepare_libs:
 	mkdir -p tmp/routing
 	mkdir -p tmp/synthesis/blackbox
 	mkdir -p tmp/cts
+	mkdir -p logs/synthesis/
 	mkdir -p synthesis/blackbox/
 	rm -rf tmp/synthesis/*.list  tmp/cts/*
 
