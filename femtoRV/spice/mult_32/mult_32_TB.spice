@@ -1,4 +1,6 @@
-.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+.lib /home/carlos/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130B/libs.tech/ngspice/sky130.lib.spice tt 
+.param mc_mm_switch=0
+
 
 * modificar /home/carlos/.local/lib/python3.10/site-packages/ltspice/ltspice.py para quitar límite de tamaño de archivo
 *        # if the file is too big, read only the designated amount of bytes
