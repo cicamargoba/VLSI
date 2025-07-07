@@ -4,10 +4,9 @@ module peripheral_uart#(
 )(
     input clk,
     input rst,
-    input [31:0]d_in,
+    input [7:0]d_in,
     input cs,
     input [4:0]addr,
-    input rd,
     input wr,
     output reg [31:0]d_out,
     output uart_tx,
@@ -30,19 +29,20 @@ always @(*) begin
 	case (addr)
 		5'h08:begin s = (cs) ? 2'b01 : 2'b00 ;end //{24'b0, rx_data}
 		5'h10:begin s = (cs) ? 2'b10 : 2'b00 ;end //{22'b0, tx_busy, rx_avail, rx_error, 7'b0}
+		default: s = 2'b00;
 	endcase
 end
 
 //Input Registers
 always @(posedge clk) begin
   if(rst) begin
-    d_in_uart = 0;
-	uart_ctrl = 0;
+    d_in_uart <= 0;
+	uart_ctrl <= 0;
   end
   else begin
-	d_in_uart = (s[0] & wr) ? d_in[7:0] : d_in_uart; // data in uart
-	uart_ctrl = (s[1] & wr) ? d_in[7:0] : uart_ctrl; // data controller 5'b0, LED, tx_wr, rx_ack
-	ledout    = uart_ctrl[2];	// write ledout register
+	d_in_uart <= (s[0] & wr) ? d_in[7:0] : d_in_uart; // data in uart
+	uart_ctrl <= (s[1] & wr) ? d_in[7:0] : uart_ctrl; // data controller 5'b0, LED, tx_wr, rx_ack
+	ledout    <= uart_ctrl[2];	// write ledout register
   end
 end
 
@@ -51,6 +51,7 @@ always @(*) begin
 	case (s)
 		2'b01: d_out= {24'b0, rx_data};
 		2'b10: d_out= {22'b0, tx_busy, rx_avail, rx_error, 7'b0};
+		default: d_out = 32'b00;
 	endcase
 end
 

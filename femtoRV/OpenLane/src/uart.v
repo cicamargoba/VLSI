@@ -27,18 +27,18 @@ parameter divisor = freq_hz/baud/16;
 // enable16 generator
 //-----------------------------------------------------------------
 reg [15:0] enable16_counter;
-
+wire [15:0] divisor_trunc  = divisor[15:0] - 1;
 wire    enable16;
 assign  enable16 = (enable16_counter == 0);
 
 always @(posedge clk)
 begin
 	if (reset) begin
-		enable16_counter <= divisor-1;
+		enable16_counter <= divisor_trunc;
 	end else begin
 		enable16_counter <= enable16_counter - 1;
 		if (enable16_counter == 0) begin
-			enable16_counter <= divisor-1;
+			enable16_counter <= divisor_trunc-1;
 		end
 	end
 end

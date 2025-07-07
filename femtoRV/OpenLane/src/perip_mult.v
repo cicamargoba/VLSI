@@ -38,15 +38,15 @@ end//------------------address_decoder--------------------------------
 always @(posedge clk) begin//-------------------- escritura de registros 
 
   if(reset) begin
-    init = 0;
-    A    = 0;
-    B    = 0;
+    init <= 0;
+    A    <= 0;
+    B    <= 0;
   end
   else begin
     if (cs && wr) begin
-		   A    = s[0] ? d_in    : A;	//Write Registers
-		   B    = s[1] ? d_in    : B;	//Write Registers
-		   init = s[2] ? d_in[0] : init;
+		   A    <= s[0] ? d_in    : A;	//Write Registers
+		   B    <= s[1] ? d_in    : B;	//Write Registers
+		   init <= s[2] ? d_in[0] : init;
     end
   end
 
@@ -55,11 +55,12 @@ end//------------------------------------------- escritura de registros
 
 always @(posedge clk) begin//-----------------------mux_4 :  multiplexa salidas del periferico
   if(reset)
-    d_out = 0;
+    d_out <= 0;
   else if (cs && rd) begin
     case (s[4:0])
-      5'b01000: d_out    =  result;
-      5'b10000: d_out    = {31'b0, done};
+      5'b01000: d_out    <=  result;
+      5'b10000: d_out    <= {31'b0, done};
+      default: d_out <= 32'b00;
     endcase
   end
 end//-----------------------------------------------mux_4

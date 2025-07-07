@@ -22,29 +22,29 @@ reg [15:0] A;
 reg [15:0] B;
 
 initial begin
-	result <= 0;
-	done   <= 0;
+	result = 0;
+	done   = 0;
 end
  
  
 	reg [4:0] count;
 
-always @(posedge clk or posedge reset)
+always @(posedge clk )
 begin
 	if (reset) begin
 		done   <= 0;
 		result <= 0;
-		state   = START;
+		state   <= START;
 	end else begin
 		case(state)
 			START: begin				
-				count  =  0;
+				count  <=  0;
 				done   <= 0;
 				result <=  0;
 				if(init)
-					state = START1;
+					state <= START1;
 				else
-					state = START;
+					state <= START;
 			end
     
 			START1:begin
@@ -52,14 +52,14 @@ begin
 				B      <= op_B;
 				done   <= 0;
 				result <=  0;
-				state  =  CHECK;
+				state  <=  CHECK;
 			end
 
 			CHECK: begin
 				if(B[0])
-					state = ADD;
+					state <= ADD;
 				else
-					state = SHIFT;
+					state <= SHIFT;
 			end
         
 			SHIFT: begin
@@ -67,24 +67,24 @@ begin
 				A    <= A << 1;
 				done <= 0;			
 				if(B==0)
-					state = END;
+					state <= END;
 				else
-					state = CHECK;
+					state <= CHECK;
 			end
      
 			ADD: begin
-				result <= result + A;
+				result <= result + {16'b0, A};  // concatena 16 ceros + A
 				done   <= 0;			 
-				state   = SHIFT;
+				state   <= SHIFT;
 			end
 
 			END:begin
 				done <= 1;
-				count = count + 1;
-				state = (count>29) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
+				count <= count + 1;
+				state <= (count>29) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
 			end
 
-			default: state = START;
+			default: state <= START;
      
 		endcase
 	end

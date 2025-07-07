@@ -1,17 +1,17 @@
-TARGET=SOC_flash
-TOP=SOC_flash
+TARGET=femto
+TOP=femto
 OPENLANE_SYNT=../OpenLane/designs/femto/runs/full_guide/results/synthesis/
 OPENLANE_TOP=femto
 SKY_LIB_TECH=$(HOME)/.volare/sky130A/libs.tech/openlane/
 
-OBJS = SOC_flash.v
-OBJS+= cores/cpu/femtorv32_quark_V2.v
-OBJS+= cores/uart/perip_uart.v
-OBJS+= cores/uart/uart.v
-OBJS+= cores/mult/perip_mult.v
-OBJS+= cores/mult/mult.v
-OBJS+= cores/bram/bram.v
-OBJS+= cores/spi_flash/MappedSPIFlash_V3.v
+OBJS = OpenLane/src/femto.v
+OBJS+= OpenLane/src/femtorv32_quark_V2.v
+OBJS+= OpenLane/src/perip_uart.v
+OBJS+= OpenLane/src/uart.v
+OBJS+= OpenLane/src/erip_mult.v
+OBJS+= OpenLane/src/mult.v
+OBJS+= OpenLane/src/bram.v
+OBJS+= OpenLane/src/MappedSPIFlash.v
 //OBJS+= cores/spi_flash/MappedSPIFlash.v
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
 SIM_OBJS_SKY = verilog_model/sky130_fd_sc_hd.v
@@ -60,7 +60,7 @@ prepare_libs:
 	scripts/new_tracks.py -i $(HOME)/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o tmp/routing/config.tracks
 	cp $(HOME)/.volare/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v  synthesis/blackbox/
 	yosys -c scripts/yosys/blackbox.tcl
-	verilator -Wall --lint-only --Wno-DECLFILENAME --top-module ${TARGET} synthesis/blackbox/sky130_fd_sc_hd__blackbox.v ${OBJS}  -Wno-fatal --relative-includes > logs/synthesis/linter.log 
+	@verilator -Wall --lint-only --Wno-DECLFILENAME --top-module ${TARGET} synthesis/blackbox/sky130_fd_sc_hd__blackbox.v ${OBJS}  -Wno-fatal --relative-includes | tee -i logs/synthesis/linter.log /dev/null
 	sed -E 's/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g' $(HOME)/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib
 	sed -E 's/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g' ./synthesis/trimmed.lib > ./synthesis/1-trimmed.no_pg.lib
 	yosys -c scripts/yosys/synth.tcl 

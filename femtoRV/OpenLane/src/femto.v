@@ -38,20 +38,20 @@ module femto (
 
    bram RAM(
       .clk(clk),
-      .mem_addr(mem_address),
+      .mem_addr(mem_address[6:2]),
       .mem_rdata(dpram_dout),
       .cs(cs[6]),
       .rd(rd),
       .wr(wr),
-      .mem_wdata(mem_wdata),
-      .mem_wmask({4{cs[6]}}&mem_wmask)
+      .mem_wdata(mem_wdata)
+      //.mem_wmask({4{cs[6]}}&mem_wmask)
    );
 
 
 
 
 
-   wire [31:0] mapped_spi_flash_rdata;
+   //wire [31:0] mapped_spi_flash_rdata;
 
    
    MappedSPIFlash mapped_spi_flash(
@@ -85,10 +85,9 @@ module femto (
    ) per_uart(
      .clk(clk), 
      .rst(!resetn), 
-     .d_in(mem_wdata), 
+     .d_in(mem_wdata[7:0]), 
      .cs(cs[5]), 
      .addr(mem_address[4:0]), 
-     .rd(rd), 
      .wr(wr), 
      .d_out(uart_dout), 
      .uart_tx(TXD), 
@@ -149,6 +148,7 @@ module femto (
 //        7'b0000100: mem_rdata = div_dout;
 //        7'b0000010: mem_rdata = bin2bcd_dout;
         7'b0000001: mem_rdata = RAM_rdata;
+        default:    mem_rdata = 32'h00000000;
       endcase
   end
  // ============== MUX ========================  // 

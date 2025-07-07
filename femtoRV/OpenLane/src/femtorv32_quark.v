@@ -449,36 +449,36 @@ always @(*) begin
   if(!reset) begin
 //    aluWr     <= 0;
 //    mem_wmask <= 0;
-    mem_rstrb <= 0;
-    writeBack <= 0;        
+    mem_rstrb = 0;
+    writeBack = 0;        
   end else begin
     case(state)
       FETCH_INSTR: begin
-        mem_rstrb <= 1;
+        mem_rstrb = 1;
 //        aluWr     <= 0;
 //        mem_wmask <= 0;
-        writeBack <= 0;
+        writeBack = 0;
       end
 
       WAIT_INSTR: begin
-        mem_rstrb <= 0;
+        mem_rstrb = 0;
 //        aluWr     <= 0;
 //        mem_wmask <= 0;
-        writeBack <= 0;
+        writeBack = 0;
       end
 
       EXECUTE: begin 
-        mem_rstrb <= isLoad ;  
+        mem_rstrb = isLoad ;  
 //        aluWr     <= isALU;
 //        mem_wmask <= {4{isStore}} & STORE_wmask; 
-        writeBack <= ~(isBranch | isStore );
+        writeBack = ~(isBranch | isStore );
       end
 
       WAIT_ALU_OR_MEM: begin
-        mem_rstrb <= 0;
+        mem_rstrb = 0;
 //        aluWr     <= 0;
 //        mem_wmask <= 0;
-        writeBack <= ~(isBranch | isStore );
+        writeBack = ~(isBranch | isStore );
       end
     endcase
   end

@@ -45,7 +45,7 @@ parameter c_BIT_PERIOD     = 8680;
   endtask // UART_WRITE_BYTE
   
   
-   femto uut(
+   SOC_flash uut(
      .clk(CLK),
      .resetn(RESET),
      .spi_mosi(spi_mosi), 
@@ -95,7 +95,7 @@ always #(tck/2) CLK <= ~CLK;
     #80  RESET = 0;
     #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
-    @(posedge CLK);
+//    @(posedge CLK);
     #(tck*100000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
@@ -111,7 +111,7 @@ always #(tck/2) CLK <= ~CLK;
 
 
     
-    @(posedge CLK);
+//    @(posedge CLK);
     #(tck*3500) $finish;
  end
  
