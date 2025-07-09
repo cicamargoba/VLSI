@@ -45,7 +45,7 @@ parameter c_BIT_PERIOD     = 8680;
   endtask // UART_WRITE_BYTE
   
   
-   SOC_flash uut(
+   femto uut(
      .clk(CLK),
      .resetn(RESET),
      .spi_mosi(spi_mosi), 

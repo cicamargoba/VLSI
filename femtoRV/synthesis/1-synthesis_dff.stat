@@ -1,30 +1,29 @@
 
 62. Printing statistics.
 
-=== SOC_flash ===
+=== femto ===
 
-   Number of wires:              11000
-   Number of wire bits:          13859
-   Number of public wires:         131
-   Number of public wire bits:    2789
+   Number of wires:              11186
+   Number of wire bits:          14044
+   Number of public wires:         129
+   Number of public wire bits:    2758
    Number of ports:                  9
    Number of port bits:              9
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:              13538
-     $_ANDNOT_                     214
-     $_AND_                       2287
-     $_MUX_                       1630
-     $_NAND_                      3610
-     $_NOR_                        317
-     $_NOT_                       1138
-     $_ORNOT_                      851
-     $_OR_                         680
-     $_XNOR_                       147
-     $_XOR_                        104
-     sky130_fd_sc_hd__dfrtp_1       36
-     sky130_fd_sc_hd__dfxtp_1      290
-     sky130_fd_sc_hd__dlxtn_1       46
+   Number of cells:              13872
+     $_ANDNOT_                     254
+     $_AND_                       2236
+     $_MUX_                       1565
+     $_NAND_                      4218
+     $_NOR_                         96
+     $_NOT_                       1150
+     $_ORNOT_                      352
+     $_OR_                        1198
+     $_XNOR_                       136
+     $_XOR_                        116
+     sky130_fd_sc_hd__dfxtp_1      361
+     sky130_fd_sc_hd__dlxtn_1        2
      sky130_fd_sc_hd__edfxtp_1    2188
 

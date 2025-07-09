@@ -8,7 +8,7 @@ OBJS = OpenLane/src/femto.v
 OBJS+= OpenLane/src/femtorv32_quark_V2.v
 OBJS+= OpenLane/src/perip_uart.v
 OBJS+= OpenLane/src/uart.v
-OBJS+= OpenLane/src/erip_mult.v
+OBJS+= OpenLane/src/perip_mult.v
 OBJS+= OpenLane/src/mult.v
 OBJS+= OpenLane/src/bram.v
 OBJS+= OpenLane/src/MappedSPIFlash.v
@@ -66,19 +66,14 @@ prepare_libs:
 	yosys -c scripts/yosys/synth.tcl 
 	cp out.v ${TARGET}_sky.v
 #	cp tmp/synthesis/trimmed.lib ./synthesis/
-
-
-
-
 sim_post_syn_sky: prepare_libs
-	cp out.v $(TOP)_synth_sky.v 
 	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v ${TARGET}_sky.v ${SIM_OBJS} ${SIM_OBJS_SKY}
 	vvp $@_PS.vpp
 	./$@_PS.vpp
 	gtkwave $(TOP)_TB.vcd &
 	#netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
 run_opensta:
-	sta -exit -no_init multi_corner.tcl |& tee /dev/null ./synthesis/2-sta.log
+	sta -exit -no_init multi_corner.tcl |& tee  ./synthesis/2-sta.log
 #"sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/Mult_4/runs/RUN_2025.05.21_13.33.51/logs/synthesis/2-sta.log"
 
 ## ---------------------

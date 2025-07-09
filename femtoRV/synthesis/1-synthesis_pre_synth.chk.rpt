@@ -1,102 +1,6 @@
 
 25. Executing CHECK pass (checking for obvious problems).
-Checking module SOC_flash...
-Warning: Wire SOC_flash.\gpio_dout [31] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [30] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [29] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [28] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [27] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [26] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [25] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [24] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [23] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [22] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [21] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [20] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [19] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [18] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [17] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [16] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [15] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [14] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [13] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [12] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [11] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [10] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [9] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [8] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [7] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [6] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [5] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [4] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [3] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [2] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [1] is used but has no driver.
-Warning: Wire SOC_flash.\gpio_dout [0] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [31] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [30] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [29] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [28] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [27] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [26] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [25] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [24] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [23] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [22] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [21] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [20] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [19] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [18] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [17] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [16] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [15] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [14] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [13] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [12] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [11] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [10] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [9] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [8] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [7] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [6] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [5] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [4] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [3] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [2] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [1] is used but has no driver.
-Warning: Wire SOC_flash.\div_dout [0] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [31] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [30] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [29] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [28] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [27] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [26] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [25] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [24] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [23] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [22] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [21] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [20] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [19] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [18] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [17] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [16] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [15] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [14] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [13] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [12] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [11] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [10] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [9] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [8] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [7] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [6] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [5] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [4] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [3] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [2] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [1] is used but has no driver.
-Warning: Wire SOC_flash.\bin2bcd_dout [0] is used but has no driver.
+Checking module femto...
 Checking module mult...
 Checking module FemtoRV32...
 Checking module bram...
@@ -104,4 +8,4 @@ Checking module MappedSPIFlash...
 Checking module $paramod$5ba1b67a19911e09c0ee8c956b41f966dbad00ae\peripheral_uart...
 Checking module peripheral_mult...
 Checking module $paramod$df55812022425781aef872d53070d057b210643d\uart...
-Found and reported 96 problems.
+Found and reported 0 problems.
