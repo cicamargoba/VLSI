@@ -1,0 +1,36 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+INSTALL OPENPDK
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+git clone git://opencircuitdesign.com/open_pdks
+cd open_pdks
+## configure the build, a --prefix option can be given to install
+## in a different place, by default after installation a 
+## /usr/local/share/pdk directory is created if no --prefix is provided.
+## Below line for example requests installation in my home directory
+## (/home/schippes/share/pdk):
+## ./configure --enable-sky130-pdk --prefix=/home/schippes
+## Do the following steps one at a time and ensure no errors are
+##  reported after each step.
+./configure --enable-sky130-pdk 
+make
+sudo make install 
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+               INSTALL XYCE
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+git clone https://github.com/ChipFlow/Xyce-build.git
+cd Xyce-build/
+./build.sh 
+sudo make install prefix=/usr/local
+
+
+mpirun -np <# procs> Xyce [options] <netlist filename>
+
+
+

@@ -1,5 +1,6 @@
 TARGET=Mult_4
 TOP=Mult_4
+NPROC=4
 
 OBJS = Mult_4.nl.v
 PER_OBJS = perip_mult.v $(OBJS)
@@ -26,6 +27,11 @@ sim_per:
 
 spice:
 	ngspice ${TARGET}.spice
+	python plot_${TARGET}.py
+
+
+xyce:
+	mpirun -np ${NPROC} Xyce ${TARGET}_TB.cir
 	python plot_${TARGET}.py
 
 clean:

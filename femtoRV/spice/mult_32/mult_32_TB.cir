@@ -1,0 +1,73 @@
+*.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+.lib /usr/local/share/pdk/sky130B/libs.tech/ngspice/sky130.lib.spice tt
+.param mc_mm_switch=0
+
+
+* modificar /home/carlos/.local/lib/python3.10/site-packages/ltspice/ltspice.py para quitar límite de tamaño de archivo
+*        # if the file is too big, read only the designated amount of bytes
+*        with open(self.file_path, 'rb') as f:
+*            #if filesize > self.max_header_size:
+*            #    data = f.read(self.max_header_size)  
+*            #else:
+*                data = f.read() 
+* buffer_line = str(bytes(data[byte_index_line_begin:byte_index_line_end+2]), encoding='UTF16')
+* a
+*buffer_line = str(bytes(data[byte_index_line_begin:byte_index_line_end+2]), encoding='utf-16-le')
+
+.tran 10000ns 200us
+.print tran format=raw file=mult32_TB_cir.raw  v(*)
+*.save all
+
+
+* Fuentes de alimentación
+Vvdd VPWR 0 DC 3.3
+Vgnd VGND 0 DC 0
+
+* Reloj principal (200MHz)
+Vclk clk 0 dc 0 PULSE(0 3.3 0 0.1u 0.1u 2.4u 5u)
+
+* Señal de inicialización
+Vinit init 0 dc 0 PULSE(0 3.3 10us 0.1u 0.1u 4.9u 200u)
+
+* Señal de reset
+Vrst rst 0 dc 0 PULSE(0 3.3 0 0.1u 0.1u 9.9u 200u)
+
+
+
+* Generadores de señales para bus A
+VA0 A[0]   0 dc 0 
+VA1 A[1]   0 dc 3.3 
+VA2 A[2]   0 dc 0 
+VA3 A[3]   0 dc 3.3 
+VA4 A[4]   0 dc 0 
+VA5 A[5]   0 dc 0 
+VA6 A[6]   0 dc 0 
+VA7 A[7]   0 dc 0 
+VA8 A[8]   0 dc 0 
+VA9 A[9]   0 dc 0 
+VA10 A[10] 0 dc 0 
+VA11 A[11] 0 dc 0 
+VA12 A[12] 0 dc 0 
+VA13 A[13] 0 dc 0 
+VA14 A[14] 0 dc 0 
+VA15 A[15] 0 dc 0 
+
+* Generadores de señales para bus B
+VB0 B[0]   0 dc 0 
+VB1 B[1]   0 dc 3.3 
+VB2 B[2]   0 dc 3.3 
+VB3 B[3]   0 dc 3.3 
+VB4 B[4]   0 dc 0 
+VB5 B[5]   0 dc 3.3 
+VB6 B[6]   0 dc 0 
+VB7 B[7]   0 dc 0 
+VB8 B[8]   0 dc 0 
+VB9 B[9]   0 dc 0 
+VB10 B[10] 0 dc 0 
+VB11 B[11] 0 dc 0 
+VB12 B[12] 0 dc 0 
+VB13 B[13] 0 dc 0 
+VB14 B[14] 0 dc 0 
+VB15 B[15] 0 dc 0 
+
+.include "./mult_32.spice"
