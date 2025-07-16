@@ -1,13 +1,13 @@
 TARGET=mult_32
 TOP=mult_32
-NPROC=4
+NPROC=6
 
 
 OBJS = mult_32.v
 PER_OBJS = perip_mult.v $(OBJS)
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
-SIM_OBJS_SKY = verilog_model/sky130_fd_sc_hd.v
-SIM_OBJS_SKY += verilog_model/primitives.v
+SIM_OBJS_SKY = ../verilog_model/sky130_fd_sc_hd.v
+SIM_OBJS_SKY += ../verilog_model/primitives.v
 
 
 BUILD_DIR = build

@@ -5,8 +5,8 @@ NPROC=4
 OBJS = Mult_4.nl.v
 PER_OBJS = perip_mult.v $(OBJS)
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
-SIM_OBJS_SKY = verilog_model/sky130_fd_sc_hd.v
-SIM_OBJS_SKY += verilog_model/primitives.v
+SIM_OBJS_SKY = ../verilog_model/sky130_fd_sc_hd.v
+SIM_OBJS_SKY += ../verilog_model/primitives.v
 
 
 BUILD_DIR = build

@@ -1,5 +1,5 @@
 $date
-	Mon May 26 07:55:17 2025
+	Wed Jul 16 08:46:02 2025
 $end
 $version
 	Icarus Verilog
@@ -4547,6 +4547,9 @@ $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
 #0
 $dumpvars
 xS1
