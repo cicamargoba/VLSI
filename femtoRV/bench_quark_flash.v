@@ -16,6 +16,10 @@ parameter c_BIT_PERIOD     = 8680;
    wire spi_clk;
    wire spi_miso;
    wire spi_mosi;
+   wire spi_cs_ram;
+   wire spi_clk_ram;
+   wire spi_miso_ram;
+   wire spi_mosi_ram;
 
 
 
@@ -45,13 +49,17 @@ parameter c_BIT_PERIOD     = 8680;
   endtask // UART_WRITE_BYTE
   
   
-   SOC_flash uut(
+   femto uut(
      .clk(CLK),
      .resetn(RESET),
-     .spi_mosi(spi_mosi), 
-     .spi_miso(spi_miso), 
-     .spi_cs_n(spi_cs),
-     .spi_clk(spi_clk),
+     .spi_mosi_flash(spi_mosi), 
+     .spi_miso_flash(spi_miso), 
+     .spi_cs_n_flash(spi_cs),
+     .spi_clk_flash(spi_clk),
+     .spi_mosi_ram(spi_mosi_ram),
+     .spi_miso_ram(spi_miso_ram),
+     .spi_cs_n_ram(spi_cs_ram),
+     .spi_clk_ram(spi_clk_ram),
      .LEDS(LEDS),
      .RXD(RXD),
      .TXD(TXD)
@@ -62,6 +70,13 @@ parameter c_BIT_PERIOD     = 8680;
 	.clk(spi_clk),
 	.io0(spi_mosi), // MOSI
 	.io1(spi_miso) // MISO
+);
+
+spiram flashram0(
+    .CS(spi_cs_ram),     // Chip Select (activo en bajo)
+    .SCK(spi_clk_ram),    // SPI Clock
+    .SI(spi_mosi_ram),     // Serial Input (MOSI)
+    .SO(spi_miso_ram)     // Serial Output (MISO)
 );
 
 
@@ -85,8 +100,7 @@ always #(tck/2) CLK <= ~CLK;
 `ifdef BENCH
     $dumpfile("bench.vcd");
     $dumpvars(-1,bench);
-    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
-    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
+    for(idx = 16390; idx < 16410; idx = idx +1)  $dumpvars(0, bench.flashram0.mem[idx]);
 `endif
 
     #0   RXD   = 1;
@@ -95,7 +109,7 @@ always #(tck/2) CLK <= ~CLK;
     #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
     @(posedge CLK);
-    #(tck*200000)
+    #(tck*100000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
     UART_WRITE_BYTE(8'h2A);    // Operator *
@@ -111,7 +125,7 @@ always #(tck/2) CLK <= ~CLK;
 
     
     @(posedge CLK);
-    #(tck*100000) $finish;
+    #(tck*50000) $finish;
  end
  
  

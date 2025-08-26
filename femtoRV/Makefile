@@ -10,10 +10,12 @@ OBJS+= OpenLane/src/perip_uart.v
 OBJS+= OpenLane/src/uart.v
 OBJS+= OpenLane/src/perip_mult.v
 OBJS+= OpenLane/src/mult.v
-OBJS+= OpenLane/src/bram.v
+OBJS+= OpenLane/src/MappedSPIRAM.v
+//OBJS+= OpenLane/src/bram.v
 OBJS+= OpenLane/src/MappedSPIFlash.v
 //OBJS+= cores/spi_flash/MappedSPIFlash.v
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
+SIM_OBJS+= cores/sim_spi_ram/spiram.v
 SIM_OBJS_SKY = verilog_model/sky130_fd_sc_hd.v
 SIM_OBJS_SKY += verilog_model/primitives.v
 
