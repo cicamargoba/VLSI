@@ -1,0 +1,121 @@
+SystemVerilog Synthesis for AMS 0.35um Technology (using Synopsys Design Compiler)
+This walkthough illustrates the synthesis of a SystemVerilog behavioural model. The result is a Verilog sturctural model (gate level netlist) using gates from a standard library.
+
+Procedure
+The Synopsys Design Compiler (DC) program is used to convert a behavioural SystemVerilog description into structural Verilog.
+
+Preparation
+Change to a new directory in which the synthesis will be run:
+
+  hart<~>$  mkdir -p ~/design/ams/dc/test
+  hart<~>$  cd ~/design/ams/dc/test
+
+Create directories for behavioural and gate level HDL files and copy the behavioural files to be converted into the behavioural directory:
+
+  hart<~/design/ams/dc/test>$ mkdir behavioural gate_level
+  hart<~/design/ams/dc/test>$ cp <elsewhere>/<module>.sv behavioural/
+  hart<~/design/ams/dc/test>$ cp <elsewhere>/<other module>.sv behavioural/
+Interactive Synthesis
+Invoke the graphical user interface to Cadence RTL Compiler:
+
+  hart<~/design/ams/dc/test>$  dc_ams
+(if a Verilog design is to be synthesized use "dc_ams -v")
+
+Read in and elaborate the behavioural SystemVerilog file:
+
+  dc_shell>  lappend search_path behavioural
+  dc_shell>  analyze -format sv <module>.sv
+  dc_shell>  elaborate <module>
+  dc_shell>  check_design unresolved
+  dc_shell>  report sequential -hier
+(if a Verilog design is to be synthesized "read_hdl <module>.sv" will need to be replaced by "read_hdl <module>.v")
+
+After each individual command you should check for errors and warnings.
+
+The read_hdl operation checks the SystemVerilog file for syntax errors (although a SystemVerilog file which has been simulated with NC-Verilog should not should not give parsing errors you may get warnings or errors relating to unsynthesizable constructs).
+
+In the elaborate stage, further checking is done and further errors and warnings are flagged. In particular you may see a message such as "Warning : Referenced signal not in sensitivity list. This may cause simulation mismatches between the original and synthesized designs". This reminds you that sometimes a synthesis will complete but the resulting design is useless since it doesn't match the behavioural model. This situation can only be avoided by reading the warnings produced at each stage of the process.
+
+The check_design operation will check for unresolved references such as may occur if there is a module missing from your design. Note that you should specify multiple files for the read_hdl operation if your design contains hierarchy:
+
+  dc_shell>  analyze -format sv "<topmodule>.sv <submodule1>.sv <submodule2>.sv"
+  dc_shell>  elaborate <topmodule>
+If your design references a package, then the package file should be read in first:
+  dc_shell>  analyze -format sv "<package>.svh <topmodule>.sv <submodule1>.sv <submodule2>.sv"
+  dc_shell>  elaborate <topmodule>
+The report sequential operation will list all the sequential elements in the design. With a clocked circuit, most of these should be of type "flip-flop" with "asynchronous reset" other types may cause problems. In particular, "inferred latch" type elements are usually caused by design errors in your behavioural model. Possibly a latch has been inferred within a block which was intended to represent combinational logic. This will happen where the guidelines on using Procedural Blocks as Combinational Logic have been breached. See Hardware Modelling documentation for more detail.
+
+If necessary, correct the behavioural SystemVerilog file and then repeat the stages, starting with read_hdl. Repeat this process until no errors remain.
+
+Graphical User Interface
+Once the elaboration is complete, the graphical user interface window becomes active, allowing you to see the schematics that are generated. After each synthesis stage, the schematics are updated to represent the changes made.
+
+Although advanced debugging is possible using this tool, its use will not be covered in this walkthrough.
+
+Synthesis
+Generic synthesis:
+  dc_shell>  synthesize -to_generic -eff high
+Here synthesis is performed against a generic library; no attempt is made to map the design to available real cells.
+
+Failure at this stage is usually due to unsynthesizable SystemVerilog.
+
+You may need to consult the HDL Modelling in Encounter RTL Compiler for more details. In particular there is a section on Verilog Modelling Styles which gives details of suggested styles while the Supported Verilog Modelling Constructs section gives details of supported and unsupported constructs.
+
+Set suitably lax timing constraints and map to gates from custom target library:
+  dc_shell>  source default_time.tcl
+  dc_shell>  synthesize -to_mapped -eff high
+Again, a failure here is likely to indicate problems with your behavioural model.
+
+Flatten and resynthesize:
+  dc_shell>  ungroup -flatten -all
+  dc_shell>  synthesize -to_mapped -eff high
+Note that you could alternatively flatten the hierarchy before one of the earlier synthesis steps. Flattening the hierarchy at this late stage gives rise to an extra synthesis stage but can give better results.
+
+Statistics
+
+Following any synthesize -to_mapped stage, you can get a Quality of Results report:
+
+  dc_shell>  report qor
+Information provided includes the number of gates (Leaf Instance Count) and the number of flip-flops (Sequential Instance Count). There is also an indication of the total cell area. Although the cell area information can be used to compare different designs, the actual value given is of limited use since it has not been customized for your own cell library.
+
+Write out the structural Verilog file:
+
+  dc_shell>  write_hdl > gate_level/<module>.v
+here a .v suffix is used to indicate a Verilog file rather than a SystemVerilog file. Since the Verilog constructs used in this file should all be valid SystemVerilog constructs, a .sv suffix could be used instead.
+
+Exit the Cadence RTL Compiler:
+
+  dc_shell>  exit
+Batch Synthesis
+If you are reasonably confident of performing the synthesis without errors, a much faster way to perform the synthesis is to use the -batch option to the dc_ams command:
+  hart<~/design/ams/dc/test>$  dc_ams -batch behavioural/<module>.sv gate_level/<module>.v
+or
+  hart<~/design/ams/dc/test>$  dc_ams -v -batch behavioural/<module>.v gate_level/<module>.v
+A log file, rc.log, stores the output of this command. You should use an editor to open this file and look for any errors/warnings etc. generated during synthesis.
+Completion
+Always use simulation to confirm the success of the synthesis operation
+
+You will need a SystemVerilog library for the target cells; The default library is copied to the working directory by the dc_ams command. It is named
+
+  fcdeCells.sv
+Assuming that you have a stimulus file <module>_stim.sv, simulation of the behavioural model might be performed using this command:
+  hart<~/design/ams/dc/test>$  ncverilog  -sv  <module>_stim.sv  behavioural/<module>.sv
+To perform the same simulation on the synthesized design you would need this modified command:
+  hart<~/design/ams/dc/test>$  ncverilog  -sv  -v fcdeCells.sv  +nctimescale+1ns/10ps  <module>_stim.sv  gate_level/<module>.v
+Here the "-v fcdeCells.sv" option tells the simulator to look in the fcdeCells.sv library file for models of the basic gates, while the "+nctimescale+1ns/10ps" option makes up for the fact that the synthesized gate_level/<module>.v Verilog file does not include the required "timeunit 1ns; timeprecision 10ps;" information that is found in the SystemVerilog files.
+Additional Documentation
+All Cadence documentation is available on-line via cdsdoc. Type the following at the unix command prompt in order to invoke cdsdoc:
+
+cdsdoc &
+
+On-line manuals of particular interest to this tutorial are:
+
+Active Document Hierarchy: SOC
+RTL Compiler
+HDL Modelling in Encounter RTL Compiler
+GUI Guide for Encounter RTL Compiler
+Quick Reference for Encounter RTL Compiler
+
+Iain McNally
+
+22-02-2016
