@@ -5,7 +5,7 @@ OPENLANE_TOP=femto
 SKY_LIB_TECH=$(HOME)/.volare/sky130A/libs.tech/openlane/
 
 OBJS = OpenLane/src/femto.v
-OBJS+= OpenLane/src/femtorv32_quark_V2.v
+OBJS+= OpenLane/src/femtorv32_quark.v
 OBJS+= OpenLane/src/perip_uart.v
 OBJS+= OpenLane/src/uart.v
 OBJS+= OpenLane/src/perip_mult.v
