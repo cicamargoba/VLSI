@@ -158,3 +158,10 @@ make test
 ## Referencias
 
 - [Repositorio original: Introduction to ASIC Flow](https://github.com/KanishR1/Introduction-to-ASIC-Flow)
+- [Pagina Web YOSYS](https://yosyshq.net/yosys/)
+- [Github Icarus verilog](https://steveicarus.github.io/iverilog/)
+- [Github OPENSTA](https://github.com/The-OpenROAD-Project/OpenSTA)
+- [Pagina Web GTKWAVE](https://gtkwave.sourceforge.net/)
+- [Github OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)
+- [Pagina Ngspice](https://ngspice.sourceforge.io/)
+- [Github OpenPDK](https://github.com/RTimothyEdwards/open_pdks)
