@@ -3,94 +3,90 @@
 
 === femto ===
 
-   Number of wires:              10869
-   Number of wire bits:          10869
-   Number of public wires:        2641
-   Number of public wire bits:    2641
-   Number of ports:                  9
-   Number of port bits:              9
+   Number of wires:               9529
+   Number of wire bits:           9529
+   Number of public wires:        1652
+   Number of public wire bits:    1652
+   Number of ports:                 13
+   Number of port bits:             13
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:              10865
-     sky130_fd_sc_hd__a2111oi_0      1
-     sky130_fd_sc_hd__a211o_1       17
-     sky130_fd_sc_hd__a211oi_1      35
-     sky130_fd_sc_hd__a21boi_0      12
-     sky130_fd_sc_hd__a21o_1        22
-     sky130_fd_sc_hd__a21oi_1     1080
-     sky130_fd_sc_hd__a21oi_2       14
-     sky130_fd_sc_hd__a221o_1        4
-     sky130_fd_sc_hd__a221oi_1     207
-     sky130_fd_sc_hd__a222oi_1     284
-     sky130_fd_sc_hd__a22o_1        15
-     sky130_fd_sc_hd__a22oi_1      122
-     sky130_fd_sc_hd__a311o_1        2
-     sky130_fd_sc_hd__a311oi_1       7
-     sky130_fd_sc_hd__a31o_2         3
-     sky130_fd_sc_hd__a31oi_1       58
-     sky130_fd_sc_hd__a32o_1        10
-     sky130_fd_sc_hd__a32oi_1        6
+   Number of cells:               9524
+     sky130_fd_sc_hd__a2111oi_0      3
+     sky130_fd_sc_hd__a211o_1        4
+     sky130_fd_sc_hd__a211oi_1      29
+     sky130_fd_sc_hd__a21bo_2        1
+     sky130_fd_sc_hd__a21boi_0      11
+     sky130_fd_sc_hd__a21o_1        18
+     sky130_fd_sc_hd__a21oi_1     1243
+     sky130_fd_sc_hd__a221o_1        5
+     sky130_fd_sc_hd__a221oi_1      73
+     sky130_fd_sc_hd__a222oi_1      19
+     sky130_fd_sc_hd__a22o_1       106
+     sky130_fd_sc_hd__a22oi_1      228
+     sky130_fd_sc_hd__a311oi_1      39
+     sky130_fd_sc_hd__a31o_2         5
+     sky130_fd_sc_hd__a31oi_1       52
+     sky130_fd_sc_hd__a32o_1         5
+     sky130_fd_sc_hd__a32oi_1       13
      sky130_fd_sc_hd__and2_0         4
-     sky130_fd_sc_hd__and3_1        19
-     sky130_fd_sc_hd__and3b_1        1
-     sky130_fd_sc_hd__and4_1         3
-     sky130_fd_sc_hd__buf_1          9
-     sky130_fd_sc_hd__buf_2        118
-     sky130_fd_sc_hd__buf_4          1
-     sky130_fd_sc_hd__clkbuf_1     348
-     sky130_fd_sc_hd__conb_1         4
-     sky130_fd_sc_hd__dfxtp_1      361
+     sky130_fd_sc_hd__and2_1         2
+     sky130_fd_sc_hd__and3_1        21
+     sky130_fd_sc_hd__and4_1         4
+     sky130_fd_sc_hd__buf_1         17
+     sky130_fd_sc_hd__buf_2        126
+     sky130_fd_sc_hd__clkbuf_1     318
+     sky130_fd_sc_hd__conb_1         8
+     sky130_fd_sc_hd__dfxtp_1      439
      sky130_fd_sc_hd__dlxtn_1        2
-     sky130_fd_sc_hd__edfxtp_1    2188
-     sky130_fd_sc_hd__inv_1         53
-     sky130_fd_sc_hd__inv_2       1143
-     sky130_fd_sc_hd__lpflow_clkbufkapwr_1    446
-     sky130_fd_sc_hd__lpflow_clkbufkapwr_2      1
-     sky130_fd_sc_hd__lpflow_clkinvkapwr_1      2
-     sky130_fd_sc_hd__lpflow_inputiso0n_1     38
-     sky130_fd_sc_hd__lpflow_isobufsrc_1     82
-     sky130_fd_sc_hd__maj3_1        27
-     sky130_fd_sc_hd__maj3_2         4
-     sky130_fd_sc_hd__mux2_2        34
-     sky130_fd_sc_hd__mux2i_1       40
-     sky130_fd_sc_hd__nand2_1      865
-     sky130_fd_sc_hd__nand2b_1      49
-     sky130_fd_sc_hd__nand3_1       87
-     sky130_fd_sc_hd__nand3b_1       3
-     sky130_fd_sc_hd__nand4_1       13
+     sky130_fd_sc_hd__edfxtp_1    1144
+     sky130_fd_sc_hd__inv_1         58
+     sky130_fd_sc_hd__inv_2       1219
+     sky130_fd_sc_hd__lpflow_clkbufkapwr_1    387
+     sky130_fd_sc_hd__lpflow_clkinvkapwr_1      4
+     sky130_fd_sc_hd__lpflow_inputiso0n_1     42
+     sky130_fd_sc_hd__lpflow_isobufsrc_1     70
+     sky130_fd_sc_hd__maj3_1        29
+     sky130_fd_sc_hd__mux2_2        31
+     sky130_fd_sc_hd__mux2i_1       16
+     sky130_fd_sc_hd__mux4_2         3
+     sky130_fd_sc_hd__nand2_1     1105
+     sky130_fd_sc_hd__nand2b_1      64
+     sky130_fd_sc_hd__nand3_1       86
+     sky130_fd_sc_hd__nand3b_1       2
+     sky130_fd_sc_hd__nand4_1       14
      sky130_fd_sc_hd__nand4b_1       2
-     sky130_fd_sc_hd__nor2_1       995
-     sky130_fd_sc_hd__nor2b_1        2
-     sky130_fd_sc_hd__nor3_1        78
+     sky130_fd_sc_hd__nor2_1       797
+     sky130_fd_sc_hd__nor2b_1        9
+     sky130_fd_sc_hd__nor3_1        71
      sky130_fd_sc_hd__nor3b_1        4
-     sky130_fd_sc_hd__nor4_1        77
-     sky130_fd_sc_hd__nor4b_1        4
-     sky130_fd_sc_hd__nor4bb_1       2
-     sky130_fd_sc_hd__o2111ai_1      3
-     sky130_fd_sc_hd__o211ai_1      13
-     sky130_fd_sc_hd__o21a_1        24
-     sky130_fd_sc_hd__o21ai_0     1115
-     sky130_fd_sc_hd__o21ai_1       58
-     sky130_fd_sc_hd__o21bai_1       4
-     sky130_fd_sc_hd__o221ai_1      75
-     sky130_fd_sc_hd__o22ai_1      206
-     sky130_fd_sc_hd__o311a_1        1
-     sky130_fd_sc_hd__o311ai_0      32
-     sky130_fd_sc_hd__o311ai_1       2
-     sky130_fd_sc_hd__o31a_1         5
-     sky130_fd_sc_hd__o31ai_1       37
+     sky130_fd_sc_hd__nor4_1        13
+     sky130_fd_sc_hd__nor4b_1        2
+     sky130_fd_sc_hd__nor4bb_1       5
+     sky130_fd_sc_hd__o2111a_1       1
+     sky130_fd_sc_hd__o2111ai_1      4
+     sky130_fd_sc_hd__o211ai_1      44
+     sky130_fd_sc_hd__o21a_1        30
+     sky130_fd_sc_hd__o21ai_0      840
+     sky130_fd_sc_hd__o21ai_1       50
+     sky130_fd_sc_hd__o21bai_1       8
+     sky130_fd_sc_hd__o221a_2        1
+     sky130_fd_sc_hd__o221ai_1      73
+     sky130_fd_sc_hd__o22a_1         1
+     sky130_fd_sc_hd__o22ai_1      150
+     sky130_fd_sc_hd__o311a_1        4
+     sky130_fd_sc_hd__o311ai_0      47
+     sky130_fd_sc_hd__o311ai_1       1
+     sky130_fd_sc_hd__o31a_1         6
+     sky130_fd_sc_hd__o31ai_1       19
      sky130_fd_sc_hd__o31ai_2        1
-     sky130_fd_sc_hd__o32ai_1        1
-     sky130_fd_sc_hd__o32ai_2        1
-     sky130_fd_sc_hd__o41a_1         1
-     sky130_fd_sc_hd__o41ai_1        1
-     sky130_fd_sc_hd__or2_1          1
-     sky130_fd_sc_hd__or2_2         23
-     sky130_fd_sc_hd__or3_1         40
-     sky130_fd_sc_hd__or4_1          5
-     sky130_fd_sc_hd__xnor2_1      116
-     sky130_fd_sc_hd__xor2_1        92
+     sky130_fd_sc_hd__o41ai_1        3
+     sky130_fd_sc_hd__or2_2         30
+     sky130_fd_sc_hd__or3_1         27
+     sky130_fd_sc_hd__or4_1          8
+     sky130_fd_sc_hd__xnor2_1      127
+     sky130_fd_sc_hd__xor2_1        77
 
    Area for cell type \sky130_fd_sc_hd__a2111oi_0 is unknown!
    Area for cell type \sky130_fd_sc_hd__a211o_1 is unknown!
@@ -103,26 +99,23 @@
    Area for cell type \sky130_fd_sc_hd__a222oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a22o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a22oi_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__a311o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a311oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a31oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a32o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a32oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__and2_0 is unknown!
+   Area for cell type \sky130_fd_sc_hd__and2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__and3_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__and3b_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__and4_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__clkbuf_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__dfxtp_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__edfxtp_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__inv_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_clkbufkapwr_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__lpflow_clkbufkapwr_2 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_clkinvkapwr_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_inputiso0n_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_isobufsrc_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__maj3_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__maj3_2 is unknown!
    Area for cell type \sky130_fd_sc_hd__mux2i_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nand2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nand2b_1 is unknown!
@@ -137,6 +130,7 @@
    Area for cell type \sky130_fd_sc_hd__nor4_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nor4b_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nor4bb_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__o2111a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o2111ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o211ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o21a_1 is unknown!
@@ -144,21 +138,19 @@
    Area for cell type \sky130_fd_sc_hd__o21ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o21bai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o221ai_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__o22a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o22ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o311a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o311ai_0 is unknown!
    Area for cell type \sky130_fd_sc_hd__o311ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o31a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o31ai_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__o32ai_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__o41a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o41ai_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__or2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__or3_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__or4_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__xnor2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__xor2_1 is unknown!
 
-   Chip area for module '\femto': 5671.689600
+   Chip area for module '\femto': 6012.016000
      of which used for sequential elements: 0.000000 (0.00%)
 

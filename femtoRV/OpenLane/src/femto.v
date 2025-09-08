@@ -1,10 +1,17 @@
 module femto (
    input 	     clk,    // system clock 
    input 	     resetn, // reset button
-   output        spi_mosi, 
-   input         spi_miso, 
+
+   output        spi_mosi,
+   input         spi_miso,
    output        spi_cs_n,
    output        spi_clk,
+
+   output      spi_clk_ram,      // SPI RAM Clock
+   output      spi_cs_n_ram,     // SPI RAM Chip Select, Active Low
+   input       spi_miso_ram,     // SPI RAM Master In Slave Out
+   output      spi_mosi_ram,     // SPI RAM Master Out Slave In
+
    output        wire LEDS,   // system LEDs
    input 	     RXD,    // UART receive
    output 	     TXD     // UART transmit
@@ -28,14 +35,14 @@ module femto (
       .mem_rstrb(mem_rstrb),
       .mem_wdata(mem_wdata),
       .mem_wmask(mem_wmask),
-      .mem_rbusy(mapped_spi_flash_rbusy),
-      .mem_wbusy(1'b0)
+      .mem_rbusy(mapped_spi_flash_rbusy | spi_ram_rbusy),
+      .mem_wbusy(spi_ram_wbusy)
    );
    wire [31:0] RAM_rdata;
    wire  wr = |mem_wmask;
    wire  rd = mem_rstrb; 
 
-
+/*
    bram RAM(
       .clk(clk),
       .mem_addr(mem_address[6:2]),
@@ -47,7 +54,27 @@ module femto (
       //.mem_wmask({4{cs[6]}}&mem_wmask)
    );
 
+*/
 
+
+   wire spi_ram_rbusy;
+   wire spi_ram_wbusy;
+   MappedSPIRAM mapped_spi_ram(
+      .clk(clk),
+      .reset(resetn),
+      .word_address(mem_address[21:2]),
+      .wdata(mem_wdata),
+      .rd(cs[6] & rd),
+      .wr(cs[6] & wr),
+      .rbusy(spi_ram_rbusy),
+      .wbusy(spi_ram_wbusy),
+      .CLK(spi_clk_ram),
+      .CS_N(spi_cs_n_ram),
+      .MISO(spi_miso_ram),
+      .MOSI(spi_mosi_ram),
+      .rdata(dpram_dout)
+   );
+//   wire [31:0] spi_ram_dout;
 
 
 

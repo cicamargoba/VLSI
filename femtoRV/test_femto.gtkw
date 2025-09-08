@@ -1,25 +1,32 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Mon Jun 16 12:52:08 2025
+[*] Mon Sep  8 13:38:26 2025
 [*]
-[dumpfile] "(null)"
-[savefile] "/media/carlos/Work/VLSI/femtoRV/test_femto.gtkw"
+[dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
+[dumpfile_mtime] "Mon Sep  8 13:27:24 2025"
+[dumpfile_size] 3770255053
+[savefile] "/Work/VLSI/VLSI/femtoRV/test_femto.gtkw"
 [timestart] 0
-[size] 960 461
-[pos] -1 -1
-*-30.000000 48000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1648 951
+[pos] -325 -176
+*-26.000000 50121000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] femto_TB.
+[treeopen] femto_TB.uut.
 [sst_width] 278
 [signals_width] 438
 [sst_expanded] 1
-[sst_vpaned_height] 138
+[sst_vpaned_height] 608
 @28
 femto_TB.uut.clk
+femto_TB.uut.\CPU.mem_rstrb
+[color] 2
 femto_TB.uut.spi_clk
+[color] 2
 femto_TB.uut.spi_cs_n
+[color] 2
 femto_TB.uut.spi_miso
+[color] 2
 femto_TB.uut.spi_mosi
-femto_TB.uut.\CPU.mem_rbusy
 @800022
 #{PC} femto_TB.uut.\CPU.PC[23] femto_TB.uut.\CPU.PC[22] femto_TB.uut.\CPU.PC[21] femto_TB.uut.\CPU.PC[20] femto_TB.uut.\CPU.PC[19] femto_TB.uut.\CPU.PC[18] femto_TB.uut.\CPU.PC[17] femto_TB.uut.\CPU.PC[16] femto_TB.uut.\CPU.PC[15] femto_TB.uut.\CPU.PC[14] femto_TB.uut.\CPU.PC[13] femto_TB.uut.\CPU.PC[12] femto_TB.uut.\CPU.PC[11] femto_TB.uut.\CPU.PC[10] femto_TB.uut.\CPU.PC[9] femto_TB.uut.\CPU.PC[8] femto_TB.uut.\CPU.PC[7] femto_TB.uut.\CPU.PC[6] femto_TB.uut.\CPU.PC[5] femto_TB.uut.\CPU.PC[4] femto_TB.uut.\CPU.PC[3] femto_TB.uut.\CPU.PC[2] femto_TB.uut.\CPU.PC[1]
 @28
@@ -27,9 +34,17 @@ femto_TB.uut.TXD
 femto_TB.uut.\per_uart.uart0.tx_wr
 femto_TB.uut.\CPU.mem_rstrb
 femto_TB.uut.\CPU.writeBack
+@800200
+-femto_TB.uut.\RAM.MEM[15][31:0]
 @800022
-#{femto_TB.uut.\RAM.MEM[15][31:0]} femto_TB.uut.\RAM.MEM[15][31] femto_TB.uut.\RAM.MEM[15][30] femto_TB.uut.\RAM.MEM[15][29] femto_TB.uut.\RAM.MEM[15][28] femto_TB.uut.\RAM.MEM[15][27] femto_TB.uut.\RAM.MEM[15][26] femto_TB.uut.\RAM.MEM[15][25] femto_TB.uut.\RAM.MEM[15][24] femto_TB.uut.\RAM.MEM[15][23] femto_TB.uut.\RAM.MEM[15][22] femto_TB.uut.\RAM.MEM[15][21] femto_TB.uut.\RAM.MEM[15][20] femto_TB.uut.\RAM.MEM[15][19] femto_TB.uut.\RAM.MEM[15][18] femto_TB.uut.\RAM.MEM[15][17] femto_TB.uut.\RAM.MEM[15][16] femto_TB.uut.\RAM.MEM[15][15] femto_TB.uut.\RAM.MEM[15][14] femto_TB.uut.\RAM.MEM[15][13] femto_TB.uut.\RAM.MEM[15][12] femto_TB.uut.\RAM.MEM[15][11] femto_TB.uut.\RAM.MEM[15][10] femto_TB.uut.\RAM.MEM[15][9] femto_TB.uut.\RAM.MEM[15][8] femto_TB.uut.\RAM.MEM[15][7] femto_TB.uut.\RAM.MEM[15][6] femto_TB.uut.\RAM.MEM[15][5] femto_TB.uut.\RAM.MEM[15][4] femto_TB.uut.\RAM.MEM[15][3] femto_TB.uut.\RAM.MEM[15][2] femto_TB.uut.\RAM.MEM[15][1] femto_TB.uut.\RAM.MEM[15][0]
+#{femto_TB.uut.\RAM_rdata[31:0]} femto_TB.uut.\RAM_rdata[31] femto_TB.uut.\RAM_rdata[30] femto_TB.uut.\RAM_rdata[29] femto_TB.uut.\RAM_rdata[28] femto_TB.uut.\RAM_rdata[27] femto_TB.uut.\RAM_rdata[26] femto_TB.uut.\RAM_rdata[25] femto_TB.uut.\RAM_rdata[24] femto_TB.uut.\RAM_rdata[23] femto_TB.uut.\RAM_rdata[22] femto_TB.uut.\RAM_rdata[21] femto_TB.uut.\RAM_rdata[20] femto_TB.uut.\RAM_rdata[19] femto_TB.uut.\RAM_rdata[18] femto_TB.uut.\RAM_rdata[17] femto_TB.uut.\RAM_rdata[16] femto_TB.uut.\RAM_rdata[15] femto_TB.uut.\RAM_rdata[14] femto_TB.uut.\RAM_rdata[13] femto_TB.uut.\RAM_rdata[12] femto_TB.uut.\RAM_rdata[11] femto_TB.uut.\RAM_rdata[10] femto_TB.uut.\RAM_rdata[9] femto_TB.uut.\RAM_rdata[8] femto_TB.uut.\RAM_rdata[7] femto_TB.uut.\RAM_rdata[6] femto_TB.uut.\RAM_rdata[5] femto_TB.uut.\RAM_rdata[4] femto_TB.uut.\RAM_rdata[3] femto_TB.uut.\RAM_rdata[2] femto_TB.uut.\RAM_rdata[1] femto_TB.uut.\RAM_rdata[0]
+@29
+femto_TB.uut.spi_clk_ram
+femto_TB.uut.spi_cs_n_ram
+femto_TB.uut.spi_miso_ram
+femto_TB.uut.spi_mosi_ram
 @1001200
+-group_end
 -group_end
 -group_end
 [pattern_trace] 1
