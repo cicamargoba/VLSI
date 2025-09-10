@@ -51,7 +51,7 @@ module femto (
       .rd(rd),
       .wr(wr),
       .mem_wdata(mem_wdata)
-      //.mem_wmask({4{cs[6]}}&mem_wmask)
+      //.mem_wmask( { 4{ cs[6] } } & mem_wmask )
    );
 
 */

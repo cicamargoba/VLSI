@@ -15,6 +15,9 @@ calculator:
    li   sp,0x10040
 
 loopM:	
+    li   t0, 0
+	li   t1, 0
+
 	la   a0, command
 	call putstring
 

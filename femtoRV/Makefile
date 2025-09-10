@@ -16,6 +16,7 @@ OBJS+= OpenLane/src/MappedSPIRAM.v
 
 //OBJS+= cores/spi_flash/MappedSPIFlash.v
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
+SIM_OBJS+= cores/sim_spi_ram/spiram.v
 SIM_OBJS_SKY = verilog_model/sky130_fd_sc_hd.v
 SIM_OBJS_SKY += verilog_model/primitives.v
 
