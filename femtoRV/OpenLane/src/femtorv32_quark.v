@@ -102,10 +102,12 @@ module FemtoRV32(
    reg [31:0] registerFile [31:0];
 
    always @(negedge clk) begin
+     registerFile[0] <= 0;
      if (writeBack)
-       if (rdId != 0)
+//       if (rdId != 0)
          registerFile[rdId] <= writeBackData;
    end
+
 
    /***************************************************************************/
    // The ALU. Does operations and tests combinatorially, except shifts.
@@ -341,7 +343,7 @@ module FemtoRV32(
               rs1 <= registerFile[mem_rdata[19:15]];
               rs2 <= registerFile[mem_rdata[24:20]];
               instr <= mem_rdata[31:2]; // Bits 0 and 1 are ignored (see
-              state <= EXECUTE;         // also the declaration of instr).
+              state = EXECUTE;         // also the declaration of instr).
            end
         end
 
@@ -349,7 +351,7 @@ module FemtoRV32(
            PC <= isJALR          ? {aluPlus[ADDR_WIDTH-1:1],1'b0} :
                  jumpToPCplusImm ? PCplusImm :
                  PCplus4;
-	        state <= needToWait ? WAIT_ALU_OR_MEM : FETCH_INSTR;
+	        state = needToWait ? WAIT_ALU_OR_MEM : FETCH_INSTR;
         end
 
         state[WAIT_ALU_OR_MEM_bit]: begin
@@ -357,7 +359,7 @@ module FemtoRV32(
         end
 
         default: begin // FETCH_INSTR
-          state <= WAIT_INSTR;
+          state = WAIT_INSTR;
         end
 
       endcase

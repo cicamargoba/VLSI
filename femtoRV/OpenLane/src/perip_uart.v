@@ -8,7 +8,7 @@ module peripheral_uart#(
     input cs,
     input [4:0]addr,
     input wr,
-    output reg [31:0]d_out,
+    output reg [31:0] d_out,
     output uart_tx,
     input  uart_rx,
     output reg ledout=0
@@ -68,7 +68,7 @@ uart #(
 	.rx_error( rx_error     ),
 	.rx_ack(   uart_ctrl[1] ),
 	.tx_data(  d_in_uart    ),
-	.tx_wr(    uart_ctrl[0] ),
+	.tx_wr(    uart_ctrl[3] ),
 	.tx_busy(  tx_busy)
 );
 endmodule

@@ -12,8 +12,11 @@ putchar:
 
    li   gp, UART_BASE
    sw   a0, IO_UART_DAT(gp)
-   li   t0, 0x01
+   li   t0, 0x08
    sw   t0, IO_UART_CNTL(gp)
+   li   t0, 0x00
+   sw   t0, IO_UART_CNTL(gp)
+
    li   t0, 0x00
    sw   t0, IO_UART_CNTL(gp)
    li   t0, 1<<9

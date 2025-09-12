@@ -73,7 +73,7 @@ parameter c_BIT_PERIOD     = 8680;
 
 
 spiram flashram0(
-  .CS(spi_cs_ram),     // Chip Select (activo en bajo)
+  .CS(spi_cs_n_ram),     // Chip Select (activo en bajo)
   .SCK(spi_clk_ram),    // SPI Clock
   .SI(spi_mosi_ram),     // Serial Input (MOSI)
   .SO(spi_miso_ram)     // Serial Output (MISO)
@@ -109,10 +109,10 @@ always #(tck/2) CLK <= ~CLK;
     #0   RXD   = 1;
     #0   RESET = 0;
     #80  RESET = 0;
-    #160 RESET = 1;
+  #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
-    #(tck*100000)
+    #(tck*60000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
     UART_WRITE_BYTE(8'h2A);    // Operator *
@@ -128,7 +128,7 @@ always #(tck/2) CLK <= ~CLK;
 
     
 //    @(posedge CLK);
-    #(tck*3500) $finish;
+    #(tck*35000) $finish;
  end
  
  
