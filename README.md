@@ -59,6 +59,7 @@ sudo apt-get install libxaw7-dev
 
 # Instalación
 tar -zxvf ngspice-40.tar.gz
+
 cd ngspice-40
 mkdir release
 cd release
