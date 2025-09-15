@@ -112,7 +112,7 @@ always #(tck/2) CLK <= ~CLK;
   #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
-    #(tck*60000)
+    #(tck*10000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
     UART_WRITE_BYTE(8'h2A);    // Operator *

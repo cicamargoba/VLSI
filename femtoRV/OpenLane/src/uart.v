@@ -61,7 +61,7 @@ end
 reg       rx_busy;
 reg [3:0] rx_count16;
 reg [3:0] rx_bitcount;
-reg [7:0] rxd_reg;
+reg [9:0] rxd_reg;
 
 always @ (posedge clk)
 begin
@@ -71,10 +71,12 @@ begin
 		rx_bitcount <= 0;
 		rx_avail    <= 0;
 		rx_error    <= 0;
+		rxd_reg     <= 0;
 	end else begin 
 		if (rx_ack) begin
 			rx_avail <= 0;
 			rx_error <= 0;
+			rxd_reg  <= 0;
 		end
 
 		if (enable16) begin
@@ -94,17 +96,17 @@ begin
 						if (uart_rxd2) begin
 							rx_busy <= 0;
 						end
-					end else if (rx_bitcount == 9) begin // look for stop bit
+					end else if (rx_bitcount == 10) begin // look for stop bit
 						rx_busy <= 0;
 						if (uart_rxd2) begin             //   stop bit ok
-							rx_data  <= rxd_reg;
+							rx_data  <= rxd_reg[9:2];
 							rx_avail <= 1;
 							rx_error <= 0;
 						end else begin                  //   bas stop bit
 							rx_error <= 1;
 						end
 					end else begin
-						rxd_reg <= { uart_rxd2, rxd_reg[7:1] };
+						rxd_reg <= { uart_rxd2, rxd_reg[9:1] };
 					end
 				end
 			end 

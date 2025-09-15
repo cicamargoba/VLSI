@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Fri Sep 12 23:17:55 2025
+[*] Mon Sep 15 13:39:48 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
-[dumpfile_mtime] "Fri Sep 12 23:15:29 2025"
-[dumpfile_size] 3685584277
+[dumpfile_mtime] "Mon Sep 15 13:39:48 2025"
+[dumpfile_size] 447123456
 [savefile] "/Work/VLSI/VLSI/femtoRV/test_femto.gtkw"
 [timestart] 0
 [size] 1648 951
 [pos] -1 -1
-*-33.700001 4074100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-28.700001 907000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] femto_TB.
 [treeopen] femto_TB.uut.
 [sst_width] 278
@@ -35,10 +35,9 @@ femto_TB.uut.\mapped_spi_flash.rbusy
 femto_TB.uut.\per_uart.uart0.rx_busy
 femto_TB.uut.\per_uart.tx_busy
 femto_TB.uut.\per_uart.uart0.tx_wr
-@29
 femto_TB.uut.\per_uart.uart0.rx_ack
-@28
 femto_TB.uut.\per_uart.rx_avail
+femto_TB.uut.\per_uart.uart0.rx_ack
 femto_TB.uut.TXD
 femto_TB.uut.RXD
 @800820
@@ -47,7 +46,11 @@ femto_TB.uut.RXD
 -group_end
 @28
 femto_TB.uut.\per_uart.uart0.tx_wr
-femto_TB.uut.\per_uart.uart0.rx_ack
+@800023
+#{femto_TB.uut.\per_uart.uart0.rxd_reg[9:1]} femto_TB.uut.\per_uart.uart0.rxd_reg[9] femto_TB.uut.\per_uart.uart0.rxd_reg[8] femto_TB.uut.\per_uart.uart0.rxd_reg[7] femto_TB.uut.\per_uart.uart0.rxd_reg[6] femto_TB.uut.\per_uart.uart0.rxd_reg[5] femto_TB.uut.\per_uart.uart0.rxd_reg[4] femto_TB.uut.\per_uart.uart0.rxd_reg[3] femto_TB.uut.\per_uart.uart0.rxd_reg[2] femto_TB.uut.\per_uart.uart0.rxd_reg[1]
+@1001201
+-group_end
+@28
 femto_TB.uut.\CPU.mem_rstrb
 femto_TB.uut.\CPU.writeBack
 @800200
