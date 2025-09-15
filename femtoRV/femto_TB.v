@@ -87,7 +87,6 @@ always #(tck/2) CLK <= ~CLK;
 
 
    reg[4:0] prev_LEDS = 0;
-   initial         flag <= 0; 
 
    initial begin
 	 if(LEDS != prev_LEDS) begin

@@ -82,6 +82,8 @@ run_opensta:
 	sta -exit -no_init multi_corner.tcl |& tee  ./synthesis/2-sta.log
 #"sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/Mult_4/runs/RUN_2025.05.21_13.33.51/logs/synthesis/2-sta.log"
 
+view: 
+	gtkwave $(TOP)_TB.vcd test_femto_mod.gtkw
 ## ---------------------
 ## post-synth simulation
 ## ---------------------
