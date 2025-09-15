@@ -10,7 +10,7 @@
 # *************************************************
 OBJECTS =  bin_to_bcd.o mult.o div.o wait.o putchar.o getchar.o calculator.o #hello.o 
 #OBJECTS =  for.o 
-CROSS   = riscv32-unknown-elf
+CROSS   = riscv64-unknown-elf
 CC      = $(CROSS)-gcc
 AS      = $(CROSS)-as
 LD      = $(CROSS)-ld
