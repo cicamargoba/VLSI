@@ -16,7 +16,10 @@ parameter c_BIT_PERIOD     = 8680;
    wire spi_clk;
    wire spi_miso;
    wire spi_mosi;
-
+   wire spi_cs_n_ram;
+   wire spi_clk_ram;
+   wire spi_miso_ram;
+   wire spi_mosi_ram;
 
 
   // Takes in input byte and serializes it 
@@ -52,6 +55,10 @@ parameter c_BIT_PERIOD     = 8680;
      .spi_miso(spi_miso), 
      .spi_cs_n(spi_cs),
      .spi_clk(spi_clk),
+     .spi_clk_ram(spi_clk_ram),
+     .spi_cs_n_ram(spi_cs_n_ram),
+     .spi_miso_ram(spi_miso_ram),
+     .spi_mosi_ram(spi_mosi_ram),
      .LEDS(LEDS),
      .RXD(RXD),
      .TXD(TXD)
@@ -63,6 +70,15 @@ parameter c_BIT_PERIOD     = 8680;
 	.io0(spi_mosi), // MOSI
 	.io1(spi_miso) // MISO
 );
+
+
+spiram flashram0(
+  .CS(spi_cs_n_ram),     // Chip Select (activo en bajo)
+  .SCK(spi_clk_ram),    // SPI Clock
+  .SI(spi_mosi_ram),     // Serial Input (MOSI)
+  .SO(spi_miso_ram)     // Serial Output (MISO)
+);
+
 
 
 initial         CLK <= 0;
@@ -93,10 +109,10 @@ always #(tck/2) CLK <= ~CLK;
     #0   RXD   = 1;
     #0   RESET = 0;
     #80  RESET = 0;
-    #160 RESET = 1;
+  #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
-    #(tck*100000)
+    #(tck*60000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
     UART_WRITE_BYTE(8'h2A);    // Operator *
@@ -112,7 +128,7 @@ always #(tck/2) CLK <= ~CLK;
 
     
 //    @(posedge CLK);
-    #(tck*3500) $finish;
+    #(tck*35000) $finish;
  end
  
  

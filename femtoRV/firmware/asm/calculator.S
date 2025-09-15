@@ -1,9 +1,4 @@
-.equ UART_BASE, 0x400000  
 .equ DPRAM_BASE, 0x450000  
-
-.equ IO_LEDS, 4
-.equ IO_UART_DAT, 8
-.equ IO_UART_CNTL, 16
 .section .text
 .globl start 
 .globl blinker
@@ -14,7 +9,11 @@ calculator:
 #   li   gp, DPRAM_BASE
    li   sp,0x10040
 
-loopM:	
+loopM:
+    
+    li   t0, 22
+	li   t1, 66
+
 	la   a0, command
 	call putstring
 
@@ -71,9 +70,10 @@ putstring:
 
 .section .data
 command:
-	.asciz "\n\r - Enter two operands - \n\r"
+	.asciz "\n\r Oper \n\r"
 operator:
 	.asciz "\n\rEnter operator \n\r"
 result:
 	.asciz "\n\rResult = "
 
+#https://luplab.gitlab.io/rvcodecjs/

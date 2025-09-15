@@ -41,7 +41,7 @@
      sky130_fd_sc_hd__buf_4          1
      sky130_fd_sc_hd__clkbuf_1     354
      sky130_fd_sc_hd__conb_1         8
-     sky130_fd_sc_hd__dfxtp_1      439
+     sky130_fd_sc_hd__dfxtp_1      471
      sky130_fd_sc_hd__dlxtn_1        2
      sky130_fd_sc_hd__edfxtp_1    1144
      sky130_fd_sc_hd__inv_1         66
@@ -89,10 +89,12 @@
      sky130_fd_sc_hd__xnor2_1      121
      sky130_fd_sc_hd__xor2_1        89
 
+   Area for cell type \sky130_fd_sc_hd__a2111o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a2111oi_0 is unknown!
    Area for cell type \sky130_fd_sc_hd__a211o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a211oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a21boi_0 is unknown!
+   Area for cell type \sky130_fd_sc_hd__a21boi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a21o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a21oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a221o_1 is unknown!
@@ -100,10 +102,12 @@
    Area for cell type \sky130_fd_sc_hd__a222oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a22o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a22oi_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__a2bb2oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a311oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a31oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a32o_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__a32oi_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__a41oi_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__and2_0 is unknown!
    Area for cell type \sky130_fd_sc_hd__and2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__and3_1 is unknown!
@@ -113,10 +117,10 @@
    Area for cell type \sky130_fd_sc_hd__edfxtp_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__inv_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_clkbufkapwr_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__lpflow_clkinvkapwr_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_inputiso0n_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__lpflow_isobufsrc_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__maj3_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__maj3_2 is unknown!
    Area for cell type \sky130_fd_sc_hd__mux2i_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nand2_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nand2b_1 is unknown!
@@ -130,8 +134,8 @@
    Area for cell type \sky130_fd_sc_hd__nor4_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nor4b_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__nor4bb_1 is unknown!
-   Area for cell type \sky130_fd_sc_hd__o2111a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o2111ai_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__o211a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o211ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o21a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o21ai_0 is unknown!
@@ -144,10 +148,12 @@
    Area for cell type \sky130_fd_sc_hd__o311ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o31a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o31ai_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__o32a_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__o41ai_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__or3_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__or4_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__xnor2_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__xnor3_1 is unknown!
    Area for cell type \sky130_fd_sc_hd__xor2_1 is unknown!
 
    Chip area for module '\femto': 6059.561600

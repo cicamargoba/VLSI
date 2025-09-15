@@ -45,7 +45,7 @@ parameter c_BIT_PERIOD     = 8680;
   endtask // UART_WRITE_BYTE
   
   
-   SOC_flash uut(
+   femto uut(
      .clk(CLK),
      .resetn(RESET),
      .spi_mosi(spi_mosi), 
@@ -85,8 +85,8 @@ always #(tck/2) CLK <= ~CLK;
 `ifdef BENCH
     $dumpfile("bench.vcd");
     $dumpvars(-1,bench);
-    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
-    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
+//    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
+//    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
 `endif
 
     #0   RXD   = 1;
