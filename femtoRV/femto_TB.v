@@ -22,6 +22,7 @@ parameter c_BIT_PERIOD     = 8680;
    wire spi_mosi_ram;
 
 
+
   // Takes in input byte and serializes it 
   task UART_WRITE_BYTE;
     input [7:0] i_Data;
@@ -81,11 +82,13 @@ spiram flashram0(
 
 
 
-initial         CLK <= 0;
+initial         CLK <= 0; 
 always #(tck/2) CLK <= ~CLK;
 
 
    reg[4:0] prev_LEDS = 0;
+   initial         flag <= 0; 
+
    initial begin
 	 if(LEDS != prev_LEDS) begin
 	    $display("LEDS = %b",LEDS);

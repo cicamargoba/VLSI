@@ -3,51 +3,29 @@
 
 === femto ===
 
-<<<<<<< HEAD
-   Number of wires:               7186
-   Number of wire bits:           9112
-   Number of public wires:         108
-   Number of public wire bits:    1794
-=======
-   Number of wires:               7264
-   Number of wire bits:           9221
-   Number of public wires:         109
-   Number of public wire bits:    1826
->>>>>>> b854791f09e51e85d8571da80f3368d4d8988930
+   Number of wires:               7240
+   Number of wire bits:           9220
+   Number of public wires:         110
+   Number of public wire bits:    1850
    Number of ports:                 13
    Number of port bits:             13
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-<<<<<<< HEAD
-   Number of cells:               8900
-     $_ANDNOT_                     464
-     $_AND_                       1362
-=======
-   Number of cells:               9009
-     $_ANDNOT_                     142
-     $_AND_                       1725
->>>>>>> b854791f09e51e85d8571da80f3368d4d8988930
+   Number of cells:               8984
+     $_ANDNOT_                     206
+     $_AND_                       1636
      $_DFFE_NP_                   1048
      $_DFFE_PP_                     89
      $_DFF_N_                        8
      $_DFF_P_                       44
      $_DLATCH_N_                     2
-<<<<<<< HEAD
-     $_MUX_                       1013
-     $_NAND_                      2676
-     $_NOR_                         67
-     $_NOT_                         38
-     $_ORNOT_                      337
-     $_OR_                        1096
-=======
-     $_MUX_                       1009
-     $_NAND_                      2687
-     $_NOR_                         59
+     $_MUX_                       1023
+     $_NAND_                      2661
+     $_NOR_                         65
      $_NOT_                         37
-     $_ORNOT_                      151
-     $_OR_                        1322
->>>>>>> b854791f09e51e85d8571da80f3368d4d8988930
+     $_ORNOT_                      146
+     $_OR_                        1333
      $_SDFFCE_PN0P_                  5
      $_SDFFCE_PP0P_                  2
      $_SDFFE_NN0P_                 138
@@ -60,11 +38,6 @@
      $_SDFF_PN1_                     1
      $_SDFF_PP0_                    12
      $_SDFF_PP1_                     1
-<<<<<<< HEAD
-     $_XNOR_                       139
-     $_XOR_                        123
-=======
-     $_XNOR_                       130
-     $_XOR_                        130
->>>>>>> b854791f09e51e85d8571da80f3368d4d8988930
+     $_XNOR_                       134
+     $_XOR_                        126
 

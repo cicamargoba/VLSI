@@ -3,25 +3,27 @@ firmware.elf:     file format elf32-littleriscv
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000071a  00000000  00000000  00001000  2**2
+  0 .text         00000750  00000000  00000000  00001000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata       00000029  0000071c  0000071c  0000171c  2**2
+  1 .rodata       00000029  00000750  00000750  00001750  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .bss          0000000c  00000748  00000748  00001745  2**2
+  2 .bss          0000000c  0000077c  0000077c  00001779  2**2
                   ALLOC
-  3 .riscv.attributes 00000026  00000000  00000000  00001745  2**0
+  3 .riscv.attributes 0000001c  00000000  00000000  00001779  2**0
                   CONTENTS, READONLY
-  4 .comment      00000015  00000000  00000000  0000176b  2**0
+  4 .comment      0000002e  00000000  00000000  00001795  2**0
                   CONTENTS, READONLY
-  5 .debug_line   000001cf  00000000  00000000  00001780  2**0
+  5 .debug_line   00000153  00000000  00000000  000017c3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  6 .debug_info   00000026  00000000  00000000  0000194f  2**0
+  6 .debug_line_str 000000a5  00000000  00000000  00001916  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_abbrev 00000014  00000000  00000000  00001975  2**0
+  7 .debug_info   0000005f  00000000  00000000  000019bb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  8 .debug_aranges 00000020  00000000  00000000  00001990  2**3
+  8 .debug_abbrev 00000028  00000000  00000000  00001a1a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  9 .debug_str    00000140  00000000  00000000  000019b0  2**0
+  9 .debug_aranges 00000020  00000000  00000000  00001a48  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 10 .debug_str    000000e2  00000000  00000000  00001a68  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -52,7 +54,7 @@ Disassembly of section .text:
   50:	00000097          	auipc	ra,0x0
   54:	3cc080e7          	jalr	972(ra) # 41c <print_hex>
   58:	000007b7          	lui	a5,0x0
-  5c:	71c78513          	addi	a0,a5,1820 # 71c <_end+0x2>
+  5c:	75078513          	addi	a0,a5,1872 # 750 <_end>
   60:	00000097          	auipc	ra,0x0
   64:	478080e7          	jalr	1144(ra) # 4d8 <printf>
   68:	03200513          	li	a0,50
@@ -65,7 +67,7 @@ Disassembly of section .text:
   84:	00a00793          	li	a5,10
   88:	fae7fae3          	bgeu	a5,a4,3c <main+0x24>
   8c:	000007b7          	lui	a5,0x0
-  90:	72078513          	addi	a0,a5,1824 # 720 <_end+0x6>
+  90:	75478513          	addi	a0,a5,1876 # 754 <_end+0x4>
   94:	00000097          	auipc	ra,0x0
   98:	444080e7          	jalr	1092(ra) # 4d8 <printf>
   9c:	004007b7          	lui	a5,0x400
@@ -143,58 +145,58 @@ Disassembly of section .text:
  19c:	00812e23          	sw	s0,28(sp)
  1a0:	02010413          	addi	s0,sp,32
  1a4:	000007b7          	lui	a5,0x0
- 1a8:	7487a783          	lw	a5,1864(a5) # 748 <cycles_lap_.2>
+ 1a8:	77c7a783          	lw	a5,1916(a5) # 77c <cycles_lap_.2>
  1ac:	04079863          	bnez	a5,1fc <cycles+0x64>
  1b0:	006007b7          	lui	a5,0x600
  1b4:	0007a783          	lw	a5,0(a5) # 600000 <IO_BASE+0x200000>
  1b8:	07f7f713          	andi	a4,a5,127
  1bc:	000007b7          	lui	a5,0x0
- 1c0:	74e7a423          	sw	a4,1864(a5) # 748 <cycles_lap_.2>
+ 1c0:	76e7ae23          	sw	a4,1916(a5) # 77c <cycles_lap_.2>
  1c4:	000007b7          	lui	a5,0x0
- 1c8:	7487a703          	lw	a4,1864(a5) # 748 <cycles_lap_.2>
+ 1c8:	77c7a703          	lw	a4,1916(a5) # 77c <cycles_lap_.2>
  1cc:	02000793          	li	a5,32
  1d0:	00f71a63          	bne	a4,a5,1e4 <cycles+0x4c>
  1d4:	000007b7          	lui	a5,0x0
  1d8:	fff00713          	li	a4,-1
- 1dc:	74e7a423          	sw	a4,1864(a5) # 748 <cycles_lap_.2>
+ 1dc:	76e7ae23          	sw	a4,1916(a5) # 77c <cycles_lap_.2>
  1e0:	01c0006f          	j	1fc <cycles+0x64>
  1e4:	000007b7          	lui	a5,0x0
- 1e8:	7487a783          	lw	a5,1864(a5) # 748 <cycles_lap_.2>
+ 1e8:	77c7a783          	lw	a5,1916(a5) # 77c <cycles_lap_.2>
  1ec:	00100713          	li	a4,1
  1f0:	00f71733          	sll	a4,a4,a5
  1f4:	000007b7          	lui	a5,0x0
- 1f8:	74e7a423          	sw	a4,1864(a5) # 748 <cycles_lap_.2>
+ 1f8:	76e7ae23          	sw	a4,1916(a5) # 77c <cycles_lap_.2>
  1fc:	c00027f3          	rdcycle	a5
  200:	fef42623          	sw	a5,-20(s0)
  204:	000007b7          	lui	a5,0x0
- 208:	74c7a783          	lw	a5,1868(a5) # 74c <last_cycles32_.1>
+ 208:	7807a783          	lw	a5,1920(a5) # 780 <last_cycles32_.1>
  20c:	fec42703          	lw	a4,-20(s0)
  210:	02f77063          	bgeu	a4,a5,230 <cycles+0x98>
  214:	000007b7          	lui	a5,0x0
- 218:	7507a703          	lw	a4,1872(a5) # 750 <cycles_.0>
+ 218:	7847a703          	lw	a4,1924(a5) # 784 <cycles_.0>
  21c:	000007b7          	lui	a5,0x0
- 220:	7487a783          	lw	a5,1864(a5) # 748 <cycles_lap_.2>
+ 220:	77c7a783          	lw	a5,1916(a5) # 77c <cycles_lap_.2>
  224:	00f70733          	add	a4,a4,a5
  228:	000007b7          	lui	a5,0x0
- 22c:	74e7a823          	sw	a4,1872(a5) # 750 <cycles_.0>
+ 22c:	78e7a223          	sw	a4,1924(a5) # 784 <cycles_.0>
  230:	000007b7          	lui	a5,0x0
- 234:	7507a703          	lw	a4,1872(a5) # 750 <cycles_.0>
+ 234:	7847a703          	lw	a4,1924(a5) # 784 <cycles_.0>
  238:	fec42783          	lw	a5,-20(s0)
  23c:	00f70733          	add	a4,a4,a5
  240:	000007b7          	lui	a5,0x0
- 244:	74e7a823          	sw	a4,1872(a5) # 750 <cycles_.0>
+ 244:	78e7a223          	sw	a4,1924(a5) # 784 <cycles_.0>
  248:	000007b7          	lui	a5,0x0
- 24c:	7507a703          	lw	a4,1872(a5) # 750 <cycles_.0>
+ 24c:	7847a703          	lw	a4,1924(a5) # 784 <cycles_.0>
  250:	000007b7          	lui	a5,0x0
- 254:	74c7a783          	lw	a5,1868(a5) # 74c <last_cycles32_.1>
+ 254:	7807a783          	lw	a5,1920(a5) # 780 <last_cycles32_.1>
  258:	40f70733          	sub	a4,a4,a5
  25c:	000007b7          	lui	a5,0x0
- 260:	74e7a823          	sw	a4,1872(a5) # 750 <cycles_.0>
+ 260:	78e7a223          	sw	a4,1924(a5) # 784 <cycles_.0>
  264:	000007b7          	lui	a5,0x0
  268:	fec42703          	lw	a4,-20(s0)
- 26c:	74e7a623          	sw	a4,1868(a5) # 74c <last_cycles32_.1>
+ 26c:	78e7a023          	sw	a4,1920(a5) # 780 <last_cycles32_.1>
  270:	000007b7          	lui	a5,0x0
- 274:	7507a783          	lw	a5,1872(a5) # 750 <cycles_.0>
+ 274:	7847a783          	lw	a5,1924(a5) # 784 <cycles_.0>
  278:	00078513          	mv	a0,a5
  27c:	01c12403          	lw	s0,28(sp)
  280:	02010113          	addi	sp,sp,32
@@ -269,13 +271,13 @@ Disassembly of section .text:
  37c:	00a00593          	li	a1,10
  380:	00078513          	mv	a0,a5
  384:	00000097          	auipc	ra,0x0
- 388:	370080e7          	jalr	880(ra) # 6f4 <__modsi3>
+ 388:	39c080e7          	jalr	924(ra) # 720 <__modsi3>
  38c:	00050793          	mv	a5,a0
  390:	00078693          	mv	a3,a5
  394:	fec42783          	lw	a5,-20(s0)
  398:	00178713          	addi	a4,a5,1
  39c:	fee42623          	sw	a4,-20(s0)
- 3a0:	0ff6f713          	andi	a4,a3,255
+ 3a0:	0ff6f713          	zext.b	a4,a3
  3a4:	00e78023          	sb	a4,0(a5)
  3a8:	edc42783          	lw	a5,-292(s0)
  3ac:	00a00593          	li	a1,10
@@ -340,7 +342,7 @@ Disassembly of section .text:
  488:	00f757b3          	srl	a5,a4,a5
  48c:	00f7f793          	andi	a5,a5,15
  490:	00000737          	lui	a4,0x0
- 494:	73470713          	addi	a4,a4,1844 # 734 <_end+0x1a>
+ 494:	76870713          	addi	a4,a4,1896 # 768 <_end+0x18>
  498:	00f707b3          	add	a5,a4,a5
  49c:	0007c783          	lbu	a5,0(a5)
  4a0:	00078513          	mv	a0,a5
@@ -472,61 +474,60 @@ Disassembly of section .text:
  680:	0081a503          	lw	a0,8(gp)
  684:	10057293          	andi	t0,a0,256
  688:	fe028ce3          	beqz	t0,680 <getchar>
- 68c:	0ff57513          	andi	a0,a0,255
+ 68c:	0ff57513          	zext.b	a0,a0
  690:	00a00293          	li	t0,10
  694:	fe5506e3          	beq	a0,t0,680 <getchar>
  698:	00008067          	ret
 
 0000069c <__divsi3>:
- 69c:	02054e63          	bltz	a0,6d8 <__umodsi3+0x8>
- 6a0:	0405c363          	bltz	a1,6e6 <__umodsi3+0x16>
+ 69c:	06054063          	bltz	a0,6fc <__umodsi3+0x10>
+ 6a0:	0605c663          	bltz	a1,70c <__umodsi3+0x20>
 
-000006a4 <__udivsi3>:
- 6a4:	862e                	mv	a2,a1
- 6a6:	85aa                	mv	a1,a0
- 6a8:	557d                	li	a0,-1
- 6aa:	c215                	beqz	a2,6ce <__udivsi3+0x2a>
- 6ac:	4685                	li	a3,1
- 6ae:	00b67863          	bgeu	a2,a1,6be <__udivsi3+0x1a>
- 6b2:	00c05663          	blez	a2,6be <__udivsi3+0x1a>
- 6b6:	0606                	slli	a2,a2,0x1
- 6b8:	0686                	slli	a3,a3,0x1
- 6ba:	feb66ce3          	bltu	a2,a1,6b2 <__udivsi3+0xe>
- 6be:	4501                	li	a0,0
- 6c0:	00c5e463          	bltu	a1,a2,6c8 <__udivsi3+0x24>
- 6c4:	8d91                	sub	a1,a1,a2
- 6c6:	8d55                	or	a0,a0,a3
- 6c8:	8285                	srli	a3,a3,0x1
- 6ca:	8205                	srli	a2,a2,0x1
- 6cc:	faf5                	bnez	a3,6c0 <__udivsi3+0x1c>
- 6ce:	8082                	ret
+000006a4 <__hidden___udivsi3>:
+ 6a4:	00058613          	mv	a2,a1
+ 6a8:	00050593          	mv	a1,a0
+ 6ac:	fff00513          	li	a0,-1
+ 6b0:	02060c63          	beqz	a2,6e8 <__hidden___udivsi3+0x44>
+ 6b4:	00100693          	li	a3,1
+ 6b8:	00b67a63          	bgeu	a2,a1,6cc <__hidden___udivsi3+0x28>
+ 6bc:	00c05863          	blez	a2,6cc <__hidden___udivsi3+0x28>
+ 6c0:	00161613          	slli	a2,a2,0x1
+ 6c4:	00169693          	slli	a3,a3,0x1
+ 6c8:	feb66ae3          	bltu	a2,a1,6bc <__hidden___udivsi3+0x18>
+ 6cc:	00000513          	li	a0,0
+ 6d0:	00c5e663          	bltu	a1,a2,6dc <__hidden___udivsi3+0x38>
+ 6d4:	40c585b3          	sub	a1,a1,a2
+ 6d8:	00d56533          	or	a0,a0,a3
+ 6dc:	0016d693          	srli	a3,a3,0x1
+ 6e0:	00165613          	srli	a2,a2,0x1
+ 6e4:	fe0696e3          	bnez	a3,6d0 <__hidden___udivsi3+0x2c>
+ 6e8:	00008067          	ret
 
-000006d0 <__umodsi3>:
- 6d0:	8286                	mv	t0,ra
- 6d2:	3fc9                	jal	6a4 <__udivsi3>
- 6d4:	852e                	mv	a0,a1
- 6d6:	8282                	jr	t0
- 6d8:	40a00533          	neg	a0,a0
- 6dc:	0005d763          	bgez	a1,6ea <__umodsi3+0x1a>
- 6e0:	40b005b3          	neg	a1,a1
- 6e4:	b7c1                	j	6a4 <__udivsi3>
- 6e6:	40b005b3          	neg	a1,a1
- 6ea:	8286                	mv	t0,ra
- 6ec:	3f65                	jal	6a4 <__udivsi3>
- 6ee:	40a00533          	neg	a0,a0
- 6f2:	8282                	jr	t0
-
-000006f4 <__modsi3>:
- 6f4:	8286                	mv	t0,ra
- 6f6:	0005c763          	bltz	a1,704 <__modsi3+0x10>
- 6fa:	00054963          	bltz	a0,70c <__modsi3+0x18>
- 6fe:	375d                	jal	6a4 <__udivsi3>
- 700:	852e                	mv	a0,a1
- 702:	8282                	jr	t0
+000006ec <__umodsi3>:
+ 6ec:	00008293          	mv	t0,ra
+ 6f0:	fb5ff0ef          	jal	6a4 <__hidden___udivsi3>
+ 6f4:	00058513          	mv	a0,a1
+ 6f8:	00028067          	jr	t0
+ 6fc:	40a00533          	neg	a0,a0
+ 700:	00b04863          	bgtz	a1,710 <__umodsi3+0x24>
  704:	40b005b3          	neg	a1,a1
- 708:	fe055be3          	bgez	a0,6fe <__modsi3+0xa>
- 70c:	40a00533          	neg	a0,a0
- 710:	3f51                	jal	6a4 <__udivsi3>
- 712:	40b00533          	neg	a0,a1
- 716:	8282                	jr	t0
-	...
+ 708:	f9dff06f          	j	6a4 <__hidden___udivsi3>
+ 70c:	40b005b3          	neg	a1,a1
+ 710:	00008293          	mv	t0,ra
+ 714:	f91ff0ef          	jal	6a4 <__hidden___udivsi3>
+ 718:	40a00533          	neg	a0,a0
+ 71c:	00028067          	jr	t0
+
+00000720 <__modsi3>:
+ 720:	00008293          	mv	t0,ra
+ 724:	0005ca63          	bltz	a1,738 <__modsi3+0x18>
+ 728:	00054c63          	bltz	a0,740 <__modsi3+0x20>
+ 72c:	f79ff0ef          	jal	6a4 <__hidden___udivsi3>
+ 730:	00058513          	mv	a0,a1
+ 734:	00028067          	jr	t0
+ 738:	40b005b3          	neg	a1,a1
+ 73c:	fe0558e3          	bgez	a0,72c <__modsi3+0xc>
+ 740:	40a00533          	neg	a0,a0
+ 744:	f61ff0ef          	jal	6a4 <__hidden___udivsi3>
+ 748:	40b00533          	neg	a0,a1
+ 74c:	00028067          	jr	t0
