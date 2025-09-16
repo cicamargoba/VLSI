@@ -39,7 +39,7 @@ x1:e -> c47:p12:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="blac
 x2 [ shape=record, style=rounded, label="<s0> 15:0 - 15:0 ", color="black", fontcolor="black" ];
 x2:e -> c47:p44:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 c48 [ shape=record, label="{{<p40> A}|$6\n$logic_not|{<p41> Y}}",  ];
-c53 [ shape=record, label="{{<p43> addr|<p39> clk|<p12> cs|<p44> d_in|<p49> rst|<p50> uart_rx|<p19> wr}|per_uart\n$paramod$5ba1b67a19911e09c0ee8c956b41f966dbad00ae&#9586;peripheral_uart|{<p46> d_out|<p51> ledout|<p52> uart_tx}}",  ];
+c53 [ shape=record, label="{{<p43> addr|<p39> clk|<p12> cs|<p44> d_in|<p49> rst|<p50> uart_rx|<p19> wr}|per_uart\n$paramod$98ebefd4f3ce78b73da447c42dad1d2cc3e300e6&#9586;peripheral_uart|{<p46> d_out|<p51> ledout|<p52> uart_tx}}",  ];
 x3 [ shape=record, style=rounded, label="<s0> 4:0 - 4:0 ", color="black", fontcolor="black" ];
 x3:e -> c53:p43:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 x4 [ shape=record, style=rounded, label="<s0> 5:5 - 0:0 ", color="black", fontcolor="black" ];

@@ -3,7 +3,7 @@
 // File Name   : uart.v
 //-----------------------------------------------------
 module uart #(
-	parameter          freq_hz = 27000000,
+	parameter          freq_hz = 25000000,
 	parameter          baud    = 115200
 ) (
 	input              reset,
@@ -99,7 +99,7 @@ begin
 					end else if (rx_bitcount == 10) begin // look for stop bit
 						rx_busy <= 0;
 						if (uart_rxd2) begin             //   stop bit ok
-							rx_data  <= rxd_reg[9:2];
+							rx_data  <= rxd_reg[8:1];
 							rx_avail <= 1;
 							rx_error <= 0;
 						end else begin                  //   bas stop bit

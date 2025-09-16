@@ -70,7 +70,7 @@ putstring:
 
 .section .data
 command:
-	.asciz "\n"
+	.asciz "In\n"
 operator:
 	.asciz "\n\rEnter operator \n\r"
 result:

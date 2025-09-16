@@ -16,9 +16,6 @@ putchar:
    sw   t0, IO_UART_CNTL(gp)
    li   t0, 0x00
    sw   t0, IO_UART_CNTL(gp)
-
-   li   t0, 0x00
-   sw   t0, IO_UART_CNTL(gp)
    li   t0, 1<<9
 .L0:  
    lw   t1, IO_UART_CNTL(gp)

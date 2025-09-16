@@ -11,12 +11,18 @@ getchar:
 	addi sp,sp,-4      # save a3, a4, a5 on the stack
 	sw   t0,0(sp)
 	li   gp, UART_BASE 
-.L0:	
+.L0:
     lw   a0,IO_UART_CNTL(gp)
 	andi t0,a0,256 # bit 8 = data ready
-   beqz  t0,.L0
-	li   t0,0x02
+    beqz t0,.L0
+
+    li   t0,1
 	sw   t0,IO_UART_CNTL(gp)
+
+	li   t0,0x00
+	sw   t0,IO_UART_CNTL(gp)
+
+
 	lw   a0,IO_UART_DAT(gp)        
 	andi a0,a0, 255
 #	li   t0,10                  # <enter> generates CR/LF, we ignore LF.
