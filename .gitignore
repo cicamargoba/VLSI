@@ -279,3 +279,10 @@ pyrightconfig.json
 
 # Testbenchs 
 *TB.vcd
+
+# firmware 
+*.hex
+*.o
+*.elf
+*.map
+*.lst
