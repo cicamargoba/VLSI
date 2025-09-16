@@ -27,7 +27,7 @@ initial begin
 end
  
  
-	reg [4:0] count;
+	reg [10:0] count;
 
 always @(posedge clk )
 begin
@@ -81,7 +81,7 @@ begin
 			END:begin
 				done <= 1;
 				count <= count + 1;
-				state <= (count>29) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
+				state <= (count>2000) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
 			end
 
 			default: state <= START;

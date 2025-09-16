@@ -112,21 +112,22 @@ always #(tck/2) CLK <= ~CLK;
 //    @(posedge CLK);
     #(tck*22000)
     UART_WRITE_BYTE(8'h36);
-    #(tck*4000)
-    UART_WRITE_BYTE(8'h34);
-    #(tck*4000)
+    #(tck*8000)
     UART_WRITE_BYTE(8'h2A);    // Operator *
-    #(tck*4000)  
-    UART_WRITE_BYTE(8'h34);
-    #(tck*4000)
+    #(tck*8000)   
     UART_WRITE_BYTE(8'h39);
-    #(tck*4000)
-
+    #(tck*12000)
+    UART_WRITE_BYTE(8'h36);
+    #(tck*8000)
+    UART_WRITE_BYTE(8'h2F);    // Operator *
+    #(tck*8000)   
+    UART_WRITE_BYTE(8'h39);
+    #(tck*8000)
 
 
     
 //    @(posedge CLK);
-    #(tck*35000) $finish;
+    #(tck*150000) $finish;
  end
  
  

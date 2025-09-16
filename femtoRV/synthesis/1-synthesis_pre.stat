@@ -3,30 +3,30 @@
 
 === femto ===
 
-   Number of wires:               7215
-   Number of wire bits:           9143
+   Number of wires:               7206
+   Number of wire bits:           9152
    Number of public wires:         108
-   Number of public wire bits:    1796
+   Number of public wire bits:    1802
    Number of ports:                 13
    Number of port bits:             13
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               8932
-     $_ANDNOT_                     204
-     $_AND_                       1646
+   Number of cells:               8935
+     $_ANDNOT_                     251
+     $_AND_                       1578
      $_DFFE_NP_                   1048
      $_DFFE_PP_                     81
      $_DFF_N_                        8
      $_DFF_P_                       44
      $_DLATCH_N_                     2
-     $_MUX_                       1023
-     $_NAND_                      2695
-     $_NOR_                         65
-     $_NOT_                         38
-     $_ORNOT_                      163
-     $_OR_                        1254
-     $_SDFFCE_PN0P_                  5
+     $_MUX_                       1027
+     $_NAND_                      2647
+     $_NOR_                         95
+     $_NOT_                         33
+     $_ORNOT_                      355
+     $_OR_                        1091
+     $_SDFFCE_PN0P_                 11
      $_SDFFCE_PP0P_                  2
      $_SDFFE_NN0P_                 138
      $_SDFFE_NN1P_                   2
@@ -38,6 +38,6 @@
      $_SDFF_PN1_                     1
      $_SDFF_PP0_                    13
      $_SDFF_PP1_                     2
-     $_XNOR_                       135
-     $_XOR_                        123
+     $_XNOR_                       133
+     $_XOR_                        133
 
