@@ -36,8 +36,6 @@ parameter c_BIT_PERIOD     = 8680;
       RXD <= 1'b0;
       #(c_BIT_PERIOD);
       #1000;
-       
-       
       // Send Data Byte
       for (ii=0; ii<8; ii=ii+1)
         begin
@@ -118,7 +116,9 @@ always #(tck/2) CLK <= ~CLK;
     //  #10 RESET = 0; 
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
-    #(tck*60000)
+    #(tck*22000)
+    UART_WRITE_BYTE(8'h36);
+    #(tck*4000)
     UART_WRITE_BYTE(8'h34);
     #(tck*4000)
     UART_WRITE_BYTE(8'h2A);    // Operator *
@@ -127,9 +127,6 @@ always #(tck/2) CLK <= ~CLK;
     #(tck*4000)
     UART_WRITE_BYTE(8'h39);
     #(tck*4000)
-    UART_WRITE_BYTE(8'h2F);   // operator /
-    #(tck*4000)
-    UART_WRITE_BYTE(8'h33);
 
 
     

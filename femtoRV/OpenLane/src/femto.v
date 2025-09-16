@@ -108,7 +108,7 @@ module femto (
 
 
   peripheral_uart #(
-     .clk_freq(25000000),    // 27000000 for gowin
+     .clk_freq(27000000),    // 27000000 for gowin
      .baud(115200)            // 57600 for gowin
    ) per_uart(
      .clk(clk), 

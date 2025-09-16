@@ -66,7 +66,7 @@ uart #(
 	.rx_data(  rx_data      ),
 	.rx_avail( rx_avail     ),
 	.rx_error( rx_error     ),
-	.rx_ack(   uart_ctrl[1] ),
+	.rx_ack(   uart_ctrl[0] ),
 	.tx_data(  d_in_uart    ),
 	.tx_wr(    uart_ctrl[3] ),
 	.tx_busy(  tx_busy)

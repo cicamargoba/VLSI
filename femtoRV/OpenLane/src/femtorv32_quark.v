@@ -104,7 +104,7 @@ module FemtoRV32(
    always @(negedge clk) begin
      registerFile[0] <= 0;
      if (writeBack)
-//       if (rdId != 0)
+       if (rdId != 0)
          registerFile[rdId] <= writeBackData;
    end
 
