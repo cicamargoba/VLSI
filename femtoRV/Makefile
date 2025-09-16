@@ -76,14 +76,15 @@ sim_post_syn_sky: prepare_libs
 	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v ${TARGET}_sky.v ${SIM_OBJS} ${SIM_OBJS_SKY}
 	vvp $@_PS.vpp
 	./$@_PS.vpp
-	gtkwave $(TOP)_TB.vcd &
+# gtkwave $(TOP)_TB.vcd &
+	gtkwave $(TOP)_TB.vcd test_femto_mod.gtkw -g 
 	#netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
 run_opensta:
 	sta -exit -no_init multi_corner.tcl |& tee  ./synthesis/2-sta.log
 #"sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/Mult_4/runs/RUN_2025.05.21_13.33.51/logs/synthesis/2-sta.log"
 
 view: 
-	gtkwave $(TOP)_TB.vcd test_femto_mod.gtkw
+	gtkwave $(TOP)_TB.vcd test_femto_mod.gtkw -g 
 ## ---------------------
 ## post-synth simulation
 ## ---------------------

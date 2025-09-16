@@ -3,8 +3,8 @@
 
 === femto ===
 
-   Number of wires:               9263
-   Number of wire bits:          11243
+   Number of wires:               9253
+   Number of wire bits:          11233
    Number of public wires:         110
    Number of public wire bits:    1850
    Number of ports:                 13
@@ -12,17 +12,17 @@
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:              11001
-     $_ANDNOT_                     206
-     $_AND_                       1636
+   Number of cells:              10991
+     $_ANDNOT_                     340
+     $_AND_                       1508
      $_MUX_                       1799
-     $_NAND_                      2661
-     $_NOR_                         65
-     $_NOT_                       1278
-     $_ORNOT_                      146
-     $_OR_                        1333
-     $_XNOR_                       134
-     $_XOR_                        126
+     $_NAND_                      2659
+     $_NOR_                         61
+     $_NOT_                       1273
+     $_ORNOT_                      159
+     $_OR_                        1316
+     $_XNOR_                       135
+     $_XOR_                        124
      sky130_fd_sc_hd__dfxtp_1      471
      sky130_fd_sc_hd__dlxtn_1        2
      sky130_fd_sc_hd__edfxtp_1    1144

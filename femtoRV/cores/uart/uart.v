@@ -21,7 +21,7 @@ module uart #(
 	output reg         tx_busy
 );
 
-parameter divisor = freq_hz/baud/16;
+parameter divisor = freq_hz/baud;  // /16;
 
 //-----------------------------------------------------------------
 // enable16 generator
@@ -94,12 +94,13 @@ begin
 						if (uart_rxd2) begin
 							rx_busy <= 0;
 						end
-					end else if (rx_bitcount == 9) begin // look for stop bit
+					end else if (rx_bitcount == 10) begin // look for stop bit
 						rx_busy <= 0;
 						if (uart_rxd2) begin             //   stop bit ok
 							rx_data  <= rxd_reg;
 							rx_avail <= 1;
 							rx_error <= 0;
+							rxd_reg  <= 0; 
 						end else begin                  //   bas stop bit
 							rx_error <= 1;
 						end

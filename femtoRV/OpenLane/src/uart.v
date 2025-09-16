@@ -67,7 +67,7 @@ always @ (posedge clk)
 begin
 	if (reset) begin
 		rx_busy     <= 0;
-		rx_count16  <= 0;
+		rx_count16  <= 8;
 		rx_bitcount <= 0;
 		rx_avail    <= 0;
 		rx_error    <= 0;
@@ -79,10 +79,11 @@ begin
 
 		if (enable16) begin
 			if (!rx_busy) begin           // look for start bit
-				if (!uart_rxd2) begin     //     start bit found
+				if (!uart_rxd2) begin     //     start bit found (0 bit)
 					rx_busy     <= 1;
-					rx_count16  <= 7;
+					rx_count16  <= 8;
 					rx_bitcount <= 0;
+					rxd_reg		<= 0; 
 				end
 			end else begin
 				rx_count16 <= rx_count16 + 1;
@@ -94,7 +95,7 @@ begin
 						if (uart_rxd2) begin
 							rx_busy <= 0;
 						end
-					end else if (rx_bitcount == 9) begin // look for stop bit
+					end else if (rx_bitcount == 10) begin // look for stop bit
 						rx_busy <= 0;
 						if (uart_rxd2) begin             //   stop bit ok
 							rx_data  <= rxd_reg;

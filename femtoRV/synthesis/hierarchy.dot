@@ -64,9 +64,9 @@ x10:e -> c69:p58:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="bla
 c70 [ shape=record, label="{{<p40> A}|$2\n$reduce_or|{<p41> Y}}",  ];
 c71 [ shape=record, label="{{<p40> A|<p54> B}|$1\n$or|{<p41> Y}}",  ];
 c75 [ shape=record, label="{{<p39> clk|<p72> mem_rbusy|<p25> mem_rdata|<p73> mem_wbusy|<p45> reset}|CPU\nFemtoRV32|{<p74> mem_addr|<p24> mem_rstrb|<p23> mem_wdata|<p22> mem_wmask}}",  ];
-p11 [shape=box, style=rounded, label="PROC $9\nOpenLane/src/femto.v:168.3-180.6", ];
+p11 [shape=box, style=rounded, label="PROC $9\nOpenLane/src/femto.v:169.3-181.6", ];
 x13 [ shape=record, style=rounded, label="<s0> 31:16 - 15:0 ", color="black", fontcolor="black" ];
-p12 [shape=box, style=rounded, label="PROC $8\nOpenLane/src/femto.v:154.3-166.6", ];
+p12 [shape=box, style=rounded, label="PROC $8\nOpenLane/src/femto.v:155.3-167.6", ];
 x14 [shape=point, ];
 x15 [shape=point, ];
 c70:p41:e -> x14:w [color="black", fontcolor="black", label=""];

@@ -1,4 +1,4 @@
-.equ UART_BASE, 0x400000  
+.equ UART_BASE, 0x400000 
 .equ IO_UART_DAT, 8
 .equ IO_UART_CNTL, 16
 

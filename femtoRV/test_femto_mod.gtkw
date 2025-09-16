@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Mon Sep 15 05:07:34 2025
+[*] Mon Sep 15 13:36:51 2025
 [*]
 [dumpfile] "femto_TB.vcd"
-[dumpfile_mtime] "Mon Sep 15 05:02:34 2025"
-[dumpfile_size] 3641631232
-[savefile] "/Users/amoralesma/Documents/UN/temas/VLSI/femtoRV/test_femto_mod.gtkw"
-[timestart] 45775000
+[dumpfile_mtime] "Mon Sep 15 13:32:33 2025"
+[dumpfile_size] 3616141319
+[savefile] "test_femto_mod.gtkw"
+[timestart] 517000000
 [size] 1512 916
 [pos] -1 -1
-*-19.700001 47741000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-29.700001 2556381000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] femto_TB.
 [treeopen] femto_TB.uut.
 [sst_width] 278
@@ -39,9 +39,9 @@ femto_TB.uut.\per_uart.uart0.rx_ack
 femto_TB.uut.\per_uart.rx_avail
 femto_TB.uut.TXD
 femto_TB.uut.RXD
-@800820
+@800821
 #{femto_TB.uut.\per_uart.d_in_uart[7:0]} femto_TB.uut.\per_uart.d_in_uart[7] femto_TB.uut.\per_uart.d_in_uart[6] femto_TB.uut.\per_uart.d_in_uart[5] femto_TB.uut.\per_uart.d_in_uart[4] femto_TB.uut.\per_uart.d_in_uart[3] femto_TB.uut.\per_uart.d_in_uart[2] femto_TB.uut.\per_uart.d_in_uart[1] femto_TB.uut.\per_uart.d_in_uart[0]
-@1001200
+@1001201
 -group_end
 @28
 femto_TB.uut.\per_uart.uart0.tx_wr
@@ -118,7 +118,7 @@ femto_TB.uut.\per_uart.uart_ctrl[2]
 -group_end
 -group_end
 -group_end
-@c00023
+@c00022
 #{\CPU.PC} femto_TB.uut.\CPU.PC[2] femto_TB.uut.\CPU.PC[3] femto_TB.uut.\CPU.PC[4] femto_TB.uut.\CPU.PC[5] femto_TB.uut.\CPU.PC[6] femto_TB.uut.\CPU.PC[7] femto_TB.uut.\CPU.PC[8] femto_TB.uut.\CPU.PC[9] femto_TB.uut.\CPU.PC[10] femto_TB.uut.\CPU.PC[11] femto_TB.uut.\CPU.PC[12] femto_TB.uut.\CPU.PC[13] femto_TB.uut.\CPU.PC[14] femto_TB.uut.\CPU.PC[15] femto_TB.uut.\CPU.PC[16] femto_TB.uut.\CPU.PC[17] femto_TB.uut.\CPU.PC[18] femto_TB.uut.\CPU.PC[19] femto_TB.uut.\CPU.PC[20] femto_TB.uut.\CPU.PC[21] femto_TB.uut.\CPU.PC[22] femto_TB.uut.\CPU.PC[23]
 @28
 femto_TB.uut.\CPU.PC[2]
@@ -143,7 +143,53 @@ femto_TB.uut.\CPU.PC[20]
 femto_TB.uut.\CPU.PC[21]
 femto_TB.uut.\CPU.PC[22]
 femto_TB.uut.\CPU.PC[23]
-@1401201
+@1401200
+-group_end
+@28
+femto_TB.uut.\per_uart.rx_avail
+femto_TB.uut.\per_uart.tx_busy
+femto_TB.uut.\per_uart.uart0.rx_busy
+femto_TB.uut.\per_uart.rx_avail
+@c00022
+#{femto_TB.uut.\per_uart.d_in_uart[0:7]} femto_TB.uut.\per_uart.d_in_uart[0] femto_TB.uut.\per_uart.d_in_uart[1] femto_TB.uut.\per_uart.d_in_uart[2] femto_TB.uut.\per_uart.d_in_uart[3] femto_TB.uut.\per_uart.d_in_uart[4] femto_TB.uut.\per_uart.d_in_uart[5] femto_TB.uut.\per_uart.d_in_uart[6] femto_TB.uut.\per_uart.d_in_uart[7]
+@28
+femto_TB.uut.\per_uart.d_in_uart[0]
+femto_TB.uut.\per_uart.d_in_uart[1]
+femto_TB.uut.\per_uart.d_in_uart[2]
+femto_TB.uut.\per_uart.d_in_uart[3]
+femto_TB.uut.\per_uart.d_in_uart[4]
+femto_TB.uut.\per_uart.d_in_uart[5]
+femto_TB.uut.\per_uart.d_in_uart[6]
+femto_TB.uut.\per_uart.d_in_uart[7]
+@1401200
+-group_end
+@200
+-
+-
+@c00024
+#{femto_TB.uut.\per_uart.uart0.rx_count16[3:0]} femto_TB.uut.\per_uart.uart0.rx_count16[3] femto_TB.uut.\per_uart.uart0.rx_count16[2] femto_TB.uut.\per_uart.uart0.rx_count16[1] femto_TB.uut.\per_uart.uart0.rx_count16[0]
+@28
+femto_TB.uut.\per_uart.uart0.rx_count16[0]
+femto_TB.uut.\per_uart.uart0.rx_count16[1]
+femto_TB.uut.\per_uart.uart0.rx_count16[2]
+femto_TB.uut.\per_uart.uart0.rx_count16[3]
+@1401200
+-group_end
+@28
+femto_TB.uut.RXD
+femto_TB.uut.clk
+@800022
+#{femto_TB.uut.\per_uart.uart0.rxd_reg[7:0]} femto_TB.uut.\per_uart.uart0.rxd_reg[7] femto_TB.uut.\per_uart.uart0.rxd_reg[6] femto_TB.uut.\per_uart.uart0.rxd_reg[5] femto_TB.uut.\per_uart.uart0.rxd_reg[4] femto_TB.uut.\per_uart.uart0.rxd_reg[3] femto_TB.uut.\per_uart.uart0.rxd_reg[2] femto_TB.uut.\per_uart.uart0.rxd_reg[1] femto_TB.uut.\per_uart.uart0.rxd_reg[0]
+@28
+femto_TB.uut.\per_uart.uart0.rxd_reg[0]
+femto_TB.uut.\per_uart.uart0.rxd_reg[1]
+femto_TB.uut.\per_uart.uart0.rxd_reg[2]
+femto_TB.uut.\per_uart.uart0.rxd_reg[3]
+femto_TB.uut.\per_uart.uart0.rxd_reg[4]
+femto_TB.uut.\per_uart.uart0.rxd_reg[5]
+femto_TB.uut.\per_uart.uart0.rxd_reg[6]
+femto_TB.uut.\per_uart.uart0.rxd_reg[7]
+@1001200
 -group_end
 [pattern_trace] 1
 [pattern_trace] 0

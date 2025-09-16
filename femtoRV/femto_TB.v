@@ -3,6 +3,9 @@ module femto_TB();
 // Testbench uses a 10 MHz clock
 // Want to interface to 115200 baud UART
 // 25000000 / 115200 = 217 Clocks Per Bit.
+// ----
+// For 10MHz clk 
+// 10000000 / 115200 = 87 Clck per bit 
 parameter tck              = 40;
 parameter c_BIT_PERIOD     = 8680;
 
@@ -112,6 +115,7 @@ always #(tck/2) CLK <= ~CLK;
     #0   RESET = 0;
     #80  RESET = 0;
   #160 RESET = 1;
+    //  #10 RESET = 0; 
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
     #(tck*60000)
@@ -125,7 +129,7 @@ always #(tck/2) CLK <= ~CLK;
     #(tck*4000)
     UART_WRITE_BYTE(8'h2F);   // operator /
     #(tck*4000)
-    UART_WRITE_BYTE(8'h30);
+    UART_WRITE_BYTE(8'h33);
 
 
     
@@ -135,4 +139,4 @@ always #(tck/2) CLK <= ~CLK;
  
  
 endmodule   
- 
+
