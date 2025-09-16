@@ -1,6 +1,7 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
 <<<<<<< HEAD
+<<<<<<< HEAD
 [*] Fri Sep 12 23:17:55 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
@@ -22,6 +23,18 @@
 =======
 *-24.700001 954501000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 >>>>>>> 28f4680 (Fixing UART, simulation post synt sky OK)
+=======
+[*] Tue Sep 16 20:16:01 2025
+[*]
+[dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
+[dumpfile_mtime] "Tue Sep 16 20:09:04 2025"
+[dumpfile_size] 3832097414
+[savefile] "/Work/VLSI/VLSI/femtoRV/test_femto.gtkw"
+[timestart] 3106550000
+[size] 1648 951
+[pos] -1 -1
+*-21.700001 3114301000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+>>>>>>> 0b5578f0270c0e7e8cfaee4d63477d44b4cde7a6
 [treeopen] femto_TB.
 [treeopen] femto_TB.uut.
 [sst_width] 278
@@ -47,10 +60,9 @@ femto_TB.uut.\mapped_spi_flash.rbusy
 femto_TB.uut.\per_uart.uart0.rx_busy
 femto_TB.uut.\per_uart.tx_busy
 femto_TB.uut.\per_uart.uart0.tx_wr
-@29
 femto_TB.uut.\per_uart.uart0.rx_ack
-@28
 femto_TB.uut.\per_uart.rx_avail
+femto_TB.uut.\per_uart.uart0.rx_ack
 femto_TB.uut.TXD
 femto_TB.uut.RXD
 @800022
@@ -64,6 +76,7 @@ femto_TB.uut.RXD
 @28
 femto_TB.uut.\per_uart.uart0.tx_wr
 <<<<<<< HEAD
+<<<<<<< HEAD
 femto_TB.uut.\per_uart.uart0.rx_ack
 =======
 @c00028
@@ -72,13 +85,26 @@ femto_TB.uut.\per_uart.uart0.rx_ack
 -group_end
 @28
 >>>>>>> 28f4680 (Fixing UART, simulation post synt sky OK)
+=======
+@c00028
+#{femto_TB.uut.\per_uart.uart0.rxd_reg[9:1]} femto_TB.uut.\per_uart.uart0.rxd_reg[9] femto_TB.uut.\per_uart.uart0.rxd_reg[8] femto_TB.uut.\per_uart.uart0.rxd_reg[7] femto_TB.uut.\per_uart.uart0.rxd_reg[6] femto_TB.uut.\per_uart.uart0.rxd_reg[5] femto_TB.uut.\per_uart.uart0.rxd_reg[4] femto_TB.uut.\per_uart.uart0.rxd_reg[3] femto_TB.uut.\per_uart.uart0.rxd_reg[2]
+@1401200
+-group_end
+@28
+>>>>>>> 0b5578f0270c0e7e8cfaee4d63477d44b4cde7a6
 femto_TB.uut.\CPU.mem_rstrb
 femto_TB.uut.\CPU.writeBack
 @800201
 -femto_TB.uut.\RAM.MEM[15][31:0]
+<<<<<<< HEAD
 @201
 -
 @800023
+=======
+@200
+-
+@800022
+>>>>>>> 0b5578f0270c0e7e8cfaee4d63477d44b4cde7a6
 #{femto_TB.uut.\RAM_rdata[31:0]} femto_TB.uut.\RAM_rdata[31] femto_TB.uut.\RAM_rdata[30] femto_TB.uut.\RAM_rdata[29] femto_TB.uut.\RAM_rdata[28] femto_TB.uut.\RAM_rdata[27] femto_TB.uut.\RAM_rdata[26] femto_TB.uut.\RAM_rdata[25] femto_TB.uut.\RAM_rdata[24] femto_TB.uut.\RAM_rdata[23] femto_TB.uut.\RAM_rdata[22] femto_TB.uut.\RAM_rdata[21] femto_TB.uut.\RAM_rdata[20] femto_TB.uut.\RAM_rdata[19] femto_TB.uut.\RAM_rdata[18] femto_TB.uut.\RAM_rdata[17] femto_TB.uut.\RAM_rdata[16] femto_TB.uut.\RAM_rdata[15] femto_TB.uut.\RAM_rdata[14] femto_TB.uut.\RAM_rdata[13] femto_TB.uut.\RAM_rdata[12] femto_TB.uut.\RAM_rdata[11] femto_TB.uut.\RAM_rdata[10] femto_TB.uut.\RAM_rdata[9] femto_TB.uut.\RAM_rdata[8] femto_TB.uut.\RAM_rdata[7] femto_TB.uut.\RAM_rdata[6] femto_TB.uut.\RAM_rdata[5] femto_TB.uut.\RAM_rdata[4] femto_TB.uut.\RAM_rdata[3] femto_TB.uut.\RAM_rdata[2] femto_TB.uut.\RAM_rdata[1] femto_TB.uut.\RAM_rdata[0]
 @29
 femto_TB.uut.spi_clk_ram
@@ -119,6 +145,7 @@ femto_TB.uut.\mapped_spi_ram.rbusy
 -group_end
 @800023
 #{t2[31:0]} femto_TB.uut.\CPU.registerFile[7][31] femto_TB.uut.\CPU.registerFile[7][30] femto_TB.uut.\CPU.registerFile[7][29] femto_TB.uut.\CPU.registerFile[7][28] femto_TB.uut.\CPU.registerFile[7][27] femto_TB.uut.\CPU.registerFile[7][26] femto_TB.uut.\CPU.registerFile[7][25] femto_TB.uut.\CPU.registerFile[7][24] femto_TB.uut.\CPU.registerFile[7][23] femto_TB.uut.\CPU.registerFile[7][22] femto_TB.uut.\CPU.registerFile[7][21] femto_TB.uut.\CPU.registerFile[7][20] femto_TB.uut.\CPU.registerFile[7][19] femto_TB.uut.\CPU.registerFile[7][18] femto_TB.uut.\CPU.registerFile[7][17] femto_TB.uut.\CPU.registerFile[7][16] femto_TB.uut.\CPU.registerFile[7][15] femto_TB.uut.\CPU.registerFile[7][14] femto_TB.uut.\CPU.registerFile[7][13] femto_TB.uut.\CPU.registerFile[7][12] femto_TB.uut.\CPU.registerFile[7][11] femto_TB.uut.\CPU.registerFile[7][10] femto_TB.uut.\CPU.registerFile[7][9] femto_TB.uut.\CPU.registerFile[7][8] femto_TB.uut.\CPU.registerFile[7][7] femto_TB.uut.\CPU.registerFile[7][6] femto_TB.uut.\CPU.registerFile[7][5] femto_TB.uut.\CPU.registerFile[7][4] femto_TB.uut.\CPU.registerFile[7][3] femto_TB.uut.\CPU.registerFile[7][2] femto_TB.uut.\CPU.registerFile[7][1] femto_TB.uut.\CPU.registerFile[7][0]
+<<<<<<< HEAD
 @800201
 -femto_TB.uut.\CPU.writeBackData[31:0]
 @1001201
@@ -138,6 +165,29 @@ femto_TB.uut.\per_uart.uart_ctrl[2]
 @1001201
 -group_end
 @201
+=======
+#{a2} femto_TB.uut.\CPU.registerFile[12][31] femto_TB.uut.\CPU.registerFile[12][30] femto_TB.uut.\CPU.registerFile[12][29] femto_TB.uut.\CPU.registerFile[12][28] femto_TB.uut.\CPU.registerFile[12][27] femto_TB.uut.\CPU.registerFile[12][26] femto_TB.uut.\CPU.registerFile[12][25] femto_TB.uut.\CPU.registerFile[12][24] femto_TB.uut.\CPU.registerFile[12][23] femto_TB.uut.\CPU.registerFile[12][22] femto_TB.uut.\CPU.registerFile[12][21] femto_TB.uut.\CPU.registerFile[12][20] femto_TB.uut.\CPU.registerFile[12][19] femto_TB.uut.\CPU.registerFile[12][18] femto_TB.uut.\CPU.registerFile[12][17] femto_TB.uut.\CPU.registerFile[12][16] femto_TB.uut.\CPU.registerFile[12][15] femto_TB.uut.\CPU.registerFile[12][14] femto_TB.uut.\CPU.registerFile[12][13] femto_TB.uut.\CPU.registerFile[12][12] femto_TB.uut.\CPU.registerFile[12][11] femto_TB.uut.\CPU.registerFile[12][10] femto_TB.uut.\CPU.registerFile[12][9] femto_TB.uut.\CPU.registerFile[12][8] femto_TB.uut.\CPU.registerFile[12][7] femto_TB.uut.\CPU.registerFile[12][6] femto_TB.uut.\CPU.registerFile[12][5] femto_TB.uut.\CPU.registerFile[12][4] femto_TB.uut.\CPU.registerFile[12][3] femto_TB.uut.\CPU.registerFile[12][2] femto_TB.uut.\CPU.registerFile[12][1] femto_TB.uut.\CPU.registerFile[12][0]
+@1001200
+-group_end
+@800820
+#{a3} femto_TB.uut.\CPU.registerFile[13][31] femto_TB.uut.\CPU.registerFile[13][30] femto_TB.uut.\CPU.registerFile[13][29] femto_TB.uut.\CPU.registerFile[13][28] femto_TB.uut.\CPU.registerFile[13][27] femto_TB.uut.\CPU.registerFile[13][26] femto_TB.uut.\CPU.registerFile[13][25] femto_TB.uut.\CPU.registerFile[13][24] femto_TB.uut.\CPU.registerFile[13][23] femto_TB.uut.\CPU.registerFile[13][22] femto_TB.uut.\CPU.registerFile[13][21] femto_TB.uut.\CPU.registerFile[13][20] femto_TB.uut.\CPU.registerFile[13][19] femto_TB.uut.\CPU.registerFile[13][18] femto_TB.uut.\CPU.registerFile[13][17] femto_TB.uut.\CPU.registerFile[13][16] femto_TB.uut.\CPU.registerFile[13][15] femto_TB.uut.\CPU.registerFile[13][14] femto_TB.uut.\CPU.registerFile[13][13] femto_TB.uut.\CPU.registerFile[13][12] femto_TB.uut.\CPU.registerFile[13][11] femto_TB.uut.\CPU.registerFile[13][10] femto_TB.uut.\CPU.registerFile[13][9] femto_TB.uut.\CPU.registerFile[13][8] femto_TB.uut.\CPU.registerFile[13][7] femto_TB.uut.\CPU.registerFile[13][6] femto_TB.uut.\CPU.registerFile[13][5] femto_TB.uut.\CPU.registerFile[13][4] femto_TB.uut.\CPU.registerFile[13][3] femto_TB.uut.\CPU.registerFile[13][2] femto_TB.uut.\CPU.registerFile[13][1] femto_TB.uut.\CPU.registerFile[13][0]
+@800022
+#{femto_TB.uut.\mult1.A[15:0]} femto_TB.uut.\mult1.A[15] femto_TB.uut.\mult1.A[14] femto_TB.uut.\mult1.A[13] femto_TB.uut.\mult1.A[12] femto_TB.uut.\mult1.A[11] femto_TB.uut.\mult1.A[10] femto_TB.uut.\mult1.A[9] femto_TB.uut.\mult1.A[8] femto_TB.uut.\mult1.A[7] femto_TB.uut.\mult1.A[6] femto_TB.uut.\mult1.A[5] femto_TB.uut.\mult1.A[4] femto_TB.uut.\mult1.A[3] femto_TB.uut.\mult1.A[2] femto_TB.uut.\mult1.A[1] femto_TB.uut.\mult1.A[0]
+#{femto_TB.uut.\mult1.B[15:0]} femto_TB.uut.\mult1.B[15] femto_TB.uut.\mult1.B[14] femto_TB.uut.\mult1.B[13] femto_TB.uut.\mult1.B[12] femto_TB.uut.\mult1.B[11] femto_TB.uut.\mult1.B[10] femto_TB.uut.\mult1.B[9] femto_TB.uut.\mult1.B[8] femto_TB.uut.\mult1.B[7] femto_TB.uut.\mult1.B[6] femto_TB.uut.\mult1.B[5] femto_TB.uut.\mult1.B[4] femto_TB.uut.\mult1.B[3] femto_TB.uut.\mult1.B[2] femto_TB.uut.\mult1.B[1] femto_TB.uut.\mult1.B[0]
+#{femto_TB.uut.\mult1.mult1.result[31:0]} femto_TB.uut.\mult1.mult1.result[31] femto_TB.uut.\mult1.mult1.result[30] femto_TB.uut.\mult1.mult1.result[29] femto_TB.uut.\mult1.mult1.result[28] femto_TB.uut.\mult1.mult1.result[27] femto_TB.uut.\mult1.mult1.result[26] femto_TB.uut.\mult1.mult1.result[25] femto_TB.uut.\mult1.mult1.result[24] femto_TB.uut.\mult1.mult1.result[23] femto_TB.uut.\mult1.mult1.result[22] femto_TB.uut.\mult1.mult1.result[21] femto_TB.uut.\mult1.mult1.result[20] femto_TB.uut.\mult1.mult1.result[19] femto_TB.uut.\mult1.mult1.result[18] femto_TB.uut.\mult1.mult1.result[17] femto_TB.uut.\mult1.mult1.result[16] femto_TB.uut.\mult1.mult1.result[15] femto_TB.uut.\mult1.mult1.result[14] femto_TB.uut.\mult1.mult1.result[13] femto_TB.uut.\mult1.mult1.result[12] femto_TB.uut.\mult1.mult1.result[11] femto_TB.uut.\mult1.mult1.result[10] femto_TB.uut.\mult1.mult1.result[9] femto_TB.uut.\mult1.mult1.result[8] femto_TB.uut.\mult1.mult1.result[7] femto_TB.uut.\mult1.mult1.result[6] femto_TB.uut.\mult1.mult1.result[5] femto_TB.uut.\mult1.mult1.result[4] femto_TB.uut.\mult1.mult1.result[3] femto_TB.uut.\mult1.mult1.result[2] femto_TB.uut.\mult1.mult1.result[1] femto_TB.uut.\mult1.mult1.result[0]
+@29
+femto_TB.uut.\mult1.init
+@28
+femto_TB.uut.\mult1.mult1.done
+@1001200
+-group_end
+-group_end
+-group_end
+-group_end
+-group_end
+-group_end
+@200
+>>>>>>> 0b5578f0270c0e7e8cfaee4d63477d44b4cde7a6
 -
 @1001201
 -group_end

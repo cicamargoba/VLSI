@@ -17,7 +17,7 @@ loopM:
 	la   a0, command
 	call putstring
 
-	# Receive first two digits decimal number	
+	# Receive first decimal number	
 	call getchar    # 
 	call putchar    # echo
 	addi a0, a0, -0x30
@@ -26,9 +26,9 @@ loopM:
 	# Receive operator	
 	call getchar    # 
 	call putchar    # echo	
-        mv   a3, a0     # a3 = operator
+    mv   a3, a0     # a3 = operator
 	
-	# Receive second two digits decimal number	
+	# Receive second decimal number	
 	call getchar    # 
 	call putchar    # echo
 	addi a0, a0, -0x30
@@ -72,8 +72,8 @@ putstring:
 command:
 	.asciz "In\n"
 operator:
-	.asciz "\n\rEnter operator \n\r"
+	.asciz "Op\n"
 result:
-	.asciz "\n\rResult = "
+	.asciz "R=\n"
 
 #https://luplab.gitlab.io/rvcodecjs/

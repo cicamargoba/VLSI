@@ -61,7 +61,7 @@ end
 reg       rx_busy;
 reg [3:0] rx_count16;
 reg [3:0] rx_bitcount;
-reg [7:0] rxd_reg;
+reg [9:0] rxd_reg;
 
 always @ (posedge clk)
 begin
@@ -71,10 +71,12 @@ begin
 		rx_bitcount <= 0;
 		rx_avail    <= 0;
 		rx_error    <= 0;
+		rxd_reg     <= 0;
 	end else begin 
 		if (rx_ack) begin
 			rx_avail <= 0;
 			rx_error <= 0;
+			rxd_reg  <= 0;
 		end
 
 		if (enable16) begin
@@ -105,7 +107,7 @@ begin
 							rx_error <= 1;
 						end
 					end else begin
-						rxd_reg <= { uart_rxd2, rxd_reg[7:1] };
+						rxd_reg <= { uart_rxd2, rxd_reg[9:1] };
 					end
 				end
 			end 
