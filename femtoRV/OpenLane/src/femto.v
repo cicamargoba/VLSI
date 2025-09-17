@@ -122,6 +122,7 @@ module femto (
      .ledout(LEDS)
    ); 
 
+/*
 	peripheral_mult mult1 (
 		.clk(clk), 
 		.reset(!resetn), 
@@ -133,7 +134,7 @@ module femto (
 		.d_out(mult_dout) 
 	);
 
-/*
+
    peripheral_dpram dpram_p0( 
       .clk(clk),
       .reset(!resetn),

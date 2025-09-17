@@ -117,11 +117,11 @@ always #(tck/2) CLK <= ~CLK;
     #(tck*8000)   
     UART_WRITE_BYTE(8'h39);
     #(tck*12000)
-    UART_WRITE_BYTE(8'h36);
-    #(tck*8000)
-    UART_WRITE_BYTE(8'h2F);    // Operator *
-    #(tck*8000)   
     UART_WRITE_BYTE(8'h39);
+    #(tck*8000)
+    UART_WRITE_BYTE(8'h2F);    // Operator /
+    #(tck*8000)   
+    UART_WRITE_BYTE(8'h33);
     #(tck*8000)
 
 

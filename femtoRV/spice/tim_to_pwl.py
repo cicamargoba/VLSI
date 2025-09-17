@@ -6,11 +6,12 @@ This version ensures digital signals have sharp edges, not triangular ramps
 
 import re
 
-def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=1.8):
+def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
     """Convert GTKWave TIM file to ngspice PWL format with square waves"""
     
     if output_filename is None:
         output_filename = tim_filename.replace('.tim', '.cir')
+        spice_filename  = tim_filename.replace('.tim', '.spice')
     
     with open(tim_filename, 'r') as f:
         content = f.read()
@@ -91,12 +92,15 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=1.8):
     
     # Write output file
     with open(output_filename, 'w') as f:
-        f.write(f"* GTKWave TIM to ngspice PWL converter (SQUARE WAVES)\n")
-        f.write(f"* Source: {tim_filename}\n")
-        f.write(f"* Time Scale: {time_scale} seconds\n")
         f.write(f"* VDD Level: {vdd}V\n")
         f.write(f"* Signals: {len(signals)}\n\n")
-        
+        f.write(f".lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt \n")
+        f.write(f".tran 10000ns 200us\n")
+        f.write(f".print tran format=raw file=Mult4_cir.raw  v(*)\n")
+        f.write(f"* Fuentes de alimentación\n")
+        f.write(f"Vvdd VPWR 0 DC 3.3\n")
+        f.write(f"Vgnd VGND 0 DC 0\n")
+
         # Write PWL statements
         for signal in signals:
             f.write(f"* {signal['original_name']} - {signal['edges']} transitions\n")
@@ -112,21 +116,12 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=1.8):
         
         sim_time = max_time * 1.1
         timestep = time_scale * 10  # 10x time scale for good resolution
-        
-        f.write(f"* Simulation setup for square waves\n")
-        f.write(f".tran {timestep} {sim_time}\n\n")
-        f.write(f"* Plotting\n")
-        f.write(".control\n")
-        f.write("run\n")
-        f.write("plot ")
-        f.write(" ".join(signal['safe_name'] for signal in signals))
-        f.write("\n.endc\n\n")
+        f.write(".include \"./" + spice_filename + "\"\n")
         f.write(".end\n")
     
     print(f"\nSquare wave PWL conversion complete!")
     print(f"Output: {output_filename}")
-    print(f"Timestep: {timestep} seconds")
-    print(f"Simulation time: {sim_time} seconds")
+    print(f"Spice:  {spice_filename}")
     
     return signals
 

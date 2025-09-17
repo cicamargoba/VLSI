@@ -1,3 +1,51 @@
+*.lib /home/carlos/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+
+.tran 10000ns 200us
+.print tran format=raw file=Mult4_cir.raw  v(*)
+*.save all
+
+* Fuentes de alimentación
+Vvdd VPWR 0 DC 3.3
+Vgnd VGND 0 DC 0
+
+* Reloj principal (200MHz)
+Vclk clk 0 dc 0 PULSE(0 3.3 0 0.1u 0.1u 2.4u 5u)
+
+* Señal de inicialización
+Vinit init 0 dc 0 PULSE(0 3.3 10us 0.1u 0.1u 4.9u 200u)
+
+* Señal de reset
+Vrst rst 0 dc 0 PULSE(0 3.3 0 0.1u 0.1u 9.9u 200u)
+
+
+
+* SPICE3 file created from Mult_4.ext - technology: sky130A
+VA0 A[0]   0 dc 0 
+VA1 A[1]   0 dc 3.3 
+VA2 A[2]   0 dc 0 
+VA3 A[3]   0 dc 3.3 
+VA4 A[4]   0 dc 0 
+VA5 A[5]   0 dc 0 
+VA6 A[6]   0 dc 0 
+VA7 A[7]   0 dc 0 
+
+VB0 B[0]   0 dc 0 
+VB1 B[1]   0 dc 3.3 
+VB2 B[2]   0 dc 0 
+VB3 B[3]   0 dc 3.3
+
+
+*.control
+*run
+*listing extended
+*write Mult_4.raw
+*rusage everything
+*exit
+*.endc
+
+
+
 X0 net28 clknet_1_1__leaf__113_ VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.26 ps=2.52 w=1 l=0.15
 X1 VGND clknet_1_1__leaf__113_ net28 VGND sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15
 X2 net28 clknet_1_1__leaf__113_ VGND VGND sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15

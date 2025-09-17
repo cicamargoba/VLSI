@@ -3,34 +3,32 @@
 
 === femto ===
 
-   Number of wires:               7206
-   Number of wire bits:           9152
-   Number of public wires:         108
-   Number of public wire bits:    1802
+   Number of wires:               6881
+   Number of wire bits:           8639
+   Number of public wires:          98
+   Number of public wire bits:    1655
    Number of ports:                 13
    Number of port bits:             13
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               8935
-     $_ANDNOT_                     251
-     $_AND_                       1578
+   Number of cells:               8425
+     $_ANDNOT_                     551
+     $_AND_                       1125
      $_DFFE_NP_                   1048
-     $_DFFE_PP_                     81
+     $_DFFE_PP_                     51
      $_DFF_N_                        8
-     $_DFF_P_                       44
+     $_DFF_P_                       38
      $_DLATCH_N_                     2
-     $_MUX_                       1027
-     $_NAND_                      2647
-     $_NOR_                         95
-     $_NOT_                         33
-     $_ORNOT_                      355
-     $_OR_                        1091
-     $_SDFFCE_PN0P_                 11
-     $_SDFFCE_PP0P_                  2
+     $_MUX_                        964
+     $_NAND_                      2561
+     $_NOR_                        137
+     $_NOT_                         39
+     $_ORNOT_                      306
+     $_OR_                        1056
      $_SDFFE_NN0P_                 138
      $_SDFFE_NN1P_                   2
-     $_SDFFE_PN0P_                 209
+     $_SDFFE_PN0P_                 111
      $_SDFFE_PN1P_                   1
      $_SDFF_NN0_                     1
      $_SDFF_NP0_                    12
@@ -39,5 +37,5 @@
      $_SDFF_PP0_                    13
      $_SDFF_PP1_                     2
      $_XNOR_                       133
-     $_XOR_                        133
+     $_XOR_                        108
 

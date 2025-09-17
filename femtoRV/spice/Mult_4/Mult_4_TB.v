@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1us / 1ns
 `define SIMULATION
 module mult_TB;
    reg  clk;
