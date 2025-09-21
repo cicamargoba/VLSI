@@ -29,9 +29,6 @@ V_result_7_0_ result_7_0_ 0 PWL(0 0 2.4099999e-07 0 2.41e-07 1.8 6.2099998999999
 .tran 1e-11 1.1e-06
 
 * Plotting
-.control
-run
-plot clk done init op_A_3_0_ op_B_3_0_ reset result_7_0_
-.endc
+.print tran v(clk) v(done) v(init) v(op_A_3_0_) v(op_B_3_0_) v(reset) v(result_7_0_)
 
 .end

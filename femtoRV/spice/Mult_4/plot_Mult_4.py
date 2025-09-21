@@ -4,7 +4,9 @@ import numpy as np
 import os
 #from scipy import signal
 
-filepath='/Work/VLSI/VLSI/femtoRV/spice/Mult_4/Mult4_cir.raw'
+filepath='/Mult_4.raw'
+
+filepath = os.path.join("Mult_4.raw")
 l=ltspice.Ltspice(filepath)
 l.parse() # Data loading sequence. It may take few minutes for huge file.
 time=l.get_time()

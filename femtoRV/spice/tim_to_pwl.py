@@ -22,12 +22,16 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=1.8):
     print(f"Time scale: {time_scale} seconds")
     
     # Find all Digital_Signal blocks
-    signal_pattern = r'Digital_Signal\s*\n(.*?)(?=Digital_Signal|Digital_Bus|$)'
+    signal_pattern = r'(Digital_Signal|Digital_Bus)\s*\n(.*?)(?=Digital_Signal|Digital_Bus|$)'
+
     signal_blocks = re.findall(signal_pattern, content, re.DOTALL)
-    
+    signal_blocks = [block for _, block in signal_blocks ]
+
     signals = []
     
+    
     for block in signal_blocks:
+        
         # Extract signal name
         name_match = re.search(r'Name:\s*([\w\[\]:_.-]+)', block)
         if not name_match:

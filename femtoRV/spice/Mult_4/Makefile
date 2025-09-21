@@ -17,7 +17,7 @@ sim:
 	rm -f a.out *.vcd
 	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  $(TARGET)_TB.v $(OBJS) ${SIM_OBJS_SKY}	
 	vvp a.out
-	gtkwave $(TARGET)_TB.vcd $(TARGET)_TB.gtkw
+	gtkwave $(TARGET)_TB.vcd $(TARGET)_TB.gtkw 
 
 sim_per:
 	rm -f a.out *.vcd
@@ -29,10 +29,15 @@ spice:
 	ngspice ${TARGET}.spice
 	python plot_${TARGET}.py
 
-
+convert: 
+	python ../tim_to_pwl.py ${TARGET}.tim
+	python converter_ngspice_xyce.py ${TARGET}.cir ${TARGET}_xyce.cir 
+	
 xyce:
-	mpirun -np ${NPROC} Xyce ${TARGET}_TB.cir
+	mpirun -np ${NPROC} Xyce ${TARGET}_xyce.cir
+	python xyce2ng.py ${TARGET}_xyce.cir.prn ${TARGET}.raw
 	python plot_${TARGET}.py
 
+
 clean:
-	rm -rf *.out *.vcd *.svg *.json *.raw
+	rm -rf *.out *.vcd *.svg *.json *.raw *.prn *.cir 

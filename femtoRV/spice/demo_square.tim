@@ -1,0 +1,31 @@
+Time_Scale:        1.000000E-12
+Digital_Signal
+     Position:          1
+     Height:            24
+     Space_Above:       24
+     Name:              clk
+     Start_State:       0
+     Number_Edges:      8
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+          Edge:               10000.0 1
+          Edge:               20000.0 0
+          Edge:               30000.0 1
+          Edge:               40000.0 0
+          Edge:               50000.0 1
+          Edge:               60000.0 0
+          Edge:               70000.0 1
+          Edge:               80000.0 0
+Digital_Signal
+     Position:          2
+     Height:            24
+     Space_Above:       24
+     Name:              spi_cs_n
+     Start_State:       X
+     Number_Edges:      4
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+          Edge:               15000.0 1
+          Edge:               25000.0 0
+          Edge:               55000.0 1
+          Edge:               65000.0 0

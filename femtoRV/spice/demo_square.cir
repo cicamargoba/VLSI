@@ -1,0 +1,22 @@
+* GTKWave TIM to ngspice PWL converter (SQUARE WAVES)
+* Source: demo_square.tim
+* Time Scale: 1e-12 seconds
+* VDD Level: 1.8V
+* Signals: 2
+
+* clk - 8 transitions
+V_clk clk 0 PWL(0 0 9.99999e-09 0 1e-08 1.8 1.999999e-08 1.8 2e-08 0 2.9999989999999994e-08 0 3e-08 1.8 3.999999e-08 1.8 4e-08 0 4.9999989999999995e-08 0 5e-08 1.8 5.999999e-08 1.8 6e-08 0 6.999999000000001e-08 0 7e-08 1.8 7.999999e-08 1.8 8e-08 0)
+
+* spi_cs_n - 4 transitions
+V_spi_cs_n spi_cs_n 0 PWL(0 0 1.499999e-08 0 1.5e-08 1.8 2.499999e-08 1.8 2.5e-08 0 5.499998999999999e-08 0 5.4999999999999996e-08 1.8 6.499999e-08 1.8 6.5e-08 0)
+
+* Simulation setup for square waves
+.tran 1e-11 8.800000000000001e-08
+
+* Plotting
+.control
+run
+plot clk spi_cs_n
+.endc
+
+.end
