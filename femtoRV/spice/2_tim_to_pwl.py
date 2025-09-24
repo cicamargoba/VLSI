@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GTKWave TIM to ngspice PWL converter with SQUARE WAVE output
-This version ensures digital signals have sharp edges, not triangular ramps
+This version preserves signal names with brackets [ ] and other characters
 """
 
 import re
@@ -29,7 +29,7 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
     signals = []
     
     for block in signal_blocks:
-        # Extract signal name
+        # Extract signal name (preserve all characters including [ ] )
         name_match = re.search(r'Name:\s*([\w\[\]:_.-]+)', block)
         if not name_match:
             continue
@@ -62,7 +62,6 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
             new_voltage = vdd if value == 1 else 0
             
             # Calculate epsilon (small time before transition)
-            # Use 1% of time scale or 1ps, whichever is smaller
             epsilon = 100e-9
             
             # Only add pre-transition point if voltage is changing
@@ -75,8 +74,10 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
                 
                 current_voltage = new_voltage
         
-        # Create safe node name for SPICE
-        safe_name = re.sub(r'[^\w]', '_', signal_name)
+        # Preserve original signal name (keep [ ] and other characters)
+        # Only replace characters that are truly problematic in SPICE
+        safe_name = signal_name.replace(':', '_').replace('.', '_').replace('-', '_')
+        # Keep brackets [ ] and underscores _ as they are valid in SPICE node names
         
         pwl_statement = f"V_{safe_name} {safe_name} 0 PWL({' '.join(pwl_points)})"
         
@@ -88,10 +89,13 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
             'start_state': start_state
         })
         
-        print(f"Processed: {signal_name} ({len(edges)} edges, start: {start_state})")
+        print(f"Processed: {signal_name} → {safe_name} ({len(edges)} edges, start: {start_state})")
     
     # Write output file
     with open(output_filename, 'w') as f:
+        f.write(f"* GTKWave TIM to ngspice PWL converter\n")
+        f.write(f"* Source: {tim_filename}\n")
+        f.write(f"* Time Scale: {time_scale} seconds\n")
         f.write(f"* VDD Level: {vdd}V\n")
         f.write(f"* Signals: {len(signals)}\n\n")
         f.write(f".lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt \n")
@@ -99,9 +103,9 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
         f.write(f".print tran format=raw file=Mult4_cir.raw  v(*)\n")
         f.write(f"* Fuentes de alimentación\n")
         f.write(f"Vvdd VPWR 0 DC 3.3\n")
-        f.write(f"Vgnd VGND 0 DC 0\n")
+        f.write(f"Vgnd VGND 0 DC 0\n\n")
 
-        # Write PWL statements
+        # Write PWL statements with preserved signal names
         for signal in signals:
             f.write(f"* {signal['original_name']} - {signal['edges']} transitions\n")
             f.write(f"{signal['pwl']}\n\n")
@@ -116,70 +120,44 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
         
         sim_time = max_time * 1.1
         timestep = time_scale * 10  # 10x time scale for good resolution
+        
+        f.write(f"* Include circuit netlist\n")
         f.write(".include \"./" + spice_filename + "\"\n")
         f.write(".end\n")
     
     print(f"\nSquare wave PWL conversion complete!")
     print(f"Output: {output_filename}")
     print(f"Spice:  {spice_filename}")
+    print(f"\nSignal name preservation:")
+    for signal in signals:
+        if signal['original_name'] != signal['safe_name']:
+            print(f"  {signal['original_name']} → {signal['safe_name']}")
+        else:
+            print(f"  {signal['original_name']} (unchanged)")
     
     return signals
 
-def demo_square_wave():
-    """Demonstrate the square wave PWL generation"""
+def test_signal_names():
+    """Test signal name preservation"""
+    test_names = [
+        "clk",
+        "data[7:0]", 
+        "addr[15:0]",
+        "spi_cs_n",
+        "uart_tx.out",
+        "mem-enable"
+    ]
     
-    # Create a test TIM file with clock signal
-    test_content = '''Time_Scale:        1.000000E-12
-Digital_Signal
-     Position:          1
-     Height:            24
-     Space_Above:       24
-     Name:              clk
-     Start_State:       0
-     Number_Edges:      8
-     Rise_Time:         0.2
-     Fall_Time:         0.2
-          Edge:               10000.0 1
-          Edge:               20000.0 0
-          Edge:               30000.0 1
-          Edge:               40000.0 0
-          Edge:               50000.0 1
-          Edge:               60000.0 0
-          Edge:               70000.0 1
-          Edge:               80000.0 0
-Digital_Signal
-     Position:          2
-     Height:            24
-     Space_Above:       24
-     Name:              spi_cs_n
-     Start_State:       X
-     Number_Edges:      4
-     Rise_Time:         0.2
-     Fall_Time:         0.2
-          Edge:               15000.0 1
-          Edge:               25000.0 0
-          Edge:               55000.0 1
-          Edge:               65000.0 0
-'''
-    
-    with open('demo_square.tim', 'w') as f:
-        f.write(test_content)
-    
-    signals = convert_tim_to_square_pwl('demo_square.tim', 'demo_square.cir')
-    
-    print("\n" + "="*50)
-    print("DEMO: Generated square wave PWL statements:")
-    print("="*50)
-    
-    for signal in signals:
-        print(f"\n{signal['original_name']}:")
-        print(signal['pwl'])
+    print("Testing signal name preservation:")
+    for name in test_names:
+        safe_name = name.replace(':', '_').replace('.', '_').replace('-', '_')
+        print(f"  {name} → {safe_name}")
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1:
         convert_tim_to_square_pwl(sys.argv[1])
     else:
-        print("Usage: python square_pwl_converter.py <tim_file>")
-        print("\nRunning demo...")
-        demo_square_wave()
+        print("Usage: python tim_converter.py <tim_file>")
+        print("\nTesting signal name preservation...")
+        test_signal_names()

@@ -34,5 +34,11 @@ xyce:
 	mpirun -np ${NPROC} Xyce ${TARGET}_TB.cir
 	python plot_${TARGET}.py
 
+xyce_tim:
+	python3 ../tim_to_pwl.py Mult_4.tim
+	mpirun -np ${NPROC} Xyce ${TARGET}.cir
+	python plot_${TARGET}.py
+
+
 clean:
 	rm -rf *.out *.vcd *.svg *.json *.raw

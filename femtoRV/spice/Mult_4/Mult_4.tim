@@ -117,18 +117,6 @@ Digital_Signal
      Position:          2
      Height:            24
      Space_Above:       24
-     Name:              done
-     Start_State:       X
-     Number_Edges:      3
-     Rise_Time:         0.2
-     Fall_Time:         0.2
-          Edge:               50001000.0 0
-          Edge:               410001000.0 1
-          Edge:               610001000.0 0
-Digital_Signal
-     Position:          3
-     Height:            24
-     Space_Above:       24
      Name:              init
      Start_State:       0
      Number_Edges:      2
@@ -137,7 +125,7 @@ Digital_Signal
           Edge:               130000000.0 1
           Edge:               170000000.0 0
 Digital_Bus
-     Position:          4
+     Position:          3
      Height:            24
      Space_Above:       24
      Name:              op_A[3:0]
@@ -146,8 +134,44 @@ Digital_Bus
      Number_Edges:      0
      Rise_Time:         0.2
      Fall_Time:         0.2
-Digital_Bus
+Digital_Signal
+     Position:          4
+     Height:            24
+     Space_Above:       24
+     Name:              A[3]
+     Start_State:       1
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
      Position:          5
+     Height:            24
+     Space_Above:       24
+     Name:              A[2]
+     Start_State:       0
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          6
+     Height:            24
+     Space_Above:       24
+     Name:              A[1]
+     Start_State:       1
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          7
+     Height:            24
+     Space_Above:       24
+     Name:              A[0]
+     Start_State:       0
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Bus
+     Position:          8
      Height:            24
      Space_Above:       24
      Name:              op_B[3:0]
@@ -157,7 +181,43 @@ Digital_Bus
      Rise_Time:         0.2
      Fall_Time:         0.2
 Digital_Signal
-     Position:          6
+     Position:          9
+     Height:            24
+     Space_Above:       24
+     Name:              B[3]
+     Start_State:       1
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          10
+     Height:            24
+     Space_Above:       24
+     Name:              B[2]
+     Start_State:       0
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          11
+     Height:            24
+     Space_Above:       24
+     Name:              B[1]
+     Start_State:       1
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          12
+     Height:            24
+     Space_Above:       24
+     Name:              B[0]
+     Start_State:       0
+     Number_Edges:      0
+     Rise_Time:         0.2
+     Fall_Time:         0.2
+Digital_Signal
+     Position:          13
      Height:            24
      Space_Above:       24
      Name:              \control0.add
@@ -171,7 +231,7 @@ Digital_Signal
           Edge:               330001000.0 1
           Edge:               350001000.0 0
 Digital_Signal
-     Position:          7
+     Position:          14
      Height:            24
      Space_Above:       24
      Name:              \control0.sh
@@ -191,10 +251,10 @@ Digital_Signal
           Edge:               390001000.0 1
           Edge:               410001000.0 0
 Digital_Signal
-     Position:          8
+     Position:          15
      Height:            24
      Space_Above:       24
-     Name:              reset
+     Name:              rst
      Start_State:       0
      Number_Edges:      2
      Rise_Time:         0.2
@@ -202,7 +262,7 @@ Digital_Signal
           Edge:               20000000.0 1
           Edge:               40000000.0 0
 Digital_Bus
-     Position:          9
+     Position:          16
      Height:            24
      Space_Above:       24
      Name:              result[7:0]
@@ -216,7 +276,7 @@ Digital_Bus
           Edge:               340001000.0 64
           Edge:               620001000.0 00
 Digital_Bus
-     Position:          10
+     Position:          17
      Height:            24
      Space_Above:       24
      Name:              \control0.state[2:0]
