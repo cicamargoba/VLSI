@@ -11,7 +11,7 @@
 
 TARGET=femto
 TOP=femto
-NPROC=4
+NPROC=8
 
 OBJS = femto.v
 PER_OBJS =      perip_mult.v $(OBJS)
@@ -38,6 +38,11 @@ spice:
 
 xyce:
 	mpirun -np ${NPROC} Xyce ${TARGET}.cir
+	python plot_${TARGET}.py
+
+
+xyce_w_c:
+	mpirun -np ${NPROC} Xyce ${TARGET}_w_c.cir
 	python plot_${TARGET}.py
 
 xyce_tim:

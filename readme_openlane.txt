@@ -106,3 +106,31 @@ En /.local/lib/python3.13/site-packages/ltspice/ltspice.py
 #            if filesize > self.max_header_size:
 #                data = f.read(self.max_header_size)  
 #            else:
+
+
+
+
+************************************************************************
+************************************************************************
+*                          MAGIC
+*
+************************************************************************
+************************************************************************
+
+
+
+extract do local
+extract no capacitance
+extract no coupling
+extract no resistance
+extract no adjust
+if { ! $::env(LVS_CONNECT_BY_LABEL) } {
+    extract unique
+}
+# extract warn all
+extract
+
+ext2spice lvs
+ext2spice -o $::env(EXT_NETLIST) $::env(DESIGN_NAME).ext
+feedback save $::env(_tmp_magic_feedback_file)
+# exec cp $::env(DESIGN_NAME).spice $::env(signoff_results)/$::env(DESIGN_NAME).spice

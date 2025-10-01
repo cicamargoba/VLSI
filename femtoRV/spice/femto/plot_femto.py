@@ -1,12 +1,12 @@
 import ltspice
 import matplotlib
-matplotlib.use("TkAgg")  # o "Qt5Agg" si tienes Qt
+#matplotlib.use("TkAgg")  # o "Qt5Agg" si tienes Qt
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 #from scipy import signal
 
-filepath='/home/sebastian/VLSI/femtoRV/spice//femto_1/femto_cir.raw'
+filepath='/Work/VLSI/VLSI/femtoRV/spice/femto/femto.raw'
 l=ltspice.Ltspice(filepath)
 l.parse() # Data loading sequence. It may take few minutes for huge file.
 
@@ -16,17 +16,13 @@ print(l.variables)
 time=l.get_time()
 V1=l.get_data('V(CLK)')
 V2=l.get_data('V(RESETN)')
-V3=l.get_data('V(SPI_CLK)')
-V4=l.get_data('V(SPI_CS_N)')
-V5=l.get_data('V(SPI_MISO)')
-V6=l.get_data('V(SPI_MOSI)')
-V7=l.get_data('V(SPI_CLK_RAM)')
-V8=l.get_data('V(SPI_CS_N_RAM)')
-V9=l.get_data('V(SPI_MISO_RAM)')
-V10=l.get_data('V(SPI_MOSI_RAM)')
+V3=l.get_data('V(SPI_MISO)')
+V4=l.get_data('V(SPI_MISO_RAM)')
+V5=l.get_data('V(_06574)')
+#V6=l.get_data('V(SPI_MOSI_RAM)')
 
-signals = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10]
-sig_names = ["clk", "rst", "spi_clk","spi_cs_n", "spi_miso", "spi_mosi", "spi_clk_ram", "spi_cs_n_ram", "spi_miso_ram", "spi_miso_ram"]
+signals = [V1, V2, V3, V4, V5]
+sig_names = ["clk", "rst", "spi_miso", "spi_miso_ram", "spi_mosi", "spi_mosi_ram"]
 
 # Create stacked subplots
 fig, axes = plt.subplots(15, 1, figsize=(12, 20), sharex=True)
