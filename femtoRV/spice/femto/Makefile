@@ -11,7 +11,7 @@
 
 TARGET=femto
 TOP=femto
-NPROC=8
+NPROC=3
 
 OBJS = femto.v
 PER_OBJS =      perip_mult.v $(OBJS)

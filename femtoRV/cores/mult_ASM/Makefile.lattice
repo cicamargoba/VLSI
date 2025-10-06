@@ -50,7 +50,7 @@ sim_post_syn_sky:
 ## ---------------------
 $(TOP).asc: $(TOP).json
 	nextpnr-ecp5  --json $(TOP).json  $@  --routed-svg $(TOP)_routed.svg --placed-svg $(TOP)_placed.svg #--pcf-allow-unconstrained
-    nextpnr-ecp5 --json $(BUILD_DIR)/$< --lpf $(TARGET).lpf --textcfg $(BUILD_DIR)/$@ --25k --package CABGA256 --speed 6  --timing-allow-fail --seed 1 --lpf-allow-unconstrained  --log $(TARGET)_pnr.log 
+	nextpnr-ecp5 --json $(BUILD_DIR)/$< --lpf $(TARGET).lpf --textcfg $(BUILD_DIR)/$@ --25k --package CABGA256 --speed 6  --timing-allow-fail --seed 1 --lpf-allow-unconstrained  --log $(TARGET)_pnr.log 
 
 sim_post_route: $(TOP).asc $(TOP).pcf
 	icebox_vlog -L -n $(TOP) -sp $(TOP).pcf $< > $(TOP)_route.v

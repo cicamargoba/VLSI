@@ -1,6 +1,6 @@
 TARGET=mult_32
 TOP=mult_32
-NPROC=6
+NPROC=4
 
 
 OBJS = mult_32.v
