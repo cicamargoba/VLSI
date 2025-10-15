@@ -1,7 +1,9 @@
 * VDD Level: 3.3V
 * Signals: 10
 
-.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+*.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+.lib /foss/pdks/ciel/sky130/versions/0536d02d875c8f67dd7cca3902ac457e62f20005/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
 .inc ./spice_models.lib 
 
 .tran 10000ns 600us
