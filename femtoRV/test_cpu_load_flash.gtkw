@@ -1,19 +1,17 @@
 [*]
-[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Wed May 14 12:20:14 2025
+[*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
+[*] Wed Oct 29 22:23:46 2025
 [*]
-[dumpfile] "/Work/VLSI/femtoRV/bench.vcd"
-[dumpfile_mtime] "Wed May 14 12:18:09 2025"
-[dumpfile_size] 21747680
-[savefile] "/Work/VLSI/femtoRV/test_cpu_load_flash.gtkw"
+[dumpfile] "/Work/VLSI/VLSI/femtoRV/bench.vcd"
+[dumpfile_mtime] "Wed Oct 29 22:15:35 2025"
+[dumpfile_size] 33840146
+[savefile] "/Work/VLSI/VLSI/femtoRV/test_cpu_load_flash.gtkw"
 [timestart] 0
-[size] 1920 1011
-[pos] -51 -51
-*-29.787039 245400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1648 951
+[pos] -325 -176
+*-26.787039 23980000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] bench.
 [treeopen] bench.uut.
-[treeopen] bench.uut.mult1.
-[treeopen] bench.uut.per_uart.
 [sst_width] 417
 [signals_width] 378
 [sst_expanded] 1
@@ -126,9 +124,36 @@ bench.uut.mapped_spi_flash.word_address[19:0]
 [color] 2
 bench.uut.mapped_spi_flash.cmd_addr[31:0]
 @28
+[color] 3
+bench.uut.spi_cs_n_ram
+[color] 3
+bench.uut.spi_miso_ram
+[color] 3
+bench.uut.spi_mosi_ram
+[color] 3
+bench.uut.spi_clk_ram
+@29
+[color] 3
+bench.uut.mapped_spi_ram.CS_N
+[color] 3
+bench.uut.mapped_spi_ram.rd
+[color] 3
+bench.uut.mapped_spi_ram.wr
+@28
 bench.uut.mapped_spi_flash.rbusy
-@22
+@800022
 bench.uut.cs[6:0]
+@28
+(0)bench.uut.cs[6:0]
+(1)bench.uut.cs[6:0]
+(2)bench.uut.cs[6:0]
+(3)bench.uut.cs[6:0]
+(4)bench.uut.cs[6:0]
+(5)bench.uut.cs[6:0]
+(6)bench.uut.cs[6:0]
+@1001200
+-group_end
+@22
 bench.uut.mem_rdata[31:0]
 bench.uut.CPU.mem_addr[31:0]
 bench.uut.CPU.PC[23:0]
@@ -149,18 +174,9 @@ bench.uut.CPU.aluIn2[31:0]
 @28
 bench.uut.CPU.mem_rstrb
 bench.uut.CPU.aluWr
-@22
-[color] 5
-bench.uut.RAM.mem_wmask[3:0]
-bench.uut.RAM.mem_addr[31:0]
-[color] 5
-bench.uut.RAM.mem_wdata[31:0]
-[color] 5
-bench.uut.RAM.mem_rdata[31:0]
-@28
 [color] 5
 (0)bench.uut.cs[6:0]
-@821
+@820
 [color] 6
 bench.uut.per_uart.d_in_uart[7:0]
 @28
@@ -174,49 +190,8 @@ bench.uut.TXD
 bench.uut.per_uart.tx_busy
 [color] 6
 bench.uut.per_uart.cs
-[color] 6
-bench.uut.per_uart.rd
-@22
-bench.uut.CPU.\registerFile[0][31:0]
-bench.uut.CPU.\registerFile[1][31:0]
 @820
+[color] 6
 bench.uut.per_uart.uart0.tx_data[7:0]
-@28
-bench.uut.RAM.cs
-bench.uut.RAM.rd
-bench.uut.RAM.wr
-@22
-bench.uut.mult1.A[15:0]
-bench.uut.mult1.B[15:0]
-@28
-bench.uut.mult1.init
-bench.uut.mult1.done
-@22
-bench.uut.mult1.result[31:0]
-bench.uut.RAM.word_addr[29:0]
-bench.uut.CPU.\registerFile[1][31:0]
-bench.uut.CPU.\registerFile[2][31:0]
-bench.uut.CPU.\registerFile[3][31:0]
-bench.uut.CPU.\registerFile[4][31:0]
-bench.uut.CPU.\registerFile[5][31:0]
-bench.uut.CPU.\registerFile[6][31:0]
-bench.uut.CPU.\registerFile[10][31:0]
-bench.uut.CPU.\registerFile[7][31:0]
-bench.uut.RAM.\MEM[0][31:0]
-bench.uut.RAM.\MEM[1][31:0]
-bench.uut.RAM.\MEM[2][31:0]
-bench.uut.RAM.\MEM[3][31:0]
-bench.uut.RAM.\MEM[4][31:0]
-bench.uut.RAM.\MEM[5][31:0]
-bench.uut.RAM.\MEM[6][31:0]
-bench.uut.RAM.\MEM[7][31:0]
-bench.uut.RAM.\MEM[8][31:0]
-bench.uut.RAM.\MEM[9][31:0]
-bench.uut.RAM.\MEM[10][31:0]
-bench.uut.RAM.\MEM[11][31:0]
-bench.uut.RAM.\MEM[12][31:0]
-bench.uut.RAM.\MEM[13][31:0]
-bench.uut.RAM.\MEM[14][31:0]
-bench.uut.RAM.\MEM[15][31:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -63,7 +63,7 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
             
             # Calculate epsilon (small time before transition)
             # Use 1% of time scale or 1ps, whichever is smaller
-            epsilon = 100e-9
+            epsilon = 2e-9
             
             # Only add pre-transition point if voltage is changing
             if new_voltage != current_voltage:
@@ -95,7 +95,7 @@ def convert_tim_to_square_pwl(tim_filename, output_filename=None, vdd=3.3):
         f.write(f"* VDD Level: {vdd}V\n")
         f.write(f"* Signals: {len(signals)}\n\n")
         f.write(f".lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt \n")
-        f.write(f".tran 10000ns 600us\n")
+        f.write(f".tran 1000ns 600us\n")
         f.write(f".print tran format=raw file=Mult4_cir.raw  v(*)\n")
         f.write(f"* Fuentes de alimentación\n")
         f.write(f"Vvdd VPWR 0 DC 3.3\n")

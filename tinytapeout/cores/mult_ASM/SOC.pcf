@@ -1,0 +1,5 @@
+set_io clk     60
+set_io LEDS[0] 49
+set_io resetn  52
+set_io TXD     55
+set_io RXD     56

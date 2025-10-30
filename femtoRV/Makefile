@@ -1,6 +1,6 @@
 TARGET=femto
 TOP=femto
-OPENLANE_SYNT=../OpenLane/designs/femto/runs/full_guide/results/synthesis/
+OPENLANE_SYNT=/media/carlos/Work/VLSI/OpenLane/designs/femto/runs/full_guide/results/synthesis
 OPENLANE_TOP=femto
 SKY_LIB_TECH=$(HOME)/.volare/sky130A/libs.tech/openlane/
 
@@ -89,7 +89,7 @@ $(TOP).json:
  
 femto:
 	cp ${OPENLANE_SYNT}/${OPENLANE_TOP}.v .
-	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o ${OPENLANE_TOP}.vpp -s ${OPENLANE_TOP}_TB ${OPENLANE_TOP}_TB.v ${OPENLANE_TOP}.v cores/sim_spi_flash/spiflash.v verilog_model/sky130_fd_sc_hd.v verilog_model/primitives.v
+	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o ${OPENLANE_TOP}.vpp -s ${OPENLANE_TOP}_TB ${OPENLANE_TOP}_TB.v ${OPENLANE_TOP}.v cores/sim_spi_flash/spiflash.v cores/sim_spi_ram/spiram.v verilog_model/sky130_fd_sc_hd.v verilog_model/primitives.v
 	vvp ${OPENLANE_TOP}.vpp
 	./${OPENLANE_TOP}.vpp
 	gtkwave ${OPENLANE_TOP}_TB.vcd &	

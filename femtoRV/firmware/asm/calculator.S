@@ -8,7 +8,7 @@ calculator:
 #   li   gp,UART_BASE
 #   li   gp, DPRAM_BASE
    li   sp,0x10040
-
+   li   sp,0x10040
 loopM:
     
     li   t0, 22

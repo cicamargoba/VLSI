@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Tue Sep 16 20:16:01 2025
+[*] Mon Oct 20 12:45:37 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
-[dumpfile_mtime] "Tue Sep 16 20:09:04 2025"
-[dumpfile_size] 3832097414
-[savefile] "/Work/VLSI/VLSI/femtoRV/test_femto.gtkw"
-[timestart] 3106550000
+[dumpfile_mtime] "Mon Oct  6 13:45:08 2025"
+[dumpfile_size] 6423281950
+[savefile] "/Work/VLSI/VLSI/femtoRV/spice/femto/test_femto.gtkw"
+[timestart] 0
 [size] 1648 951
-[pos] -1 -1
-*-21.700001 3114301000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 25 22
+*-16.700001 99500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] femto_TB.
 [treeopen] femto_TB.uut.
 [sst_width] 278
 [signals_width] 438
 [sst_expanded] 1
-[sst_vpaned_height] 608
+[sst_vpaned_height] 571
 @28
 femto_TB.uut.clk
 femto_TB.uut.resetn
@@ -107,14 +107,10 @@ femto_TB.uut.\mapped_spi_ram.rbusy
 -group_end
 @800820
 #{a3} femto_TB.uut.\CPU.registerFile[13][31] femto_TB.uut.\CPU.registerFile[13][30] femto_TB.uut.\CPU.registerFile[13][29] femto_TB.uut.\CPU.registerFile[13][28] femto_TB.uut.\CPU.registerFile[13][27] femto_TB.uut.\CPU.registerFile[13][26] femto_TB.uut.\CPU.registerFile[13][25] femto_TB.uut.\CPU.registerFile[13][24] femto_TB.uut.\CPU.registerFile[13][23] femto_TB.uut.\CPU.registerFile[13][22] femto_TB.uut.\CPU.registerFile[13][21] femto_TB.uut.\CPU.registerFile[13][20] femto_TB.uut.\CPU.registerFile[13][19] femto_TB.uut.\CPU.registerFile[13][18] femto_TB.uut.\CPU.registerFile[13][17] femto_TB.uut.\CPU.registerFile[13][16] femto_TB.uut.\CPU.registerFile[13][15] femto_TB.uut.\CPU.registerFile[13][14] femto_TB.uut.\CPU.registerFile[13][13] femto_TB.uut.\CPU.registerFile[13][12] femto_TB.uut.\CPU.registerFile[13][11] femto_TB.uut.\CPU.registerFile[13][10] femto_TB.uut.\CPU.registerFile[13][9] femto_TB.uut.\CPU.registerFile[13][8] femto_TB.uut.\CPU.registerFile[13][7] femto_TB.uut.\CPU.registerFile[13][6] femto_TB.uut.\CPU.registerFile[13][5] femto_TB.uut.\CPU.registerFile[13][4] femto_TB.uut.\CPU.registerFile[13][3] femto_TB.uut.\CPU.registerFile[13][2] femto_TB.uut.\CPU.registerFile[13][1] femto_TB.uut.\CPU.registerFile[13][0]
-@800022
-#{femto_TB.uut.\mult1.A[15:0]} femto_TB.uut.\mult1.A[15] femto_TB.uut.\mult1.A[14] femto_TB.uut.\mult1.A[13] femto_TB.uut.\mult1.A[12] femto_TB.uut.\mult1.A[11] femto_TB.uut.\mult1.A[10] femto_TB.uut.\mult1.A[9] femto_TB.uut.\mult1.A[8] femto_TB.uut.\mult1.A[7] femto_TB.uut.\mult1.A[6] femto_TB.uut.\mult1.A[5] femto_TB.uut.\mult1.A[4] femto_TB.uut.\mult1.A[3] femto_TB.uut.\mult1.A[2] femto_TB.uut.\mult1.A[1] femto_TB.uut.\mult1.A[0]
-#{femto_TB.uut.\mult1.B[15:0]} femto_TB.uut.\mult1.B[15] femto_TB.uut.\mult1.B[14] femto_TB.uut.\mult1.B[13] femto_TB.uut.\mult1.B[12] femto_TB.uut.\mult1.B[11] femto_TB.uut.\mult1.B[10] femto_TB.uut.\mult1.B[9] femto_TB.uut.\mult1.B[8] femto_TB.uut.\mult1.B[7] femto_TB.uut.\mult1.B[6] femto_TB.uut.\mult1.B[5] femto_TB.uut.\mult1.B[4] femto_TB.uut.\mult1.B[3] femto_TB.uut.\mult1.B[2] femto_TB.uut.\mult1.B[1] femto_TB.uut.\mult1.B[0]
-#{femto_TB.uut.\mult1.mult1.result[31:0]} femto_TB.uut.\mult1.mult1.result[31] femto_TB.uut.\mult1.mult1.result[30] femto_TB.uut.\mult1.mult1.result[29] femto_TB.uut.\mult1.mult1.result[28] femto_TB.uut.\mult1.mult1.result[27] femto_TB.uut.\mult1.mult1.result[26] femto_TB.uut.\mult1.mult1.result[25] femto_TB.uut.\mult1.mult1.result[24] femto_TB.uut.\mult1.mult1.result[23] femto_TB.uut.\mult1.mult1.result[22] femto_TB.uut.\mult1.mult1.result[21] femto_TB.uut.\mult1.mult1.result[20] femto_TB.uut.\mult1.mult1.result[19] femto_TB.uut.\mult1.mult1.result[18] femto_TB.uut.\mult1.mult1.result[17] femto_TB.uut.\mult1.mult1.result[16] femto_TB.uut.\mult1.mult1.result[15] femto_TB.uut.\mult1.mult1.result[14] femto_TB.uut.\mult1.mult1.result[13] femto_TB.uut.\mult1.mult1.result[12] femto_TB.uut.\mult1.mult1.result[11] femto_TB.uut.\mult1.mult1.result[10] femto_TB.uut.\mult1.mult1.result[9] femto_TB.uut.\mult1.mult1.result[8] femto_TB.uut.\mult1.mult1.result[7] femto_TB.uut.\mult1.mult1.result[6] femto_TB.uut.\mult1.mult1.result[5] femto_TB.uut.\mult1.mult1.result[4] femto_TB.uut.\mult1.mult1.result[3] femto_TB.uut.\mult1.mult1.result[2] femto_TB.uut.\mult1.mult1.result[1] femto_TB.uut.\mult1.mult1.result[0]
-@29
-femto_TB.uut.\mult1.init
-@28
-femto_TB.uut.\mult1.mult1.done
+@800200
+-femto_TB.uut.\mult1.A[15:0]
+-femto_TB.uut.\mult1.B[15:0]
+-femto_TB.uut.\mult1.mult1.result[31:0]
 @1001200
 -group_end
 -group_end

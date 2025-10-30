@@ -1,41 +1,9 @@
 
 25. Executing CHECK pass (checking for obvious problems).
 Checking module femto...
-Warning: Wire femto.\mult_dout [31] is used but has no driver.
-Warning: Wire femto.\mult_dout [30] is used but has no driver.
-Warning: Wire femto.\mult_dout [29] is used but has no driver.
-Warning: Wire femto.\mult_dout [28] is used but has no driver.
-Warning: Wire femto.\mult_dout [27] is used but has no driver.
-Warning: Wire femto.\mult_dout [26] is used but has no driver.
-Warning: Wire femto.\mult_dout [25] is used but has no driver.
-Warning: Wire femto.\mult_dout [24] is used but has no driver.
-Warning: Wire femto.\mult_dout [23] is used but has no driver.
-Warning: Wire femto.\mult_dout [22] is used but has no driver.
-Warning: Wire femto.\mult_dout [21] is used but has no driver.
-Warning: Wire femto.\mult_dout [20] is used but has no driver.
-Warning: Wire femto.\mult_dout [19] is used but has no driver.
-Warning: Wire femto.\mult_dout [18] is used but has no driver.
-Warning: Wire femto.\mult_dout [17] is used but has no driver.
-Warning: Wire femto.\mult_dout [16] is used but has no driver.
-Warning: Wire femto.\mult_dout [15] is used but has no driver.
-Warning: Wire femto.\mult_dout [14] is used but has no driver.
-Warning: Wire femto.\mult_dout [13] is used but has no driver.
-Warning: Wire femto.\mult_dout [12] is used but has no driver.
-Warning: Wire femto.\mult_dout [11] is used but has no driver.
-Warning: Wire femto.\mult_dout [10] is used but has no driver.
-Warning: Wire femto.\mult_dout [9] is used but has no driver.
-Warning: Wire femto.\mult_dout [8] is used but has no driver.
-Warning: Wire femto.\mult_dout [7] is used but has no driver.
-Warning: Wire femto.\mult_dout [6] is used but has no driver.
-Warning: Wire femto.\mult_dout [5] is used but has no driver.
-Warning: Wire femto.\mult_dout [4] is used but has no driver.
-Warning: Wire femto.\mult_dout [3] is used but has no driver.
-Warning: Wire femto.\mult_dout [2] is used but has no driver.
-Warning: Wire femto.\mult_dout [1] is used but has no driver.
-Warning: Wire femto.\mult_dout [0] is used but has no driver.
-Checking module MappedSPIFlash...
 Checking module $paramod$98ebefd4f3ce78b73da447c42dad1d2cc3e300e6\peripheral_uart...
-Checking module MappedSPIRAM...
+Checking module MappedSPIFlash...
 Checking module $paramod$1ff9e88c83222e524ee14446c2eb7f71f974bb2f\uart...
 Checking module FemtoRV32...
-Found and reported 32 problems.
+Checking module MappedSPIRAM...
+Found and reported 0 problems.

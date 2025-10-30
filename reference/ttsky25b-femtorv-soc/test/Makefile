@@ -6,13 +6,14 @@ SIM ?= icarus
 WAVES ?= 1
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v femto_quark_bi.v mem_ctrl.v qspi_ctrl.v rf_top.v
+PROJECT_SOURCES = project.v femto_quark_bi.v mem_ctrl.v qspi_ctrl.v rf_top.v latch_reg.v peri/*/*.v
 
 ifneq ($(GATES),yes)
 
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+COMPILE_ARGS 		+= -DSIM
 
 else
 

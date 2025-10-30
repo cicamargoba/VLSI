@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon May  5 22:03:28 2025
+[*]
+[dumpfile] "/Work/VLSI/femtoRV/cores/spi_flash/MappedSPIFlash_V3_TB.vcd"
+[dumpfile_mtime] "Mon May  5 22:00:12 2025"
+[dumpfile_size] 1322399
+[savefile] "/Work/VLSI/femtoRV/cores/spi_flash/MappedSPIFlash_TB.gtkw"
+[timestart] 0
+[size] 2560 1531
+[pos] -1 -1
+*-22.000000 29150000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] MappedSPIFlash_TB.
+[sst_width] 331
+[signals_width] 210
+[sst_expanded] 1
+[sst_vpaned_height] 937
+@28
+MappedSPIFlash_TB.uut.reset
+MappedSPIFlash_TB.uut.rstrb
+@22
+MappedSPIFlash_TB.uut.word_address[19:0]
+@28
+MappedSPIFlash_TB.uut.rbusy
+@22
+MappedSPIFlash_TB.uut.snd_bitcount[5:0]
+MappedSPIFlash_TB.uut.rcv_bitcount[5:0]
+MappedSPIFlash_TB.uut.cmd_addr[31:0]
+@28
+[color] 2
+MappedSPIFlash_TB.uut.CLK
+MappedSPIFlash_TB.uut.clk
+[color] 2
+MappedSPIFlash_TB.uut.CS_N
+[color] 2
+MappedSPIFlash_TB.uut.MISO
+[color] 2
+MappedSPIFlash_TB.uut.MOSI
+@23
+[color] 3
+MappedSPIFlash_TB.uut.rcv_data[31:0]
+@22
+MappedSPIFlash_TB.uut.rdata[31:0]
+@28
+MappedSPIFlash_TB.uut.state[2:0]
+MappedSPIFlash_TB.uut.clk_div
+[pattern_trace] 1
+[pattern_trace] 0

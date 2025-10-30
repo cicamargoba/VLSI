@@ -14,11 +14,12 @@ async def reset(dut, latency=1, ui_in=0x80):
     dut._log.info(f"Reset, latency {latency}")
     dut.ena.value = 1
     dut.ui_in.value = ui_in
-    dut.uio_in[0].value = 0
-    dut.uio_in[3].value = 0
-    dut.uio_in[6].value = 0
-    dut.uio_in[7].value = 0
-    dut.qspi_data_in.value = 0
+    dut.uio_in.value = 0
+#    dut.uio_in[3].value = 0
+#    dut.uio_in[6].value = 0
+#    dut.uio_in[7].value = 0
+    if hasattr(dut, "qspi_data_in"):
+        dut.qspi_data_in.value = 0
     dut.rst_n.value = 1
     #dut.uart_rx.value = 1
     await ClockCycles(dut.clk, 2)
@@ -36,10 +37,11 @@ async def reset(dut, latency=1, ui_in=0x80):
 
     # Should start reading flash after 2 cycles
     await ClockCycles(dut.clk, 2)
-    await start_read(dut, 0)
-    await send_instr(dut, InstructionLUI(gp, 0x01000).encode())
-    await send_instr(dut, InstructionADDI(gp, gp, 0x400).encode())
-    await send_instr(dut, InstructionLUI(tp, 0x08000).encode())
+    if hasattr(dut, "qspi_data_in"):
+        await start_read(dut, 0)
+        await send_instr(dut, InstructionLUI(gp, 0x01000).encode())
+        await send_instr(dut, InstructionADDI(gp, gp, 0x400).encode())
+        await send_instr(dut, InstructionLUI(tp, 0x08000).encode())
 
 select = None
 
@@ -292,7 +294,7 @@ async def expect_store(dut, addr, bytes=4, allow_long_delay=False):
                     await ClockCycles(dut.clk, 1, False)
                 assert dut.qspi_clk_out.value == 1
                 assert dut.qspi_data_oe.value == 0xF
-                val |= dut.qspi_data_out.value << (nibble_shift_order[j % 8])
+                val |= dut.qspi_data_out.value.integer << (nibble_shift_order[j % 8])
                 await ClockCycles(dut.clk, 1, False)
                 assert select.value == (1 if j == bytes*2-1 else 0)
                 assert dut.qspi_clk_out.value == 0

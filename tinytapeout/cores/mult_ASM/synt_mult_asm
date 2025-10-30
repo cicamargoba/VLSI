@@ -1,0 +1,31 @@
+read_liberty -lib ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog mult_32.v 
+read_verilog acc.v  
+read_verilog comp.v  
+read_verilog control_mult.v  
+read_verilog lsr.v 
+read_verilog rsr.v
+hierarchy -check -top mult_32
+proc   # convert RTL processes into multiplexers and registers
+fsm
+opt 
+memory -nomap
+opt
+techmap
+opt -fast
+#extract_fa -v
+techmap -map ../../../PDK/open_pdks/sky130/openlane/sky130_fd_sc_hd/fa_map.v
+opt -fast
+abc -liberty  ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt -fast
+check
+## write synthesized design
+write_verilog  -attr2comment mult_32_synth_sky.v
+show -prefix /Work/VLSI/femtoRV/ mult_32
+## show design stats
+stat -liberty  ../../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+
+
+
+#write_verilog  -attr2comment mult_32_synth_sky.v

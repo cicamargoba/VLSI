@@ -150,7 +150,7 @@ always @(negedge clk) begin
 end
 
 
-   assign  MOSI  = cmd_addr[31];
+assign  MOSI  = cmd_addr[31];
 
 //   assign  CLK   = !CS_N && !clk; // CLK needs to be inverted (sample on posedge, shift of negedge) 
                                   // and needs to be disabled when not sending/receiving (&& !CS_N).

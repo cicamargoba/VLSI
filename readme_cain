@@ -34,3 +34,6 @@ mpirun -np <# procs> Xyce [options] <netlist filename>
 
 
 
+
+https://pypi.org/project/riscv-model/#files
+

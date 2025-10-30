@@ -10,6 +10,7 @@ module tb ();
   reg clk;
   reg rst_n;
   reg ena;
+  reg [7:0] ui_in_base;
   wire [7:0] ui_in;
   reg [7:0] uio_in;
   wire [7:0] uo_out;
@@ -26,6 +27,23 @@ module tb ();
   wire qspi_flash_select = uio_out[0];
   wire qspi_ram_a_select = uio_out[6];
   wire qspi_ram_b_select = uio_out[7];
+
+  wire spi_miso = ui_in_base[2];
+  wire spi_cs = uo_out[4];
+  wire spi_sck = uo_out[5];
+  wire spi_mosi = uo_out[3];
+  wire spi_dc = uo_out[2];
+
+  wire mhz_clk = ui_in_base[3];
+  wire game_latch = ui_in_base[4];
+  wire game_clk = ui_in_base[5];
+  wire game_data = ui_in_base[6];
+
+  wire uart_tx = uo_out[0];
+  wire uart_rts = uo_out[1];
+  wire debug_uart_tx = uo_out[6];
+  wire uart_rx = ui_in_base[7];
+  assign ui_in = {uart_rx, game_data, game_clk, game_latch, ui_in_base[3], spi_miso, ui_in_base[1:0]};
 
 `ifdef GL_TEST
   wire VPWR = 1'b1;

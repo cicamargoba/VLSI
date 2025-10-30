@@ -50,9 +50,9 @@ library (sky130_s47_lib) {
     map_only : true;
     interface_timing : true;
     memory () {
-      type : "rom";
-      address_width : 2;
-      word_width : 2;
+      type : "sram";
+      address_width : 5;
+      word_width : 32;
     }
     pg_pin (VPWR) {
       voltage_name : "VPWR";
@@ -81,10 +81,10 @@ library (sky130_s47_lib) {
         related_pin : "clk";
         timing_type : "hold_rising";
         rise_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
         fall_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
       }
     }
@@ -107,10 +107,10 @@ library (sky130_s47_lib) {
         related_pin : "clk";
         timing_type : "hold_rising";
         rise_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
         fall_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
       }
     }
@@ -133,10 +133,10 @@ library (sky130_s47_lib) {
         related_pin : "clk";
         timing_type : "hold_rising";
         rise_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
         fall_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
       }
     }
@@ -161,10 +161,10 @@ library (sky130_s47_lib) {
         related_pin : "clk";
         timing_type : "hold_rising";
         rise_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
         fall_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
       }
     }
@@ -180,10 +180,10 @@ library (sky130_s47_lib) {
         timing_type : "rising_edge";
         timing_sense : "non_unate";
         cell_rise (scalar) {
-          values ("5.0");
+          values ("4.0");
         }
         cell_fall (scalar) {
-          values ("5.0");
+          values ("4.0");
         }
         rise_transition (scalar) {
           values ("0.25");
@@ -205,10 +205,10 @@ library (sky130_s47_lib) {
         timing_type : "rising_edge";
         timing_sense : "non_unate";
         cell_rise (scalar) {
-          values ("5.0");
+          values ("4.0");
         }
         cell_fall (scalar) {
-          values ("5.0");
+          values ("4.0");
         }
         rise_transition (scalar) {
           values ("0.25");
@@ -236,10 +236,10 @@ library (sky130_s47_lib) {
         related_pin : "clk";
         timing_type : "hold_rising";
         rise_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
         fall_constraint (scalar) {
-          values ("0.1");
+          values ("0.2");
         }
       }
     }
@@ -264,6 +264,26 @@ library (sky130_s47_lib) {
         }
         fall_constraint (scalar) {
           values ("10.0");
+        }
+      }
+      timing () {
+        timing_sense : "positive_unate";
+        timing_type : "min_clock_tree_path";
+        cell_rise (scalar) {
+          values ("0.2");
+        }
+        cell_fall (scalar) {
+          values ("0.2");
+        }
+      }
+      timing () {
+        timing_sense : "negative_unate";
+        timing_type : "min_clock_tree_path";
+        cell_rise (scalar) {
+          values ("0.2");
+        }
+        cell_fall (scalar) {
+          values ("0.2");
         }
       }
     }

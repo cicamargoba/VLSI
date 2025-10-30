@@ -30,10 +30,7 @@ module tinyqv_mem_ctrl (
     output           spi_clk_out,
     output           spi_flash_select,
     output           spi_ram_a_select,
-    output           spi_ram_b_select,
-
-    output        debug_stall_txn,
-    output        debug_stop_txn
+    output           spi_ram_b_select
 );
 
     // Combinational
@@ -199,8 +196,5 @@ module tinyqv_mem_ctrl (
       ({qspi_data_out, qspi_data_buf[23:16],
         txn_len == 2'b01 ? qspi_data_out : qspi_data_buf[15:8],
         txn_len == 2'b00 ? qspi_data_out : qspi_data_buf[7:0]}) : qspi_data_buf;
-
-    assign debug_stall_txn = stall_txn;
-    assign debug_stop_txn = stop_txn;
 
 endmodule
