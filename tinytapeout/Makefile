@@ -6,15 +6,15 @@ TINYTO_TOP=tt_um_femto
 SKY_LIB_TECH=$(HOME)/.volare/sky130A/libs.tech/openlane/
 
 
-OBJS = OpenLane/src/femto.v
-OBJS+= OpenLane/src/femtorv32_quark.v
-OBJS+= OpenLane/src/perip_uart.v
-OBJS+= OpenLane/src/uart.v
-OBJS+= OpenLane/src/perip_mult.v
-OBJS+= OpenLane/src/mult.v
-OBJS+= OpenLane/src/bram.v
-OBJS+= OpenLane/src/MappedSPIFlash.v
-OBJS+= OpenLane/src/MappedSPIRAM.v
+OBJS = ../femto_UN/src/femto.v
+OBJS+= ../femto_UN/src/femtorv32_quark.v
+OBJS+= ../femto_UN/src/perip_uart.v
+OBJS+= ../femto_UN/src/uart.v
+OBJS+= ../femto_UN/src/perip_mult.v
+OBJS+= ../femto_UN/src/mult.v
+OBJS+= ../femto_UN/src/bram.v
+OBJS+= ../femto_UN/src/MappedSPIFlash.v
+OBJS+= ../femto_UN/src/MappedSPIRAM.v
 
 //OBJS+= cores/spi_flash/MappedSPIFlash.v
 SIM_OBJS = cores/sim_spi_flash/spiflash.v
@@ -33,9 +33,9 @@ ${TARGET}.svf : ${TARGET}.bit
 
 sim: 
 	rm -f a.out *.vcd
-	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 bench_quark_flash.v ${OBJS} ${SIM_OBJS}
+	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 tt_um_femto_TB.v ${OBJS} ${SIM_OBJS}
 	vvp a.out
-	gtkwave bench.vcd
+	gtkwave tt_um_femto_TB.vcd
 #conda install -c conda-forge click
 # o sudo pip3 install Click
 

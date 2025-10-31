@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Wed Oct 29 22:23:46 2025
+[*] Fri Oct 31 15:05:45 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/femtoRV/bench.vcd"
-[dumpfile_mtime] "Wed Oct 29 22:15:35 2025"
+[dumpfile_mtime] "Fri Oct 31 13:23:26 2025"
 [dumpfile_size] 33840146
 [savefile] "/Work/VLSI/VLSI/femtoRV/test_cpu_load_flash.gtkw"
-[timestart] 0
-[size] 1648 951
-[pos] -325 -176
-*-26.787039 23980000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 12261000
+[size] 1648 983
+[pos] -325 -192
+*-20.787039 16020000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] bench.
 [treeopen] bench.uut.
 [sst_width] 417
 [signals_width] 378
 [sst_expanded] 1
-[sst_vpaned_height] 566
+[sst_vpaned_height] 632
 @28
 bench.uut.clk
 bench.uut.resetn
@@ -26,6 +26,8 @@ bench.uut.CPU.instr[31:2]
 bench.uut.cs[6:0]
 bench.uut.CPU.state[3:0]
 bench.uut.CPU.PC[23:0]
+@23
+bench.uut.mem_rdata[31:0]
 @28
 bench.uut.rd
 @22
@@ -132,13 +134,14 @@ bench.uut.spi_miso_ram
 bench.uut.spi_mosi_ram
 [color] 3
 bench.uut.spi_clk_ram
-@29
 [color] 3
 bench.uut.mapped_spi_ram.CS_N
 [color] 3
 bench.uut.mapped_spi_ram.rd
 [color] 3
 bench.uut.mapped_spi_ram.wr
+@22
+bench.uut.mapped_spi_ram.rcv_data[31:0]
 @28
 bench.uut.mapped_spi_flash.rbusy
 @800022
@@ -193,5 +196,17 @@ bench.uut.per_uart.cs
 @820
 [color] 6
 bench.uut.per_uart.uart0.tx_data[7:0]
+@800022
+bench.uut.cs[6:0]
+@28
+(0)bench.uut.cs[6:0]
+(1)bench.uut.cs[6:0]
+(2)bench.uut.cs[6:0]
+(3)bench.uut.cs[6:0]
+(4)bench.uut.cs[6:0]
+(5)bench.uut.cs[6:0]
+(6)bench.uut.cs[6:0]
+@1001200
+-group_end
 [pattern_trace] 1
 [pattern_trace] 0

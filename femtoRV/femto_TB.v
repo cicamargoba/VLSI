@@ -96,12 +96,12 @@ always #(tck/2) CLK <= ~CLK;
        integer idx; 
    initial begin
 
-
+ 
     $dumpfile("femto_TB.vcd");
     $dumpvars(-1,uut);
 `ifdef BENCH
-    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
-    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
+//    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
+//    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
 `endif
 
     #0   RXD   = 1;
@@ -110,7 +110,7 @@ always #(tck/2) CLK <= ~CLK;
   #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
 //    @(posedge CLK);
-    #(tck*22000)
+    #(tck*30000)
     UART_WRITE_BYTE(8'h36);
     #(tck*8000)
     UART_WRITE_BYTE(8'h2A);    // Operator *

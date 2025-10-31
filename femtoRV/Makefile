@@ -31,7 +31,7 @@ ${TARGET}.svf : ${TARGET}.bit
 
 sim: 
 	rm -f a.out *.vcd
-	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 bench_quark_flash.v ${OBJS} ${SIM_OBJS}
+	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TOP)_TB.v ${OBJS} ${SIM_OBJS}
 	vvp a.out
 	gtkwave bench.vcd
 #conda install -c conda-forge click

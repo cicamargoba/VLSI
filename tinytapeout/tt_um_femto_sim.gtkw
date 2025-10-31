@@ -1,24 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Wed Oct 29 17:42:09 2025
+[*] Fri Oct 31 19:53:18 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Wed Oct 29 17:42:09 2025"
-[dumpfile_size] 767737856
+[dumpfile_mtime] "Fri Oct 31 19:48:33 2025"
+[dumpfile_size] 9745937290
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim.gtkw"
 [timestart] 0
-[size] 1648 951
+[size] 1648 983
 [pos] -1 -1
-*-26.000000 210000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-29.000000 2453000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [sst_width] 329
 [signals_width] 262
 [sst_expanded] 1
-[sst_vpaned_height] 366
-@800023
+[sst_vpaned_height] 632
+@800022
 +{PC} #{<Vector>} tt_um_femto_TB.uut.\femto0.CPU.PC[23] tt_um_femto_TB.uut.\femto0.CPU.PC[22] tt_um_femto_TB.uut.\femto0.CPU.PC[21] tt_um_femto_TB.uut.\femto0.CPU.PC[20] tt_um_femto_TB.uut.\femto0.CPU.PC[19] tt_um_femto_TB.uut.\femto0.CPU.PC[18] tt_um_femto_TB.uut.\femto0.CPU.PC[17] tt_um_femto_TB.uut.\femto0.CPU.PC[16] tt_um_femto_TB.uut.\femto0.CPU.PC[15] tt_um_femto_TB.uut.\femto0.CPU.PC[14] tt_um_femto_TB.uut.\femto0.CPU.PC[13] tt_um_femto_TB.uut.\femto0.CPU.PC[12] tt_um_femto_TB.uut.\femto0.CPU.PC[11] tt_um_femto_TB.uut.\femto0.CPU.PC[10] tt_um_femto_TB.uut.\femto0.CPU.PC[9] tt_um_femto_TB.uut.\femto0.CPU.PC[8] tt_um_femto_TB.uut.\femto0.CPU.PC[7] tt_um_femto_TB.uut.\femto0.CPU.PC[6] tt_um_femto_TB.uut.\femto0.CPU.PC[5] tt_um_femto_TB.uut.\femto0.CPU.PC[4] tt_um_femto_TB.uut.\femto0.CPU.PC[3] tt_um_femto_TB.uut.\femto0.CPU.PC[2] tt_um_femto_TB.uut.\femto0.CPU.PC[1]
-@1001201
+@1001200
 -group_end
 @28
 tt_um_femto_TB.uut.clk
@@ -58,6 +58,8 @@ tt_um_femto_TB.uut.ui_in[7:0]
 (4)tt_um_femto_TB.uut.ui_in[7:0]
 (5)tt_um_femto_TB.uut.ui_in[7:0]
 (6)tt_um_femto_TB.uut.ui_in[7:0]
+@29
+tt_um_femto_TB.uut.\femto0.TXD
 @800022
 #{R0} tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][31] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][30] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][29] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][28] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][27] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][26] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][25] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][24] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][23] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][22] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][21] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][20] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][19] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][18] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][17] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][16] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][15] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][14] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][13] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][12] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][11] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][10] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][9] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][8] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][7] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][6] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][5] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][4] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][3] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][2] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][1] tt_um_femto_TB.uut.\femto0.CPU.registerFile[0][0]
 +{ra} #{R1} tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][31] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][30] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][29] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][28] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][27] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][26] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][25] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][24] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][23] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][22] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][21] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][20] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][19] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][18] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][17] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][16] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][15] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][14] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][13] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][12] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][11] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][10] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][9] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][8] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][7] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][6] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][5] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][4] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][3] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][2] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][1] tt_um_femto_TB.uut.\femto0.CPU.registerFile[1][0]

@@ -1,12 +1,10 @@
 `timescale 1ns / 1ps
-module tt_um_femto_TB();
-// Testbench uses a 10 MHz clock
+module femto_TB();
+// Testbench uses a 10 MHz clockmake 
 // Want to interface to 115200 baud UART
 // 25000000 / 115200 = 217 Clocks Per Bit.
 parameter tck              = 40;
 parameter c_BIT_PERIOD     = 8680;
-wire VPWR = 1'b1;
-wire VGND = 1'b0;
 
    reg CLK;
    reg i;
@@ -23,24 +21,13 @@ wire VGND = 1'b0;
    wire spi_miso_ram;
    wire spi_mosi_ram;
 
-tt_um_femto uut(
-    .clk    (CLK),
-    .ena    (ena),
-    .rst_n  (RESET),
-`ifndef BENCH
-    .VPWR   (VPWR),
-    .VGND   (VGND),
-`endif
-    .ui_in  ({5'b00000, RXD, spi_miso_ram, spi_miso}),
-    .uo_out ({TXD, LEDS, spi_clk, spi_clk_ram, spi_cs_n_ram, spi_cs, spi_mosi_ram, spi_mosi}));
-
 
   // Takes in input byte and serializes it 
   task UART_WRITE_BYTE;
     input [7:0] i_Data;
     integer     ii;
     begin
-
+       
       // Send Start Bit
       RXD <= 1'b0;
       #(c_BIT_PERIOD);
@@ -51,12 +38,29 @@ tt_um_femto uut(
           RXD <= i_Data[ii];
           #(c_BIT_PERIOD);
         end
-
+       
       // Send Stop Bit
       RXD <= 1'b1;
       #(c_BIT_PERIOD);
      end
   endtask // UART_WRITE_BYTE
+  
+  
+   femto uut(
+     .clk(CLK),
+     .resetn(RESET),
+     .spi_mosi(spi_mosi), 
+     .spi_miso(spi_miso), 
+     .spi_cs_n(spi_cs),
+     .spi_clk(spi_clk),
+     .spi_clk_ram(spi_clk_ram),
+     .spi_cs_n_ram(spi_cs_n_ram),
+     .spi_miso_ram(spi_miso_ram),
+     .spi_mosi_ram(spi_mosi_ram),
+     .LEDS(LEDS),
+     .RXD(RXD),
+     .TXD(TXD)
+   );
 
  spiflash flash0(
 	.csb(spi_cs),
@@ -93,17 +97,19 @@ always #(tck/2) CLK <= ~CLK;
    initial begin
 
 
-    $dumpfile("tt_um_femto_TB.vcd");
+    $dumpfile("femto_TB.vcd");
     $dumpvars(-1,uut);
-`ifdef SIM
-    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.CPU.registerFile[idx]);
-//    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.RAM.MEM[idx]);
+`ifdef BENCH
+    for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
+    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
 `endif
 
     #0   RXD   = 1;
     #0   RESET = 0;
     #80  RESET = 0;
   #160 RESET = 1;
+    // Send a command to the UART (exercise Rx)
+//    @(posedge CLK);
     #(tck*22000)
     UART_WRITE_BYTE(8'h36);
     #(tck*8000)
@@ -117,9 +123,13 @@ always #(tck/2) CLK <= ~CLK;
     #(tck*8000)   
     UART_WRITE_BYTE(8'h33);
     #(tck*8000)
+
+
+    
 //    @(posedge CLK);
     #(tck*150000) $finish;
  end
-
-endmodule
-
+ 
+ 
+endmodule   
+ 

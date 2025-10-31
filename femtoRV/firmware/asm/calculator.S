@@ -14,47 +14,25 @@ loopM:
     li   t0, 22
 	li   t1, 66
 
-	la   a0, command
-	call putstring
+    li   a0, 64
+	call putchar
+	li   a0, 10
+	call putchar
 
-	# Receive first decimal number	
+echo:
+    li   a0, 10
+	call putchar
 	call getchar    # 
 	call putchar    # echo
-	addi a0, a0, -0x30
-	mv   a2, a0     # first digit operand
 
-	# Receive operator	
-	call getchar    # 
-	call putchar    # echo	
-    mv   a3, a0     # a3 = operator
-	
-	# Receive second decimal number	
-	call getchar    # 
-	call putchar    # echo
-	addi a0, a0, -0x30
-	mv   t0, a0
-	
-
-	la   a0, result
-	call putstring
-	
+    j echo
 
 
-	mv   a1,t0
-	mv   a0,a2
-		
-	li   t0, '*'
-	bne  t0, a3, divide
-#	call mult
-	call mult_hw
-	j    print_res
-divide:
-	call div
-#	call div_hw
 
-print_res:		
-	call bin_to_bcd
-	j    loopM
+
+
+
+
 putstring:
 	addi sp,sp,-4 # save ra on the stack
 	sw ra,0(sp)   # (need to do that for functions that call functions)
@@ -70,7 +48,7 @@ putstring:
 
 .section .data
 command:
-	.asciz "In\n"
+	.asciz "\r\nIN\n"
 operator:
 	.asciz "Op\n"
 result:
