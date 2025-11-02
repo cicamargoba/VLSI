@@ -8,7 +8,7 @@ parameter c_BIT_PERIOD     = 8680;
 
    reg CLK;
    reg i;
-   reg RESET; 
+   reg RESET;
    wire LEDS;
    reg  RXD = 1'b0;
    wire TXD;
@@ -27,7 +27,6 @@ parameter c_BIT_PERIOD     = 8680;
     input [7:0] i_Data;
     integer     ii;
     begin
-       
       // Send Start Bit
       RXD <= 1'b0;
       #(c_BIT_PERIOD);
@@ -38,19 +37,17 @@ parameter c_BIT_PERIOD     = 8680;
           RXD <= i_Data[ii];
           #(c_BIT_PERIOD);
         end
-       
       // Send Stop Bit
       RXD <= 1'b1;
       #(c_BIT_PERIOD);
      end
   endtask // UART_WRITE_BYTE
-  
-  
+
    femto uut(
      .clk(CLK),
      .resetn(RESET),
-     .spi_mosi(spi_mosi), 
-     .spi_miso(spi_miso), 
+     .spi_mosi(spi_mosi),
+     .spi_miso(spi_miso),
      .spi_cs_n(spi_cs),
      .spi_clk(spi_clk),
      .spi_clk_ram(spi_clk_ram),
@@ -63,10 +60,10 @@ parameter c_BIT_PERIOD     = 8680;
    );
 
  spiflash flash0(
-	.csb(spi_cs),
-	.clk(spi_clk),
-	.io0(spi_mosi), // MOSI
-	.io1(spi_miso) // MISO
+  .csb(spi_cs),
+  .clk(spi_clk),
+  .io0(spi_mosi), // MOSI
+  .io1(spi_miso) // MISO
 );
 
 

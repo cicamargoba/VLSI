@@ -1,0 +1,148 @@
+[*]
+[*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
+[*] Sun Nov  2 07:57:35 2025
+[*]
+[dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
+[dumpfile_mtime] "Sun Nov  2 07:52:20 2025"
+[dumpfile_size] 71856986
+[savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog_2.gtkw"
+[timestart] 7495300000
+[size] 1648 951
+[pos] -1 -1
+*-25.000000 7577370000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tt_um_femto_TB.
+[treeopen] tt_um_femto_TB.uut.
+[treeopen] tt_um_femto_TB.uut.femto0.
+[treeopen] tt_um_femto_TB.uut.femto0.per_uart.
+[sst_width] 329
+[signals_width] 319
+[sst_expanded] 1
+[sst_vpaned_height] 608
+@28
+tt_um_femto_TB.uut.resetn
+@22
+tt_um_femto_TB.uut.femto0.CPU.PC[23:0]
+@28
+tt_um_femto_TB.uut.femto0.TXD
+tt_um_femto_TB.uut.femto0.RXD
+@820
+tt_um_femto_TB.uut.femto0.per_uart.rx_data[7:0]
+tt_um_femto_TB.uut.femto0.per_uart.uart0.tx_data[7:0]
+@22
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[0][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[1][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[2][31:0]
+@23
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[5][31:0]
+@22
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[10][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[14][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[15][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[31][31:0]
+tt_um_femto_TB.uut.femto0.CPU.aluShamt[4:0]
+@28
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.CLK
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.CS_N
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.MISO
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.MOSI
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.state[2:0]
+@24
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rcv_data[31:0]
+@28
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rbusy
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.wbusy
+@22
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_bitcount[5:0]
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.snd_bitcount[8:0]
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.cmd_addr[63:0]
+@24
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rdata[31:0]
+@28
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rbusy
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.wbusy
+tt_um_femto_TB.uut.femto0.flashram0.SI
+[color] 2
+tt_um_femto_TB.uut.femto0.flashram0.SO
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.edge_CLK
+@22
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rcv_bitcount[5:0]
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.snd_bitcount[8:0]
+@28
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.clk
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.wr
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rd
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.CSB
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.SI
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.SO
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.SCK
+@22
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.Saddr[19:0]
+@c00022
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+@28
+[color] 3
+(0)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(1)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(2)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(3)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(4)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(5)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(6)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+[color] 3
+(7)tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
+@1401200
+-group_end
+@820
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.state[176:1]
+@22
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[44][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[45][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[46][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[47][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[48][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[49][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[50][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[51][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[52][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[53][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[54][7:0]
+[color] 3
+tt_um_femto_TB.uut.femto0.flashram0.\mem[55][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[56][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[57][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[58][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[59][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[60][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[61][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[62][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[63][7:0]
+tt_um_femto_TB.uut.femto0.flashram0.\mem[64][7:0]
+[pattern_trace] 1
+[pattern_trace] 0

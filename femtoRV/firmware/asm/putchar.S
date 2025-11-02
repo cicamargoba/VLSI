@@ -22,10 +22,11 @@ putchar:
    lw   t1, IO_UART_CNTL(gp)
    and  t1, t1, t0
    bnez t1, .L0
-   
-   lw   t0,0(sp) 
+
+	lw   ra,8(sp)
    lw   t1,4(sp)
-	sw   ra,12(sp)
+   lw   t0,0(sp) 
+
    addi sp,sp,12      # save a3, a4, a5 on the stack
   ret
 

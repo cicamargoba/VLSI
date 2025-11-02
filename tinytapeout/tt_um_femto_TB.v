@@ -66,12 +66,12 @@ tt_um_femto uut(
 );
 
 
-spiram flashram0(
-  .CS(spi_cs_n_ram),     // Chip Select (activo en bajo)
-  .SCK(spi_clk_ram),    // SPI Clock
-  .SI(spi_mosi_ram),     // Serial Input (MOSI)
-  .SO(spi_miso_ram)     // Serial Output (MISO)
-);
+// spiram flashram0(
+//   .CS(spi_cs_n_ram),     // Chip Select (activo en bajo)
+//   .SCK(spi_clk_ram),    // SPI Clock
+//   .SI(spi_mosi_ram),     // Serial Input (MOSI)
+//   .SO(spi_miso_ram)     // Serial Output (MISO)
+// );
 
 
 
@@ -97,28 +97,34 @@ always #(tck/2) CLK <= ~CLK;
     $dumpvars(-1,uut);
 `ifdef SIM
     for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.CPU.registerFile[idx]);
-//    for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.RAM.MEM[idx]);
+    for(idx = 32; idx < 65; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.flashram0.mem[idx]);
 `endif
 
     #0   RXD   = 1;
     #0   RESET = 0;
     #80  RESET = 0;
   #160 RESET = 1;
-    #(tck*22000)
-    UART_WRITE_BYTE(8'h36);
+    #(tck*100000)
+    UART_WRITE_BYTE(8'h38);
     #(tck*8000)
+
     UART_WRITE_BYTE(8'h2A);    // Operator *
     #(tck*8000)   
+
     UART_WRITE_BYTE(8'h39);
-    #(tck*12000)
-    UART_WRITE_BYTE(8'h39);
+    #(tck*120000)
+
+    UART_WRITE_BYTE(8'h38);
     #(tck*8000)
-    UART_WRITE_BYTE(8'h2F);    // Operator /
+
+    UART_WRITE_BYTE(8'h2A);    // Operator *
     #(tck*8000)   
-    UART_WRITE_BYTE(8'h33);
+
+    UART_WRITE_BYTE(8'h37);
     #(tck*8000)
+
 //    @(posedge CLK);
-    #(tck*150000) $finish;
+    #(tck*200000) $finish;
  end
 
 endmodule

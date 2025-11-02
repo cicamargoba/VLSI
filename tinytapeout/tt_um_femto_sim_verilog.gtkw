@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Fri Oct 31 19:37:45 2025
+[*] Sat Nov  1 23:47:41 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Fri Oct 31 19:35:36 2025"
-[dumpfile_size] 35031786
+[dumpfile_mtime] "Sat Nov  1 23:25:54 2025"
+[dumpfile_size] 34043365
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog.gtkw"
-[timestart] 0
-[size] 1648 983
-[pos] -325 -192
-*-30.000000 179800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 77526000
+[size] 1648 951
+[pos] -1 -1
+*-20.000000 80240000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [treeopen] tt_um_femto_TB.uut.femto0.
 [sst_width] 329
 [signals_width] 262
 [sst_expanded] 1
-[sst_vpaned_height] 366
+[sst_vpaned_height] 608
 @28
 tt_um_femto_TB.uut.clk
 tt_um_femto_TB.uut.rst_n
@@ -57,9 +57,39 @@ tt_um_femto_TB.uut.femto0.mapped_spi_ram.CS_N
 tt_um_femto_TB.uut.femto0.mapped_spi_ram.MISO
 [color] 3
 tt_um_femto_TB.uut.femto0.mapped_spi_ram.MOSI
-tt_um_femto_TB.uut.femto0.mapped_spi_ram.rd
+[color] 3
 tt_um_femto_TB.uut.femto0.mapped_spi_ram.wr
-@23
+[color] 3
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.rd
+[color] 3
+tt_um_femto_TB.uut.femto0.mapped_spi_ram.state[1:0]
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.state[2:0]
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.CS
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.SO
+@22
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.addr[14:0]
+@28
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.SCK
+@22
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.cmd[7:0]
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.shift_reg[7:0]
+@c00029
+[color] 7
+tt_um_femto_TB.uut.femto0.flashram0.bit_cnt[2:0]
+@28
+(0)tt_um_femto_TB.uut.femto0.flashram0.bit_cnt[2:0]
+(1)tt_um_femto_TB.uut.femto0.flashram0.bit_cnt[2:0]
+(2)tt_um_femto_TB.uut.femto0.flashram0.bit_cnt[2:0]
+@1401201
+-group_end
+@22
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[0][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[1][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[2][31:0]

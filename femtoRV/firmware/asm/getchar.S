@@ -31,6 +31,6 @@ getchar:
 	lw   ra,0(sp)
 	lw   t0,4(sp)
 	addi sp,sp,8      # save a3, a4, a5 on the stack
-        ret 
+    ret 
 
 
