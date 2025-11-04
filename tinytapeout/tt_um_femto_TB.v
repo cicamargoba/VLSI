@@ -75,6 +75,18 @@ tt_um_femto uut(
 
 
 
+  FRAM_SPI flashram0(
+   .CSB(spi_cs_n_ram),     // Chip Select (activo en bajo)
+   .SCK(spi_clk_ram),    // SPI Clock
+   .SI(spi_mosi_ram),     // Serial Input (MOSI)
+   .SO(spi_miso_ram),     // Serial Output (MISO)
+   .VDD(reset_n),
+   .WPB(1'b1)
+  );
+
+
+
+
 initial         CLK <= 0;
 always #(tck/2) CLK <= ~CLK;
 
