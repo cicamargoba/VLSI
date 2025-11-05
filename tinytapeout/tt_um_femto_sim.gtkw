@@ -1,16 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Tue Nov  4 22:03:31 2025
+[*] Wed Nov  5 12:54:00 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Tue Nov  4 22:03:31 2025"
-[dumpfile_size] 7106682880
+[dumpfile_mtime] "Wed Nov  5 12:54:00 2025"
+[dumpfile_size] 3761659904
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim.gtkw"
 [timestart] 0
 [size] 1648 951
 [pos] -1 -1
-*-26.400002 187322000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-27.400002 279001000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
+[treeopen] tt_um_femto_TB.uut.
 [sst_width] 329
 [signals_width] 310
 [sst_expanded] 1
@@ -29,12 +30,17 @@ tt_um_femto_TB.uut.\femto0.CPU.state[0]
 tt_um_femto_TB.uut.\femto0.CPU.state[1]
 tt_um_femto_TB.uut.\femto0.CPU.state[2]
 tt_um_femto_TB.uut.\femto0.CPU.state[3]
-@29
 [color] 3
 tt_um_femto_TB.uut.\femto0.mapped_spi_ram.MOSI
 [color] 3
 tt_um_femto_TB.uut.\femto0.mapped_spi_ram.CLK
+@29
+[color] 3
+(6)tt_um_femto_TB.uut.ui_in[7:0]
 @28
+[color] 3
+tt_um_femto_TB.uut.\femto0.mapped_spi_ram.CS_N
+[color] 3
 tt_um_femto_TB.uut.\femto0.mapped_spi_flash.CS_N
 tt_um_femto_TB.uut.ena
 [color] 2
@@ -59,7 +65,6 @@ tt_um_femto_TB.uut.ui_in[7:0]
 (3)tt_um_femto_TB.uut.ui_in[7:0]
 (4)tt_um_femto_TB.uut.ui_in[7:0]
 (5)tt_um_femto_TB.uut.ui_in[7:0]
-(6)tt_um_femto_TB.uut.ui_in[7:0]
 +{TXD} tt_um_femto_TB.uut.\femto0.TXD
 @800022
 +{rx_data} #{tx_data} tt_um_femto_TB.uut.\femto0.per_uart.rx_data[7] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[6] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[5] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[4] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[3] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[2] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[1] tt_um_femto_TB.uut.\femto0.per_uart.rx_data[0]

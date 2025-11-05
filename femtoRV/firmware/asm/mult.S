@@ -23,8 +23,8 @@ mult:
   beqz  a3, .L1      # LSB of a5 = 0 ?
   add   a0, a0, a4   # PP = PP + a4
 .L1:
-  srli  a5, a5, 2    # a5 = a5/2
-  slli  a4, a4, 2    # a0 = a0*2
+  srli  a5, a5, 1    # a5 = a5/2
+  slli  a4, a4, 1    # a0 = a0*2
   bnez  a5, .L2      # loop until a5 = 0 
 
   lw   a3,0(sp)  # 

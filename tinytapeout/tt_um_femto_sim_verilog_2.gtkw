@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Sun Nov  2 08:28:25 2025
+[*] Wed Nov  5 13:24:05 2025
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Sun Nov  2 08:12:14 2025"
-[dumpfile_size] 71073396
+[dumpfile_mtime] "Wed Nov  5 13:17:22 2025"
+[dumpfile_size] 71994938
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog_2.gtkw"
-[timestart] 6753219000
+[timestart] 6014600000
 [size] 1648 951
 [pos] -1 -1
-*-18.000000 6753860000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-26.000000 6163200000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [treeopen] tt_um_femto_TB.uut.femto0.
@@ -33,13 +33,19 @@ tt_um_femto_TB.uut.femto0.CPU.\registerFile[0][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[1][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[2][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[5][31:0]
+@24
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[10][31:0]
+@22
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[11][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[12][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[13][31:0]
+@23
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[14][31:0]
+@22
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[15][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[31][31:0]
 [color] 2
 tt_um_femto_TB.uut.femto0.CPU.aluShamt[4:0]
-@23
 tt_um_femto_TB.uut.femto0.CPU.aluReg[31:0]
 @28
 tt_um_femto_TB.uut.femto0.mapped_spi_flash.CLK

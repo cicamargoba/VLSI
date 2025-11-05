@@ -15,23 +15,23 @@ bin_to_bcd:
   sw   ra,24(sp)
   mv   a1, zero
   li   t6, 1
-  slli t6, t6, 16    # Bit counter 16 bits
+  slli t6, t6, 15    # Bit counter 16 bits
     
 .L0:               
 # shift left {a1, a0}
-  slli a1,a1,2       #
+  slli a1,a1,1       #
   li   t1,0x03       # Number to add on each iteration
   li   t2,0x05       # Number to add on each iteration   
   li   t3,0x0F       # BCD mask 
 
   li   t0,1
-  slli t0,t0,16      # 
+  slli t0,t0,15      # 
   and  t0,t0,a0
   beqz t0, .L1       # (MSB)A0  = 1
   add  a1,a1,1
 .L1:
-  slli a0,a0,2       #
-  srli t6, t6, 2     # Update bit counter
+  slli a0,a0,1       #
+  srli t6, t6, 1     # Update bit counter
   beqz t6, .L6       # print result
 .L11:
 # check if each BCD digit <= 5 and add 3 if apply
@@ -49,9 +49,9 @@ bin_to_bcd:
   or   a1, a1, t3    # a1 = 0xkkkkkkkF
   and  a1, a1, t0    # a1 = 0xKKKKKKKN (only in first iteration, then kkFk, kFkk, Fkkk, etc)
 .L3:
-  slli t1, t1, 5     # Next BCD Number
-  slli t2, t2, 5     #
-  slli t3, t3, 5     #
+  slli t1, t1, 4     # Next BCD Number
+  slli t2, t2, 4     #
+  slli t3, t3, 4     #
   beqz t3,.L0  #
   j    .L11 
 
@@ -61,13 +61,13 @@ bin_to_bcd:
   li   t3, 0x8       # 2 ^ bits to send  
 .L5:
   mv   t0, a1
-  srli t0, t0, 13
+  srli t0, t0, 12
   andi t0, t0, 0x0F
   addi t0, t0, 0x30
   mv   a0, t0
   call putchar
-  slli a1, a1, 5
-  srli t3, t3, 2
+  slli a1, a1, 4
+  srli t3, t3, 1
   beqz t3, .PC0
   j    .L5
 .PC0: 

@@ -93,18 +93,18 @@ Disassembly of section everything:
   f8:	00112c23          	sw	ra,24(sp)
   fc:	00000593          	li	a1,0
  100:	00100f93          	li	t6,1
- 104:	010f9f93          	slli	t6,t6,0x10
- 108:	00259593          	slli	a1,a1,0x2
+ 104:	00ff9f93          	slli	t6,t6,0xf
+ 108:	00159593          	slli	a1,a1,0x1
  10c:	00300313          	li	t1,3
  110:	00500393          	li	t2,5
  114:	00f00e13          	li	t3,15
  118:	00100293          	li	t0,1
- 11c:	01029293          	slli	t0,t0,0x10
+ 11c:	00f29293          	slli	t0,t0,0xf
  120:	00a2f2b3          	and	t0,t0,a0
  124:	00028463          	beqz	t0,12c <bin_to_bcd+0x50>
  128:	00158593          	addi	a1,a1,1
- 12c:	00251513          	slli	a0,a0,0x2
- 130:	002fdf93          	srli	t6,t6,0x2
+ 12c:	00151513          	slli	a0,a0,0x1
+ 130:	001fdf93          	srli	t6,t6,0x1
  134:	040f8263          	beqz	t6,178 <bin_to_bcd+0x9c>
  138:	01c5f2b3          	and	t0,a1,t3
  13c:	0072d463          	bge	t0,t2,144 <bin_to_bcd+0x68>
@@ -117,20 +117,20 @@ Disassembly of section everything:
  158:	01e2e2b3          	or	t0,t0,t5
  15c:	01c5e5b3          	or	a1,a1,t3
  160:	0055f5b3          	and	a1,a1,t0
- 164:	00531313          	slli	t1,t1,0x5
- 168:	00539393          	slli	t2,t2,0x5
- 16c:	005e1e13          	slli	t3,t3,0x5
+ 164:	00431313          	slli	t1,t1,0x4
+ 168:	00439393          	slli	t2,t2,0x4
+ 16c:	004e1e13          	slli	t3,t3,0x4
  170:	f80e0ce3          	beqz	t3,108 <bin_to_bcd+0x2c>
  174:	fc5ff06f          	j	138 <bin_to_bcd+0x5c>
  178:	00800e13          	li	t3,8
  17c:	00058293          	mv	t0,a1
- 180:	00d2d293          	srli	t0,t0,0xd
+ 180:	00c2d293          	srli	t0,t0,0xc
  184:	00f2f293          	andi	t0,t0,15
  188:	03028293          	addi	t0,t0,48
  18c:	00028513          	mv	a0,t0
  190:	1b4000ef          	jal	ra,344 <putchar>
- 194:	00559593          	slli	a1,a1,0x5
- 198:	002e5e13          	srli	t3,t3,0x2
+ 194:	00459593          	slli	a1,a1,0x4
+ 198:	001e5e13          	srli	t3,t3,0x1
  19c:	000e0463          	beqz	t3,1a4 <.PC0>
  1a0:	fddff06f          	j	17c <bin_to_bcd+0xa0>
 
@@ -172,8 +172,8 @@ Disassembly of section everything:
  210:	0017f693          	andi	a3,a5,1
  214:	00068463          	beqz	a3,21c <mult+0x28>
  218:	00e50533          	add	a0,a0,a4
- 21c:	0027d793          	srli	a5,a5,0x2
- 220:	00271713          	slli	a4,a4,0x2
+ 21c:	0017d793          	srli	a5,a5,0x1
+ 220:	00171713          	slli	a4,a4,0x1
  224:	fe0796e3          	bnez	a5,210 <mult+0x1c>
  228:	00012683          	lw	a3,0(sp)
  22c:	00412703          	lw	a4,4(sp)
