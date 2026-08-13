@@ -37,3 +37,33 @@ mpirun -np <# procs> Xyce [options] <netlist filename>
 
 https://pypi.org/project/riscv-model/#files
 
+
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+             EXPORT TINY TAPEOUT TO SPICE
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+export PDK_ROOT=/usr/local/share/pdk/
+export PDK=sky130A
+magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech  tt_um_femto.gds
+
+extract all
+extract do local
+extract unique
+
+# Configurar extracción solo de dispositivos (sin parásitos)
+ext2spice lvs
+ext2spice cthresh infinite
+ext2spice rthresh infinite
+ext2spice subcircuit on
+ext2spice hierarchy on
+ext2spice scale off
+ext2spice
+
+quit

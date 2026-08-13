@@ -1,40 +1,35 @@
 
-56. Printing statistics.
+55. Printing statistics.
 
 === femto ===
 
         +----------Local Count, excluding submodules.
         | 
-     6927 wires
-     8685 wire bits
-       98 public wires
-     1655 public wire bits
+      639 wires
+     6511 wire bits
+      132 public wires
+     1877 public wire bits
        13 ports
        13 port bits
-     8471 cells
-      301   $_ANDNOT_
-     1352   $_AND_
-     1048   $_DFFE_NP_
-       51   $_DFFE_PP_
-        8   $_DFF_N_
-       38   $_DFF_P_
-        2   $_DLATCH_N_
-      934   $_MUX_
-     2667   $_NAND_
-       66   $_NOR_
-       47   $_NOT_
-      319   $_ORNOT_
-     1089   $_OR_
-      138   $_SDFFE_NN0P_
-        2   $_SDFFE_NN1P_
-      111   $_SDFFE_PN0P_
-        1   $_SDFFE_PN1P_
-        1   $_SDFF_NN0_
-       12   $_SDFF_NP0_
-       17   $_SDFF_PN0_
-        1   $_SDFF_PN1_
-       13   $_SDFF_PP0_
-        2   $_SDFF_PP1_
-      119   $_XNOR_
-      132   $_XOR_
+      604 cells
+       19   $alu
+      137   $and
+        6   $dff
+       41   $dffe
+        2   $dlatch
+       46   $eq
+        2   $logic_and
+       18   $logic_not
+      149   $mux
+       15   $ne
+       29   $not
+       34   $or
+        9   $pmux
+       25   $reduce_and
+       13   $reduce_bool
+       20   $reduce_or
+       12   $sdff
+       24   $sdffe
+        1   $shl
+        2   $xor
 

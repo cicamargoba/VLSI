@@ -67,7 +67,7 @@ prepare_libs:
 	sed -E 's/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g' $(HOME)/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib
 	sed -E 's/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g' ./synthesis/trimmed.lib > ./synthesis/1-trimmed.no_pg.lib
 	yosys -c scripts/yosys/synth.tcl 
-	cp out.v ${TARGET}_sky.v
+#	cp out.v ${TARGET}_sky.v
 #	cp tmp/synthesis/trimmed.lib ./synthesis/
 sim_post_syn_sky: prepare_libs
 	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v ${TARGET}_sky.v ${SIM_OBJS} ${SIM_OBJS_SKY}

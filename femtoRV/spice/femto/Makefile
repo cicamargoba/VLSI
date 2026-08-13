@@ -11,7 +11,7 @@
 
 TARGET=femto
 TOP=femto
-NPROC=3
+NPROC=1
 
 OBJS = femto.v
 PER_OBJS =      perip_mult.v $(OBJS)
@@ -32,7 +32,7 @@ sim:
 	gtkwave $(TARGET)_TB.vcd $(TARGET)_TB.gtkw
 
 spice:
-	ngspice ${TARGET}.spice
+	ngspice ${TARGET}_TB.cir
 	python plot_${TARGET}.py
 
 
