@@ -1,0 +1,20 @@
+from ttboard.demoboard import DemoBoard
+from ttboard.mode import RPMode
+from machine import Pin
+
+tt = DemoBoard.get()
+tt.clock_project_stop()
+tt.mode = RPMode.ASIC_RP_CONTROL
+tt.shuttle.tt_um_femto.enable()
+tt.shuttle.enabled
+
+tt.pins.ui_in0.init(Pin.IN)
+tt.pins.ui_in1.init(Pin.IN)
+
+tt.reset_project(True)
+tt.clock_project_PWM(1000)
+tt.reset_project(False)
+
+
+
+

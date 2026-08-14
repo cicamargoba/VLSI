@@ -7,7 +7,7 @@ SECTIONS
     everything :
     {
 	. = ALIGN(4);
-	calculator.o (.text)
+	blink.o (.text)
 /*    for.o (.text)  */
         *(.*)
     } >BRAM

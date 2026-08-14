@@ -41,7 +41,7 @@ always @(posedge clk) begin
   end
   else begin
 	d_in_uart = (s[0] & wr) ? d_in[7:0] : d_in_uart; // data in uart
-	uart_ctrl = (s[1] & wr) ? d_in[7:0] : uart_ctrl; // data controller 5'b0, LED, tx_wr, rx_ack
+	uart_ctrl = (s[1] & wr) ? d_isn[7:0] : uart_ctrl; // data controller 5'b0, LED, tx_wr, rx_ack
 	ledout    = uart_ctrl[2];	// write ledout register
   end
 end

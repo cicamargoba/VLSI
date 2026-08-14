@@ -1,26 +1,28 @@
 
-61. Printing statistics.
+62. Printing statistics.
 
 === femto ===
 
         +----------Local Count, excluding submodules.
         | 
-     2815 wires
-     8912 wire bits
-      132 public wires
-     1877 public wire bits
+     8645 wires
+    10403 wire bits
+       98 public wires
+     1655 public wire bits
        13 ports
        13 port bits
-     7566 cells
-      243   $_AND_
-     3649   $_MUX_
-     1365   $_NOT_
-      574   $_OR_
-      226   $_XOR_
-       19   $alu
-        9   $pmux
-        1   $shl
-      379   sky130_fd_sc_hd__dfxtp_1
+    10183 cells
+      242   $_ANDNOT_
+     1349   $_AND_
+     1516   $_MUX_
+     2582   $_NAND_
+       71   $_NOR_
+     1252   $_NOT_
+      536   $_ORNOT_
+      939   $_OR_
+      121   $_XNOR_
+      130   $_XOR_
+      344   sky130_fd_sc_hd__dfxtp_1
         2   sky130_fd_sc_hd__dlxtn_1
      1099   sky130_fd_sc_hd__edfxtp_1
 

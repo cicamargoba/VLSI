@@ -8,8 +8,8 @@
 # a:
 # COMMONFLAGS += -flto
 # *************************************************
-OBJECTS =  bin_to_bcd.o mult.o div.o wait.o putchar.o getchar.o calculator.o #hello.o 
-#OBJECTS =  for.o 
+#OBJECTS =  bin_to_bcd.o mult.o div.o wait.o putchar.o getchar.o calculator.o #hello.o 
+OBJECTS =  blink.o 
 CROSS   = riscv32-unknown-elf
 CC      = $(CROSS)-gcc
 AS      = $(CROSS)-as
@@ -25,6 +25,11 @@ firmware.bin: firmware.elf
 	$(OBJCOPY) -O ihex $< firmware_flash_intel.hex
 	$(OBJCOPY) -O binary $< $@
 	chmod -x $@
+	python3 fix_shift.py firmware.bin firmware_shifted.bin --bits 1 --dir right --fill 0
+	dd if=/dev/zero bs=1M count=4 2>/dev/null | tr '\000' '\377' > firmware_full.bin
+	dd if=firmware_shifted.bin of=firmware_full.bin conv=notrunc bs=1 2>/dev/null
+	sudo flashrom -p ch341a_spi -w firmware_full.bin
+# sudo flashrom -p ch341a_spi -r test_read.bin
 
 firmware.elf: $(OBJECTS) 
 	$(LD) $(LDFLAGS) -T bram.ld  -m elf32lriscv -nostdlib -Map firmware.map -N -o $@ $(OBJECTS)
