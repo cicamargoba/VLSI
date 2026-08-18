@@ -1,4 +1,9 @@
 
+Discarded input sections
+
+ .riscv.attributes
+                0x0000000000000000       0x1a uart_full_demo.o
+
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -8,15 +13,26 @@ BRAM             0x0000000000000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-everything      0x0000000000000000       0x56
+everything      0x0000000000000000      0x460
                 0x0000000000000000                . = ALIGN (0x4)
- blink.o(.text)
- .text          0x0000000000000000       0x3c blink.o
+ *(.text)
+ .text          0x0000000000000000      0x460 uart_full_demo.o
                 0x0000000000000000                _start
- *(.*)
- .data          0x000000000000003c        0x0 blink.o
- .bss           0x000000000000003c        0x0 blink.o
- .riscv.attributes
-                0x000000000000003c       0x1a blink.o
-LOAD blink.o
+ *(.rodata)
+ *(.rodata.*)
+
+.data           0x0000000000000460        0x0
+ .data          0x0000000000000460        0x0 uart_full_demo.o
+
+.bss            0x0000000000000460        0x0
+ .bss           0x0000000000000460        0x0 uart_full_demo.o
+
+/DISCARD/
+ *(.riscv.attributes)
+ *(.comment)
+ *(.symtab)
+ *(.strtab)
+ *(.shstrtab)
+ *(.eh_frame)
+LOAD uart_full_demo.o
 OUTPUT(firmware.elf elf32-littleriscv)

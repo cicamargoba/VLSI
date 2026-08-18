@@ -9,7 +9,8 @@
 # COMMONFLAGS += -flto
 # *************************************************
 #OBJECTS =  bin_to_bcd.o mult.o div.o wait.o putchar.o getchar.o calculator.o #hello.o 
-OBJECTS =  blink.o 
+#OBJECTS =  blink.o 
+OBJECTS =  uart_full_demo.o
 CROSS   = riscv32-unknown-elf
 CC      = $(CROSS)-gcc
 AS      = $(CROSS)-as

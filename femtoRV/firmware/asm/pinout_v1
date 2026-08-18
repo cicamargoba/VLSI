@@ -1,0 +1,12 @@
+SPI Flash  MOSI	uo_out[0]	salida
+SPI RAM MOSI	uo_out[1]	salida
+SPI Flash CS_n	uo_out[2]	salida
+SPI RAM CS_n	uo_out[3]	salida
+SPI RAM CLK	uo_out[4]	salida
+SPI Flash CLK	uo_out[5]	salida
+LEDS		uo_out[6]	salida
+UART TXD	uo_out[7]	salida
+SPI Flash MISO	ui_in[0]	entrada
+SPI RAM MISO	ui_in[1]	entrada
+UART RXD	ui_in[2]	entrada
+
