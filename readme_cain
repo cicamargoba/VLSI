@@ -67,3 +67,74 @@ ext2spice scale off
 ext2spice
 
 quit
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    Recuperar los archivos del flujo de diseño de Tiny Tapeout
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+wget -c https://github.com/TinyTapeout/tinytapeout-sky-25b/releases/download/tapeout-ci2511/project_artifacts.zip
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    Recrear el SDK y ejecutar el flujo de tt_um_femto
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Script:
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh
+
+El script reconstruye el entorno histórico del workflow exitoso #33 usando:
+
+- Proyecto femto_UN, commit baab83f5b7fe16083744b88fc54fe699873517e1
+- LibreLane 2.4.2
+- PDK sky130A
+- Open PDKs, commit 0fe599b2afb6708d281543108caf8310912f54af
+
+Mostrar las versiones y rutas sin instalar nada:
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh docker info
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh native info
+
+Preparar y ejecutar el flujo usando Docker:
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh docker all
+
+Preparar y ejecutar el flujo sin Docker, usando Nix:
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh native all
+
+También se puede separar la instalación de la ejecución:
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh docker setup
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh docker run
+
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh native setup
+/Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh native run
+
+Para ejecutar el flujo sobre otro checkout del proyecto:
+
+TT_PROJECT_DIR=/ruta/al/proyecto \
+    /Work/VLSI/VLSI/Docs/create_SDK_TinyTapeOut.sh docker run
+
+Resultados generados por el script:
+
+~/ttsky25b-sdk/docker/femto_UN/runs/wokwi
+~/ttsky25b-sdk/docker/femto_UN/tt_submission
+
+En modo native, reemplazar "docker" por "native" en estas rutas.
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    Netlist final del circuito fabricado
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Netlist final post-layout con pines de alimentación y celdas
+sky130_fd_sc_hd:
+
+/Work/VLSI/VLSI/femto_UN/test/238_tt_um_femto_UN/19103989012_gds/GDS_logs/runs/wokwi/final/pnl/tt_um_femto.pnl.v
+
+Este archivo es idéntico al netlist incluido en la entrega:
+
+/Work/VLSI/VLSI/femto_UN/test/238_tt_um_femto_UN/19103989012_gds/tt_submission/tt_submission/tt_um_femto.v
