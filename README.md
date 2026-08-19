@@ -156,7 +156,85 @@ make test
 
 ---
 
-## 8. Simulación del netlist fabricado de `tt_um_femto`
+## 8. Recrear el SDK de Tiny Tapeout SKY25b
+
+El script `Docs/create_SDK_TinyTapeOut.sh` reconstruye el entorno usado para
+fabricar `tt_um_femto`. Está preparado para Ubuntu o Debian Linux x86-64 y
+fija las versiones históricas del proyecto, LibreLane 2.4.2, `sky130A`, Open
+PDKs y `tt-support-tools`.
+
+Sintaxis:
+
+```bash
+./Docs/create_SDK_TinyTapeOut.sh <docker|native> [setup|run|all|info]
+```
+
+Modos:
+
+- `docker`: reproduce el flujo original de GitHub Actions usando Docker.
+- `native`: ejecuta LibreLane sin Docker mediante un entorno Nix.
+
+Acciones:
+
+- `setup`: instala o verifica dependencias y prepara el SDK.
+- `run`: ejecuta el hardening sobre un SDK preparado previamente.
+- `all`: prepara el SDK y ejecuta el hardening.
+- `info`: muestra rutas y versiones sin modificar el sistema.
+
+Consultar la configuración que utilizará el script:
+
+```bash
+./Docs/create_SDK_TinyTapeOut.sh docker info
+./Docs/create_SDK_TinyTapeOut.sh native info
+```
+
+Preparar el SDK y ejecutar todo el flujo:
+
+```bash
+# Flujo con Docker
+./Docs/create_SDK_TinyTapeOut.sh docker all
+
+# Flujo sin Docker
+./Docs/create_SDK_TinyTapeOut.sh native all
+```
+
+También se pueden ejecutar la preparación y el hardening por separado:
+
+```bash
+./Docs/create_SDK_TinyTapeOut.sh docker setup
+./Docs/create_SDK_TinyTapeOut.sh docker run
+
+./Docs/create_SDK_TinyTapeOut.sh native setup
+./Docs/create_SDK_TinyTapeOut.sh native run
+```
+
+Variables opcionales:
+
+```bash
+# Cambiar el directorio de instalación del SDK
+TT_SDK_ROOT=/ruta/al/sdk ./Docs/create_SDK_TinyTapeOut.sh docker all
+
+# Ejecutar sobre un checkout existente del proyecto
+TT_PROJECT_DIR=/ruta/al/proyecto ./Docs/create_SDK_TinyTapeOut.sh docker run
+
+# No instalar automáticamente dependencias del sistema
+TT_INSTALL_DEPS=0 ./Docs/create_SDK_TinyTapeOut.sh docker setup
+```
+
+Rutas de salida predeterminadas en modo Docker:
+
+```text
+~/ttsky25b-sdk/docker/femto_UN/runs/wokwi
+~/ttsky25b-sdk/docker/femto_UN/tt_submission
+```
+
+En modo `native`, `docker` se reemplaza por `native` en estas rutas. Si el
+script instala Docker o Nix y solicita iniciar una sesión nueva, se debe abrir
+otra terminal y ejecutar nuevamente el mismo comando.
+
+---
+
+## 9. Simulación del netlist fabricado de `tt_um_femto`
 
 Los archivos preparados para la simulación del netlist final se encuentran en:
 
