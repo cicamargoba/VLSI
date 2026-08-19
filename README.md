@@ -154,6 +154,26 @@ make
 make test
 ```
 
+---
+
+## 8. Simulación del netlist fabricado de `tt_um_femto`
+
+Los archivos preparados para la simulación del netlist final se encuentran en:
+
+- Netlist post-layout: `tinytapeout/tt_um_femto.v`
+- Testbench: `tinytapeout/tt_um_femto_TB.v`
+- Reglas de compilación y ejecución: `tinytapeout/Makefile`
+
+Ejecutar desde la raíz del repositorio:
+
+```bash
+cd tinytapeout
+make tt_um_femto
+```
+
+El target compila el netlist con `USE_POWER_PINS`, `FUNCTIONAL` y
+`UNIT_DELAY`, ejecuta el testbench y abre `tt_um_femto_TB.vcd` en GTKWave.
+
 
 ## Referencias
 

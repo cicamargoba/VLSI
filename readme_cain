@@ -138,3 +138,22 @@ sky130_fd_sc_hd:
 Este archivo es idéntico al netlist incluido en la entrega:
 
 /Work/VLSI/VLSI/femto_UN/test/238_tt_um_femto_UN/19103989012_gds/tt_submission/tt_submission/tt_um_femto.v
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    Simulación del netlist fabricado
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Los archivos preparados para la simulación se encuentran en:
+
+- Netlist post-layout: tinytapeout/tt_um_femto.v
+- Testbench: tinytapeout/tt_um_femto_TB.v
+- Reglas de compilación y ejecución: tinytapeout/Makefile
+
+Ejecutar la simulación desde la raíz del repositorio:
+
+cd tinytapeout
+make tt_um_femto
+
+El target compila el netlist con USE_POWER_PINS, FUNCTIONAL y UNIT_DELAY,
+ejecuta el testbench y abre el archivo tt_um_femto_TB.vcd en GTKWave.
