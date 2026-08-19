@@ -1,0 +1,10 @@
+{ "signal": [
+  { "name": "clk",          "wave": "p..............." },
+  { "name": "CPU state",    "wave": "=.=.=....=.=...", "data": ["FETCH", "WAIT", "EXECUTE", "WAIT_MEM", "FETCH", "WAIT"] },
+  { "name": "mem_addr",     "wave": "=...=.......=...", "data": ["PC de LOAD", "rs1+Iimm", "PC+4"] },
+  { "name": "mem_rstrb",    "wave": "0100100000010000" },
+  { "name": "flash rbusy",  "wave": "01.0.1.....0.1.0" },
+  { "name": "flash CS_N",   "wave": "10.1.0.....1.0.1" },
+  {},
+  { "name": "Operación",    "wave": "=...=.......=...", "data": ["fetch de LOAD", "lectura del dato", "fetch siguiente"] }
+], "head": { "text": "LOAD: fetch de instrucción seguido por lectura de datos" }, "config": { "hscale": 2 }}

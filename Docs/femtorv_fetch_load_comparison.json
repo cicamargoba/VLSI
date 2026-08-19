@@ -1,0 +1,32 @@
+{
+  "signal": [
+    { "name": "clk_sys", "wave": "p..................." },
+    {},
+    ["CASO A — Instrucción diferente de LOAD",
+      { "name": "Estado CPU", "wave": "=...=...=...=...=...", "data": ["FETCH", "WAIT_INSTR", "EXECUTE", "FETCH", "WAIT_INSTR"] },
+      { "name": "mem_addr", "wave": "=...........=.......", "data": ["PC(n)", "PC(n+4)"] },
+      { "name": "mem_rstrb", "wave": "010.........10......." },
+      { "name": "CS_N flash", "wave": "10....1.....0....1..." },
+      { "name": "Operación", "wave": "=.....x.....=....x...", "data": ["FETCH instrucción n", "FETCH instrucción n+1"] }
+    ],
+    {},
+    ["CASO B — Instrucción LOAD",
+      { "name": "Estado CPU", "wave": "=...=...=......=...=", "data": ["FETCH", "WAIT_INSTR", "EXECUTE LOAD", "WAIT_DATA", "FETCH"] },
+      { "name": "mem_addr", "wave": "=.......=.......=...", "data": ["PC de LOAD", "rs1 + Iimm", "PC+4"] },
+      { "name": "mem_rstrb", "wave": "010.....10......10..." },
+      { "name": "SCK libre", "wave": "0p.................." },
+      { "name": "CS_N flash", "wave": "10....1.0......1.0.." },
+      { "name": "Operación", "wave": "=.....x.=......x.=..", "data": ["FETCH de LOAD", "LECTURA DEL DATO", "FETCH siguiente"] },
+      { "name": "PROBLEMA", "wave": "x.......4......x....", "data": ["CS_N baja en otra fase de SCK"] }
+    ]
+  ],
+  "head": {
+    "text": "FemtoRV32 — El fetch de LOAD es normal; el problema aparece en la lectura SPI adicional"
+  },
+  "foot": {
+    "text": "SCK no se detiene ni se reinicia con CS_N: la lectura de datos puede comenzar sin setup respecto al primer flanco"
+  },
+  "config": {
+    "hscale": 2
+  }
+}

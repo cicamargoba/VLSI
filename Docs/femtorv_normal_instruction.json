@@ -1,0 +1,10 @@
+{ "signal": [
+  { "name": "clk",          "wave": "p..........." },
+  { "name": "CPU state",    "wave": "=.=.=.=.=..", "data": ["FETCH", "WAIT", "EXECUTE", "FETCH", "WAIT"] },
+  { "name": "mem_addr",     "wave": "=...=...=...", "data": ["PC(n)", "PC(n+4)", "PC(n+4)"] },
+  { "name": "mem_rstrb",    "wave": "010000100000" },
+  { "name": "flash rbusy",  "wave": "01...0.1...0" },
+  { "name": "flash CS_N",   "wave": "10...1.0...1" },
+  {},
+  { "name": "Operación",    "wave": "=.....=.....", "data": ["fetch instrucción n", "fetch instrucción n+1"] }
+], "head": { "text": "Instrucción normal: no existe lectura de datos" }, "config": { "hscale": 2 }}

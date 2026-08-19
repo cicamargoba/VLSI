@@ -1,0 +1,9 @@
+{ "signal": [
+  { "name": "CS_N",          "wave": "10............1" },
+  { "name": "SCK",           "wave": "0p............0" },
+  { "name": "Fase SPI",      "wave": "=.=.....=.....=", "data": ["idle", "SEND: 32", "RECEIVE: 32", "pulso 65"] },
+  { "name": "snd_bitcount",  "wave": "x=.....x.......", "data": ["32 → 1"] },
+  { "name": "rcv_bitcount",  "wave": "x......=.....=x", "data": ["32 → 1", "0"] },
+  { "name": "rcv_data",      "wave": "x......=.....=.", "data": ["shift de MISO", "palabra capturada"] },
+  { "name": "rbusy",         "wave": "01............0" }
+], "head": { "text": "Lectura observada: 32 SEND + 32 RECEIVE + 1 pulso" }, "config": { "hscale": 2 }}

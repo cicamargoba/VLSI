@@ -1,0 +1,15 @@
+{ "signal": [
+  ["Fetch validado",
+    { "name": "SCK libre",   "wave": "0.101.01.01." },
+    { "name": "CS_N",        "wave": "1..0......1." },
+    { "name": "MOSI",        "wave": "x..=.=.=.=x.", "data": ["0", "0", "0", "0"] },
+    { "name": "Comando",     "wave": "=..=......=.", "data": ["idle", "0x03 reconocido", "fin"] }
+  ],
+  {},
+  ["Lectura de datos de LOAD",
+    { "name": "SCK libre",   "wave": "0.101.01.01." },
+    { "name": "CS_N",        "wave": "1.0........1" },
+    { "name": "MOSI",        "wave": "x.=.=.=.=.x", "data": ["0", "0", "0", "0"] },
+    { "name": "Comando",     "wave": "=.=........=", "data": ["idle", "primer flanco sin setup", "fin"] }
+  ]
+], "head": { "text": "Mismo SCK libre, distinta fase de activación de CS_N" }, "config": { "hscale": 2 }}
