@@ -181,8 +181,13 @@ Resultados principales:
   lectura anterior.
 - MappedSPIRAM transmite WRITE 0x02 sin WREN 0x06. spiram.v oculta esta
   omisión al forzar realStatusRegister=0x42 en cada posedge SCK.
-- Cuatro de 53 transacciones RAM comienzan con SCK=1. En estos casos, el
-  comando previsto 0x02 puede ser recibido como 0x04 y la escritura se pierde.
+- En las formas de onda revisadas, CS_N baja mientras SCK permanece en cero.
+  El primer flanco de SCK ocurre después de la activación de CS_N.
+- En las dos primeras transacciones de lectura flash, CS_N↓ coincide con SCK↓.
+  La flash física muestrea en posedge y puede leer 0x06 en lugar de 0x03.
+  Desde la tercera transacción, CS_N↓ ocurre con SCK ya estable en 0 y la
+  flash lee correctamente 0x03. spiflash.v muestrea en negedge, por eso
+  la simulación no muestra el error aunque existan 65 flancos.
 
 Diagramas WaveDrom y fuentes:
 
