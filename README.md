@@ -252,6 +252,40 @@ make tt_um_femto
 El target compila el netlist con `USE_POWER_PINS`, `FUNCTIONAL` y
 `UNIT_DELAY`, ejecuta el testbench y abre `tt_um_femto_TB.vcd` en GTKWave.
 
+---
+
+## 10. Análisis de bugs SPI en `tt_um_femto`
+
+El diseño fabricado presenta tres bugs en las interfaces SPI:
+
+### Bug 1: 65 flancos de SCK y skew CS_N/SCK
+
+`MappedSPIFlash` genera 65 flancos de SCK mientras CS_N está bajo. El modelo
+`spiflash.v` muestrea en **negedge** SCK y descarta el bit 65 incompleto. La
+flash física muestrea en **posedge** SCK. Cuando CS_N baja simultáneamente con
+SCK (transacciones 1 y 2), el setup es casi nulo y la flash lee 0x06 (WREN) en
+lugar de 0x03 (READ). Desde la transacción 3, SCK está estable y la flash lee
+correctamente 0x03.
+
+### Bug 2: Captura de 31 bits en lectura RAM
+
+`MappedSPIRAM` termina cuando `rcv_bitcount <= 1`, ejecutando solo 31 shifts.
+El bit 31 de `rcv_data` retiene el valor de la lectura anterior.
+
+### Bug 3: WRITE sin WREN en RAM
+
+`MappedSPIRAM` envía WRITE 0x02 sin el comando WREN 0x06 previo. El modelo
+`spiram.v` fuerza WEL=1 artificialmente, ocultando el bug. La FRAM física
+ignora la escritura.
+
+### Documentación y diagramas
+
+- Análisis detallado: `tinytapeout/bugs_MappedSPIFlash.md`
+- Diagrama flash: `tinytapeout/spi_flash_vcd_findings.svg`
+- Diagrama RAM: `tinytapeout/spi_ram_vcd_findings.svg`
+- Comparación Tx1 vs Tx3: `tinytapeout/spi_flash_tx_comparison.svg`
+
+---
 
 ## Referencias
 

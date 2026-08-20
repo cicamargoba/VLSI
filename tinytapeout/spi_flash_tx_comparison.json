@@ -1,0 +1,30 @@
+{
+  signal: [
+    { name: "=== Tx 1: CS_N↓ = SCK↓ (sin setup) ===", wave: "x.................." },
+    {},
+    { name: "CS_N", wave: "10...............1" },
+    { name: "SCK", wave: "0.p............p.1" },
+    { name: "MOSI", wave: "0.......1.0.......", data: ["bit5=1", "bit7=0"] },
+    {},
+    { name: "Negedge (spiflash.v)", wave: "x=....=.....=.....", data: ["bit0@361ps", "bits1-7", "..."] },
+    { name: "  → cmd negedge", wave: "x=.................", data: ["00000011 = 0x03"] },
+    {},
+    { name: "Posedge (físico)", wave: "x.=....=.....=....", data: ["bit0@441ps", "bits1-7", "..."] },
+    { name: "  → cmd posedge", wave: "x........=.........", data: ["00000110 = 0x06"] },
+    {},
+    { name: "=== Tx 3: SCK↓ → CS_N↓ (con setup) ===", wave: "x.................." },
+    {},
+    { name: "CS_N", wave: "1.0..............1" },
+    { name: "SCK", wave: "0.1.0.p........p.1" },
+    { name: "MOSI", wave: "0.......1.0.......", data: ["bit5=1", "bit7=0"] },
+    {},
+    { name: "Negedge (spiflash.v)", wave: "x...=....=.....=..", data: ["bit0@8µs", "bits1-7", "..."] },
+    { name: "  → cmd negedge", wave: "x.................=", data: ["00000011 = 0x03"] },
+    {},
+    { name: "Posedge (físico)", wave: "x...=....=.....=..", data: ["bit0@4µs", "bits1-7", "..."] },
+    { name: "  → cmd posedge", wave: "x.................=", data: ["00000011 = 0x03"] }
+  ],
+  head: { text: "SPI flash: efecto del skew CS_N/SCK en el comando recibido" },
+  foot: { text: "Tx1: CS_N↓=SCK↓ → negedge ve bit0, posedge ve bit1 → shift de 1 bit → 0x03 vs 0x06. Tx3: SCK estable → sin shift → ambos ven 0x03." },
+  config: { hscale: 2 }
+}

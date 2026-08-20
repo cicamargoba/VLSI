@@ -67,6 +67,71 @@ La FRAM física requiere WREN antes de WRITE. Sin WREN, la escritura se ignora.
 
 ---
 
+## Posibles soluciones
+
+### Bug 1: 65 flancos y skew CS_N/SCK
+
+**Opción A: Asegurar que SCK esté estable antes de CS_N↓**
+
+Modificar la FSM para que SCK esté en 0 antes de bajar CS_N:
+
+```verilog
+// En MappedSPIFlash.v, antes de bajar CS_N:
+// Esperar un ciclo completo de clk con CLK=0
+assign CLK = CS_N ? 1'b0 : !clk;  // CLK=0 cuando CS_N alto
+```
+
+Esto garantiza que cuando CS_N baja, SCK ya está estable en 0.
+
+**Opción B: Agregar estados de setup/hold**
+
+```verilog
+// Estado SETUP antes de activar CS_N:
+// clk_cycle con CLK=0, luego bajar CS_N
+// Estado HOLD después de recibir datos:
+// clk_cycle con CLK=0 antes de subir CS_N
+```
+
+**Opción C: Reducir a 64 flancos exactos**
+
+Ajustar la FSM para que el último shift coincida con la subida de CS_N:
+
+```verilog
+// En lugar de rcv_bitcount <= 1, usar rcv_bitcount == 0
+// y hacer el último shift en el mismo ciclo que CS_N↑
+```
+
+### Bug 2: Captura de 31 bits
+
+Corregir la condición de terminación:
+
+```verilog
+// Cambiar:
+if (rcv_bitcount <= 1) begin
+// Por:
+if (rcv_bitcount == 0) begin
+```
+
+O ajustar el contador para que termine exactamente en 32 shifts.
+
+### Bug 3: WRITE sin WREN
+
+Agregar estado WREN antes de WRITE:
+
+```verilog
+// En MappedSPIRAM.v, antes de enviar WRITE 0x02:
+// 1. Bajar CS_N
+// 2. Enviar WREN 0x06 (8 bits)
+// 3. Subir CS_N
+// 4. Bajar CS_N
+// 5. Enviar WRITE 0x02 + dirección + datos
+// 6. Subir CS_N
+```
+
+O modificar `spiram.v` para NO forzar WEL=1 y revelar el bug en simulación.
+
+---
+
 ## Archivos relevantes
 
 - `tinytapeout/cores/spi_flash/MappedSPIFlash.v` — controlador SPI flash
@@ -76,3 +141,4 @@ La FRAM física requiere WREN antes de WRITE. Sin WREN, la escritura se ignora.
 - `tinytapeout/tt_um_femto_TB.vcd` — VCD del post-layout
 - `tinytapeout/spi_flash_vcd_findings.json` — diagrama WaveDrom flash
 - `tinytapeout/spi_ram_vcd_findings.json` — diagrama WaveDrom RAM
+- `tinytapeout/spi_flash_tx_comparison.json` — diagrama comparativo Tx1 vs Tx3
