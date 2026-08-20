@@ -1,0 +1,19 @@
+{
+  signal: [
+      { name: "CS_N",                    wave: "10.............1" },
+      { name: "SCK (comprimido)",        wave: "0p.............1" },
+      { name: "Fase",                    wave: "x=....=.....=...", data: ["READ 0x03 + dirección: 32 bits", "Datos MISO: 32 bits", "bit 65 y fin"] },
+      { name: "spiflash.v negedge",      wave: "x=....=.....=...", data: ["32 muestras", "32 muestras", "muestra 65"] },
+      { name: "Bytes del modelo",        wave: "x=..........=...", data: ["8 bytes completos = 64 bits", "byte 9 incompleto: 1/8"] },
+      { name: "rcv_data del controlador",wave: "x.....=.....=...", data: ["32 shifts de MISO", "palabra completa"] },
+    {},
+      { name: "SCK final",               wave: "0....1...." },
+      { name: "CS_N final",              wave: "0....1...." },
+      { name: "Evento VCD",              wave: "x....=....", data: ["SCK↑ y CS_N↑ simultáneos"] },
+      { name: "Modelo Verilog",          wave: "x....=....", data: ["CS alto descarta el byte incompleto"] },
+      { name: "Circuito físico",         wave: "x....=....", data: ["el orden depende del skew"] }
+  ],
+  head: { text: "SPI flash: 65 negedges con CS_N bajo y terminación SCK/CS simultánea" },
+  foot: { text: "VCD: 510/510 transacciones contienen 65 falling edges. El bit 65 queda incompleto y el modelo lo descarta al subir CS_N." },
+  config: { hscale: 3 }
+}

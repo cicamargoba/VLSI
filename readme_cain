@@ -157,3 +157,43 @@ make tt_um_femto
 
 El target compila el netlist con USE_POWER_PINS, FUNCTIONAL y UNIT_DELAY,
 ejecuta el testbench y abre el archivo tt_um_femto_TB.vcd en GTKWave.
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    Análisis VCD de las interfaces SPI flash y RAM
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+VCD analizado:
+
+tinytapeout/tt_um_femto_TB.vcd
+
+Resultados principales:
+
+- Flash: las 510 transacciones contienen 65 falling edges mientras CS_N está
+  bajo. spiflash.v muestrea MOSI en negedge; procesa 64 bits completos y
+  descarta el bit 65 incompleto al subir CS_N. El último rising edge de SCK
+  coincide con CS_N rising en todas las transacciones.
+- RAM: las escrituras alineadas contienen 65 rising edges. El modelo procesa
+  los primeros 64 bits y descarta el bit adicional incompleto.
+- MappedSPIRAM inicializa rcv_bitcount en 32, pero termina con
+  rcv_bitcount <= 1. Solo captura 31 bits. El VCD muestra, por ejemplo,
+  FFFFFFFF esperado y 7FFFFFFF observado; el bit 31 puede provenir de la
+  lectura anterior.
+- MappedSPIRAM transmite WRITE 0x02 sin WREN 0x06. spiram.v oculta esta
+  omisión al forzar realStatusRegister=0x42 en cada posedge SCK.
+- Cuatro de 53 transacciones RAM comienzan con SCK=1. En estos casos, el
+  comando previsto 0x02 puede ser recibido como 0x04 y la escritura se pierde.
+
+Diagramas WaveDrom y fuentes:
+
+- tinytapeout/spi_flash_vcd_findings.json
+- tinytapeout/spi_flash_vcd_findings.svg
+- tinytapeout/spi_flash_vcd_findings.png
+- tinytapeout/spi_ram_vcd_findings.json
+- tinytapeout/spi_ram_vcd_findings.svg
+- tinytapeout/spi_ram_vcd_findings.png
+
+Capturas GTKWave usadas como evidencia:
+
+- tinytapeout/flash_simulation.png
+- tinytapeout/ram_simulation.png

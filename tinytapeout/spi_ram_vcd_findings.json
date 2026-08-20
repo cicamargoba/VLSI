@@ -1,0 +1,28 @@
+{
+  signal: [
+      { name: "CS_N lectura",                wave: "10.............1" },
+      { name: "SCK (comprimido)",            wave: "0p.............0" },
+      { name: "Fase de lectura",             wave: "x=....=.....=...", data: ["READ 0x03 + dirección: 32 bits", "FRAM entrega 32 bits", "fin"] },
+      { name: "FRAM negedge",                wave: "x.....=.....=...", data: ["MISO bits 31:0", "32 bits enviados"] },
+      { name: "rcv_bitcount",                wave: "x.....=....=....", data: ["32 → 2", "1: termina por <= 1"] },
+      { name: "MappedSPIRAM rcv_data",       wave: "x.....=....=....", data: ["31 shifts", "bit 31 queda anterior"] },
+      { name: "Ejemplo esperado",            wave: "x.....=.........", data: ["0xFFFFFFFF"] },
+      { name: "Ejemplo observado",           wave: "x..........=....", data: ["0x7FFFFFFF"] },
+    {},
+      { name: "CS_N escritura",              wave: "10.............1" },
+      { name: "SCK (comprimido)",            wave: "0p.............0" },
+      { name: "Controlador",                 wave: "x=..........=...", data: ["WRITE 0x02 + dirección + datos: 64 bits", "bit 65; no envía WREN"] },
+      { name: "FRAM posedge",                wave: "x=..........=...", data: ["64 bits", "byte nuevo incompleto: 1/8"] },
+      { name: "Modelo WEL",                  wave: "x=..............", data: ["fuerza status 0x42 en cada posedge"] },
+      { name: "FRAM físico",                 wave: "x=..............", data: ["requiere WREN 0x06 antes de WRITE"] },
+    {},
+      { name: "SCK libre",                   wave: "1.0.1.0.1....." },
+      { name: "CS_N",                        wave: "10............" },
+      { name: "MOSI previsto",               wave: "x=............", data: ["00000010 = 0x02 WRITE"] },
+      { name: "Comando recibido",             wave: "x....=........", data: ["00000100 = 0x04 WRDI"] },
+      { name: "Resultado",                   wave: "x........=....", data: ["escritura ignorada"] }
+  ],
+  head: { text: "SPI RAM/FRAM: captura de 31 bits, WRITE sin WREN y fase inicial indefinida" },
+  foot: { text: "VCD: 53 transacciones; lecturas 64 rising edges, escrituras alineadas 65 rising edges; 4 inicios con SCK=1." },
+  config: { hscale: 3 }
+}
