@@ -1,0 +1,15 @@
+* VDD Level: 3.3V
+* Signals: 2
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt 
+.tran 10000ns 200us
+.print tran format=raw file=Mult4_cir.raw  v(*)
+* Fuentes de alimentación
+Vvdd VPWR 0 DC 3.3
+Vgnd VGND 0 DC 0
+* clk - 8 transitions
+V_clk clk 0 PWL(0 0 9.999e-09 0 1e-08 3.3 1.9999e-08 3.3 2e-08 0 2.9998999999999996e-08 0 3e-08 3.3 3.9999e-08 3.3 4e-08 0 4.9998999999999997e-08 0 5e-08 3.3 5.9999e-08 3.3 6e-08 0 6.9999e-08 0 7e-08 3.3 7.9999e-08 3.3 8e-08 0)
+
+* spi_cs_n - 4 transitions
+V_spi_cs_n spi_cs_n 0 PWL(0 0 1.4998999999999998e-08 0 1.5e-08 3.3 2.4998999999999998e-08 3.3 2.5e-08 0 5.4998999999999995e-08 0 5.4999999999999996e-08 3.3 6.4999e-08 3.3 6.5e-08 0)
+

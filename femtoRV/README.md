@@ -33,11 +33,16 @@ tt.shuttle.enabled
 tt.pins.ui_in0.init(Pin.IN)   # libera MISO flash para memoria real
 tt.pins.ui_in1.init(Pin.IN)   # libera MISO RAM para memoria real
 
+tt.pins.uo_out2.init(Pin.IN)  # CS_N flash -- entrada de alta impedancia en el RP2040
+tt.pins.uo_out5.init(Pin.IN)  # CLK flash
+tt.pins.uo_out3.init(Pin.IN)  # CS_N RAM
+tt.pins.uo_out4.init(Pin.IN)  # CLK RAM
+
 tt.reset_project(True)
-tt.clock_project_PWM(24000000)   # ver tabla de puntos validados abajo
+tt.clock_project_PWM(25000000)
 tt.reset_project(False)
 
-print(tt.auto_clocking_freq)     # confirma el valor real aplicado
+print(tt.auto_clocking_freq)
 ```
 
 ### Puntos de operación validados (`clk_sys` ↔ baud terminal)

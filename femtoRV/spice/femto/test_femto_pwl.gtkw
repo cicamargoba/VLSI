@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
+[*] Mon Oct 20 12:47:37 2025
+[*]
+[dumpfile] "/Work/VLSI/VLSI/femtoRV/femto_TB.vcd"
+[dumpfile_mtime] "Mon Oct  6 13:45:08 2025"
+[dumpfile_size] 6423281950
+[savefile] "/Work/VLSI/VLSI/femtoRV/spice/femto/test_femto_pwl.gtkw"
+[timestart] 0
+[size] 1648 951
+[pos] 25 22
+*-16.700001 99500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] femto_TB.
+[treeopen] femto_TB.uut.
+[sst_width] 278
+[signals_width] 438
+[sst_expanded] 1
+[sst_vpaned_height] 571
+@28
+femto_TB.uut.clk
+femto_TB.uut.resetn
+femto_TB.uut.spi_miso
+@29
+femto_TB.uut.spi_miso_ram
+[pattern_trace] 1
+[pattern_trace] 0
