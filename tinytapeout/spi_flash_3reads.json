@@ -1,27 +1,87 @@
 {
-  signal: [
-    { name: "Tx 1: CS_N↓ = SCK↓", wave: "x................" },
-    { name: "CS_N", wave: "10...............1" },
-    { name: "SCK", wave: "101010101010101010" },
-    { name: "MOSI", wave: "000000110000000000" },
-    { name: "Posedge lee (físico)", wave: "x................", data: ["00000110 = 0x06 WREN"] },
-    { name: "Negedge lee (sim)", wave: "x................", data: ["00000011 = 0x03 READ"] },
+  "signal": [
+    {
+      "name": "Tx 1: CS_N\u2193 = SCK\u2193",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "CS_N",
+      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "SCK",
+      "wave": "1010101010100101001010101010101010101010101010101010101010101010101010101111"
+    },
+    {
+      "name": "MOSI",
+      "wave": "0000000000001111100000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "Posedge \u2192 0x06 (WREN)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "Negedge \u2192 0x03 (READ)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
     {},
-    { name: "Tx 2: CS_N↓ = SCK↓", wave: "x................" },
-    { name: "CS_N", wave: "10...............1" },
-    { name: "SCK", wave: "101010101010101010" },
-    { name: "MOSI", wave: "000000110000000000" },
-    { name: "Posedge lee (físico)", wave: "x................", data: ["00000110 = 0x06 WREN"] },
-    { name: "Negedge lee (sim)", wave: "x................", data: ["00000011 = 0x03 READ"] },
+    {
+      "name": "Tx 2: CS_N\u2193 = SCK\u2193",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "CS_N",
+      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "SCK",
+      "wave": "1010101010100101001010101010101010101010101010101010101010100100101010101011"
+    },
+    {
+      "name": "MOSI",
+      "wave": "0000000000001111100000000000000000000000000000000000000000001110000000000000"
+    },
+    {
+      "name": "Posedge \u2192 0x06 (WREN)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "Negedge \u2192 0x03 (READ)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
     {},
-    { name: "Tx 3: SCK↓ antes de CS_N↓", wave: "x................" },
-    { name: "CS_N", wave: "1.0..............1" },
-    { name: "SCK", wave: "101010101010101010" },
-    { name: "MOSI", wave: "000000110000000000" },
-    { name: "Posedge lee (físico)", wave: "x................", data: ["00000011 = 0x03 READ"] },
-    { name: "Negedge lee (sim)", wave: "x................", data: ["00000011 = 0x03 READ"] }
+    {
+      "name": "Tx 3: SCK\u2193 antes de CS_N\u2193",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "CS_N",
+      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "SCK",
+      "wave": "0010101010101001010010101010101010101010101010101010101010100100101010101010"
+    },
+    {
+      "name": "MOSI",
+      "wave": "0000000000000011111000000000000000000000000000000000000000001110000000000000"
+    },
+    {
+      "name": "Posedge \u2192 0x03 (READ)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "Negedge \u2192 0x03 (READ)",
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
   ],
-  head: { text: "SPI flash: tres primeras lecturas — Tx1-2 reciben 0x06, Tx3 recibe 0x03" },
-  foot: { text: "SCK y MOSI idénticos en las tres. Diferencia: en Tx1-2 CS_N baja con el primer SCK↓ (shift de 1 bit → posedge lee 0x06). En Tx3 CS_N baja un período después (sin shift → ambos leen 0x03)." },
-  config: { hscale: 2 }
+  "head": {
+    "text": "SPI flash: tres primeras lecturas del VCD \u2014 Tx1-2: 0x06, Tx3: 0x03"
+  },
+  "foot": {
+    "text": "Datos extra\u00eddos del VCD del post-layout (tt_um_femto_TB.vcd). 70 flancos SCK visibles por transacci\u00f3n. Tx1-2: CS_N\u2193 = SCK\u2193 \u2192 shift 1 bit \u2192 posedge lee 0x06. Tx3: SCK ya en 0 antes de CS_N\u2193 \u2192 sin shift \u2192 ambos leen 0x03."
+  },
+  "config": {
+    "hscale": 1
+  }
 }
