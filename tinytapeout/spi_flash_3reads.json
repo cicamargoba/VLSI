@@ -1,0 +1,27 @@
+{
+  signal: [
+    { name: "Tx 1", wave: "x................." },
+    { name: "CS_N", wave: "10..............1." },
+    { name: "SCK", wave: "0.p............p.0" },
+    { name: "MOSI", wave: "0.......11.0......." },
+    { name: "Cmd posedge (físico)", wave: "x.................", data: ["0x06 (WREN)"] },
+    { name: "Cmd negedge (sim)", wave: "x.................", data: ["0x03 (READ)"] },
+    {},
+    { name: "Tx 2", wave: "x................." },
+    { name: "CS_N", wave: "10..............1." },
+    { name: "SCK", wave: "0.p............p.0" },
+    { name: "MOSI", wave: "0.......11.0......." },
+    { name: "Cmd posedge (físico)", wave: "x.................", data: ["0x06 (WREN)"] },
+    { name: "Cmd negedge (sim)", wave: "x.................", data: ["0x03 (READ)"] },
+    {},
+    { name: "Tx 3", wave: "x................." },
+    { name: "CS_N", wave: "1.0.............1." },
+    { name: "SCK", wave: "0.1.0.p........p.0" },
+    { name: "MOSI", wave: "0.......11.0......." },
+    { name: "Cmd posedge (físico)", wave: "x.................", data: ["0x03 (READ)"] },
+    { name: "Cmd negedge (sim)", wave: "x.................", data: ["0x03 (READ)"] }
+  ],
+  head: { text: "SPI flash: tres primeras lecturas — Tx1-2 reciben 0x06, Tx3 recibe 0x03" },
+  foot: { text: "Tx1-2: CS_N↓ = SCK↓ simultáneo → flash física (posedge) lee 0x06. Tx3: SCK estable antes de CS_N↓ → flash lee 0x03. spiflash.v (negedge) siempre lee 0x03." },
+  config: { hscale: 2 }
+}

@@ -284,6 +284,7 @@ ignora la escritura.
 - Diagrama flash: `tinytapeout/spi_flash_vcd_findings.svg`
 - Diagrama RAM: `tinytapeout/spi_ram_vcd_findings.svg`
 - Comparación Tx1 vs Tx3: `tinytapeout/spi_flash_tx_comparison.svg`
+- Tres lecturas en secuencia: `tinytapeout/spi_flash_3reads.svg`
 
 ---
 

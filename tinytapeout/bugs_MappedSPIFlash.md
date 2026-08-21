@@ -142,3 +142,4 @@ O modificar `spiram.v` para NO forzar WEL=1 y revelar el bug en simulación.
 - `tinytapeout/spi_flash_vcd_findings.json` — diagrama WaveDrom flash
 - `tinytapeout/spi_ram_vcd_findings.json` — diagrama WaveDrom RAM
 - `tinytapeout/spi_flash_tx_comparison.json` — diagrama comparativo Tx1 vs Tx3
+- `tinytapeout/spi_flash_3reads.json` — tres lecturas en secuencia: Tx1-2 (0x06) vs Tx3 (0x03)
