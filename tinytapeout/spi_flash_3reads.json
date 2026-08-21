@@ -1,7 +1,7 @@
 {
   "signal": [
     {
-      "name": "Tx 1: CS_N\u2193 = SCK\u2193",
+      "name": "Tx 1: CS_N\u2193 = SCK\u2193 (flash recibe 0x06)",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -17,16 +17,16 @@
       "wave": "00000000000011110000000000000000000000000000000000000000000000000000000."
     },
     {
-      "name": "Posedge \u2192 0x06 (WREN)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "name": "MISO",
+      "wave": "00000000000000000000000000000011110000000000000000000000000000000000001."
     },
     {
-      "name": "Negedge \u2192 0x03 (READ)",
+      "name": "Posedge \u2192 0x06 (WREN) \u2014 flash no responde",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
-      "name": "Tx 2: CS_N\u2193 = SCK\u2193",
+      "name": "Tx 2: CS_N\u2193 = SCK\u2193 (flash recibe 0x06)",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -42,16 +42,16 @@
       "wave": "00000000000011110000000000000000000000000000000000000000001100000000000."
     },
     {
-      "name": "Posedge \u2192 0x06 (WREN)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "name": "MISO",
+      "wave": "00000000000000000000000000000011110000000000000000000000000000000000000."
     },
     {
-      "name": "Negedge \u2192 0x03 (READ)",
+      "name": "Posedge \u2192 0x06 (WREN) \u2014 flash no responde",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
-      "name": "Tx 3: SCK\u2193 antes de CS_N\u2193",
+      "name": "Tx 3: SCK\u2193 antes de CS_N\u2193 (flash recibe 0x03)",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -67,19 +67,20 @@
       "wave": "000000000000001111000000000000000000000000000000000000000011000000000000"
     },
     {
-      "name": "Posedge \u2192 0x03 (READ)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "name": "MISO",
+      "wave": "000000000000000000000000000000001111000000000000000000000000000000000000"
     },
     {
-      "name": "Negedge \u2192 0x03 (READ)",
+      "name": "Posedge \u2192 0x03 (READ) \u2014 flash responde",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    }
+    },
+    {}
   ],
   "head": {
-    "text": "SPI flash: tres primeras lecturas del VCD \u2014 Tx1-2: 0x06, Tx3: 0x03"
+    "text": "SPI flash: tres primeras lecturas del VCD \u2014 MOSI y MISO extra\u00eddos del bus uo_out/ui_in"
   },
   "foot": {
-    "text": "Datos extra\u00eddos del VCD (tt_um_femto_TB.vcd). Tx1-2: CS_N\u2193 = SCK\u2193 \u2192 shift 1 bit \u2192 posedge lee 0x06. Tx3: SCK ya en 0 antes de CS_N\u2193 \u2192 sin shift \u2192 ambos leen 0x03."
+    "text": "Datos del VCD (tt_um_femto_TB.vcd). Tx1-2: CS_N\u2193=SCK\u2193 \u2192 posedge lee 0x06 (WREN) \u2192 flash no devuelve datos. Tx3: SCK ya en 0 \u2192 posedge lee 0x03 (READ) \u2192 flash responde en MISO."
   },
   "config": {
     "hscale": 1
