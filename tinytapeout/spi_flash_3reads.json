@@ -2,84 +2,84 @@
   "signal": [
     {
       "name": "Tx 1: CS_N\u2193 = SCK\u2193",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "CS_N",
-      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "wave": "10000000000000000000000000000000000000000000000000000000000000000000000."
     },
     {
       "name": "SCK",
-      "wave": "1010101010100101001010101010101010101010101010101010101010101010101010101111"
+      "wave": "10101010101010101010101010101010101010101010101010101010101010101010101."
     },
     {
       "name": "MOSI",
-      "wave": "0000000000001111100000000000000000000000000000000000000000000000000000000000"
+      "wave": "00000000000011110000000000000000000000000000000000000000000000000000000."
     },
     {
       "name": "Posedge \u2192 0x06 (WREN)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "Negedge \u2192 0x03 (READ)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
       "name": "Tx 2: CS_N\u2193 = SCK\u2193",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "CS_N",
-      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "wave": "10000000000000000000000000000000000000000000000000000000000000000000000."
     },
     {
       "name": "SCK",
-      "wave": "1010101010100101001010101010101010101010101010101010101010100100101010101011"
+      "wave": "10101010101010101010101010101010101010101010101010101010101010101010101."
     },
     {
       "name": "MOSI",
-      "wave": "0000000000001111100000000000000000000000000000000000000000001110000000000000"
+      "wave": "00000000000011110000000000000000000000000000000000000000001100000000000."
     },
     {
       "name": "Posedge \u2192 0x06 (WREN)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "Negedge \u2192 0x03 (READ)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
       "name": "Tx 3: SCK\u2193 antes de CS_N\u2193",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "CS_N",
-      "wave": "1000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "wave": "100000000000000000000000000000000000000000000000000000000000000000000000"
     },
     {
       "name": "SCK",
-      "wave": "0010101010101001010010101010101010101010101010101010101010100100101010101010"
+      "wave": "001010101010101010101010101010101010101010101010101010101010101010101010"
     },
     {
       "name": "MOSI",
-      "wave": "0000000000000011111000000000000000000000000000000000000000001110000000000000"
+      "wave": "000000000000001111000000000000000000000000000000000000000011000000000000"
     },
     {
       "name": "Posedge \u2192 0x03 (READ)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "name": "Negedge \u2192 0x03 (READ)",
-      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
   ],
   "head": {
     "text": "SPI flash: tres primeras lecturas del VCD \u2014 Tx1-2: 0x06, Tx3: 0x03"
   },
   "foot": {
-    "text": "Datos extra\u00eddos del VCD del post-layout (tt_um_femto_TB.vcd). 70 flancos SCK visibles por transacci\u00f3n. Tx1-2: CS_N\u2193 = SCK\u2193 \u2192 shift 1 bit \u2192 posedge lee 0x06. Tx3: SCK ya en 0 antes de CS_N\u2193 \u2192 sin shift \u2192 ambos leen 0x03."
+    "text": "Datos extra\u00eddos del VCD (tt_um_femto_TB.vcd). Tx1-2: CS_N\u2193 = SCK\u2193 \u2192 shift 1 bit \u2192 posedge lee 0x06. Tx3: SCK ya en 0 antes de CS_N\u2193 \u2192 sin shift \u2192 ambos leen 0x03."
   },
   "config": {
     "hscale": 1
