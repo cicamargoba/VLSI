@@ -1,7 +1,7 @@
 {
   "signal": [
     {
-      "name": "Tx 1: CS_N\u2193 = SCK\u2193 (flash recibe 0x06)",
+      "name": "Tx 1: CS_N\u2193 = SCK\u2193 \u2192 flash recibe 0x06",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -21,12 +21,12 @@
       "wave": "00000000000000000000000000000011110000000000000000000000000000000000001."
     },
     {
-      "name": "Posedge \u2192 0x06 (WREN) \u2014 flash no responde",
+      "name": "Posedge = 0x06 (WREN) \u2014 sin respuesta",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
-      "name": "Tx 2: CS_N\u2193 = SCK\u2193 (flash recibe 0x06)",
+      "name": "Tx 2: CS_N\u2193 = SCK\u2193 \u2192 flash recibe 0x06",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -46,12 +46,12 @@
       "wave": "00000000000000000000000000000011110000000000000000000000000000000000000."
     },
     {
-      "name": "Posedge \u2192 0x06 (WREN) \u2014 flash no responde",
+      "name": "Posedge = 0x06 (WREN) \u2014 sin respuesta",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {},
     {
-      "name": "Tx 3: SCK\u2193 antes de CS_N\u2193 (flash recibe 0x03)",
+      "name": "Tx 3: SCK\u2193 antes de CS_N\u2193 \u2192 flash recibe 0x03",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
@@ -71,16 +71,16 @@
       "wave": "000000000000000000000000000000001111000000000000000000000000000000000000"
     },
     {
-      "name": "Posedge \u2192 0x03 (READ) \u2014 flash responde",
+      "name": "Posedge = 0x03 (READ) \u2014 flash responde",
       "wave": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {}
   ],
   "head": {
-    "text": "SPI flash: tres primeras lecturas del VCD \u2014 MOSI y MISO extra\u00eddos del bus uo_out/ui_in"
+    "text": "SPI flash: tres primeras lecturas del VCD"
   },
   "foot": {
-    "text": "Datos del VCD (tt_um_femto_TB.vcd). Tx1-2: CS_N\u2193=SCK\u2193 \u2192 posedge lee 0x06 (WREN) \u2192 flash no devuelve datos. Tx3: SCK ya en 0 \u2192 posedge lee 0x03 (READ) \u2192 flash responde en MISO."
+    "text": "MOSI: comando 0x03 + direcci\u00f3n 0x000000 (MOSI=0 despu\u00e9s del comando). Tx1-2: CS_N\u2193=SCK\u2193 \u2192 shift \u2192 posedge lee 0x06. Tx3: SCK ya en 0 \u2192 sin shift \u2192 posedge lee 0x03."
   },
   "config": {
     "hscale": 1
