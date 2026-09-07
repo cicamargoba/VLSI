@@ -1,99 +1,73 @@
-DESIGN          = mult_32
-PINS            = $(DESIGN).ucf
-DEVICE          = xc6slx45-3csg324
-BGFLAGS         = -g TdoPin:PULLNONE -g DonePin:PULLUP \
-                  -g CRC:enable -g StartUpClk:CCLK
+TARGET=mult_32
+TOP=mult_32
 
-XILINXCADROOT   = /opt/cad/Xilinx/14.4/ISE_DS/ISE/
-SIM_COMP_SCRIPT = simulation/$(DESIGN)_TB.do
-SIMGEN_OPTIONS  = -p $(FPGA_ARCH) -lang $(LANGUAGE)
-IVERILOG        = iverilog
+ICE40_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
-SRC             = $(DESIGN).v rsr.v lsr.v acc.v control_mult.v comp.v \
+OBJS     = mult_32.v acc.v  comp.v  control_mult.v  lsr.v rsr.v
+SIM_OBJS =  ../../verilog_model/sky130_fd_sc_hd.v
+SIM_OBJS += ../../verilog_model/primitives.v
 
-SIM_SRC = $(DESIGN)_TB.v          \
+PER_OBJS = perip_mult.v $(OBJS)
+
+BUILD_DIR = build
+
+all: sim
+
+sim:
+	rm -f a.out *.vcd
+	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27  $(TARGET)_TB.v $(OBJS)
+	vvp a.out
+	gtkwave $(TARGET)_TB.vcd
+sim_per:
+	rm -f a.out *.vcd
+	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27  perip_$(TARGET)_TB.v $(PER_OBJS)
+	vvp a.out
+	gtkwave perip_$(TARGET)_TB.vcd &
+$(TOP).json:
+	yosys -v3 -l synth.log -p 'synth_ecp5 -top $(TOP) -json $(TOP).json; write_verilog -attr2comment $(TOP)_synth.v' $(OBJS)
+#	yosys -p "read_verilog $(TOP)_synth.v; read_verilog cells_sim.v; prep -top $(TOP); show -format svg -prefix yosys"  # Visualize
 
 
+## ---------------------
+## post-synth simulation
+## ---------------------
+sim_post_syn: $(TOP).json $(OBJS)
+	iverilog -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v $(TOP)_synth.v $(ICE40_SIM_CELLS) 
+	vvp $@_PS.vpp
+	gtkwave $(TOP)_TB.vcd &
+sim_post_syn_sky:
+	yosys -l synth.log -c synth.tcl
+	cp out.v $(TOP)_synth_sky.v 
+	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v $(TOP)_synth_sky.v ${SIM_OBJS}
+	vvp $@_PS.vpp
+	./$@_PS.vpp
+	gtkwave $(TOP)_TB.vcd &
+	#netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
+	
 
- 
-all:            bits
+## ---------------------
+## post-route simulation
+## ---------------------
+$(TOP).asc: $(TOP).json
+	nextpnr-ecp5  --json $(TOP).json  $@  --routed-svg $(TOP)_routed.svg --placed-svg $(TOP)_placed.svg #--pcf-allow-unconstrained
+	nextpnr-ecp5 --json $(BUILD_DIR)/$< --lpf $(TARGET).lpf --textcfg $(BUILD_DIR)/$@ --25k --package CABGA256 --speed 6  --timing-allow-fail --seed 1 --lpf-allow-unconstrained  --log $(TARGET)_pnr.log 
 
-remake:         clean-build all
+sim_post_route: $(TOP).asc $(TOP).pcf
+	icebox_vlog -L -n $(TOP) -sp $(TOP).pcf $< > $(TOP)_route.v
+	iverilog -o $@.vpp -s $(TOP)_TB $(TARGET)_post_route_TB.v  $(TOP)_route.v  $(ICE40_SIM_CELLS)
+	chmod -x $@
+	vvp $@.vpp
+	gtkwave $(TOP)_TB.vcd &
+
+svg: $(OBJS)
+	yosys -p "prep -top ${TARGET}; write_json ${TARGET}.json" ${OBJS}
+	netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
+	yosys -p "prep -top ${TARGET} -flatten; write_json ${TARGET}_flat.json" ${OBJS}
+	netlistsvg ${TARGET}_flat.json -o ${TARGET}_flat.svg  #--skin default.svg
 
 clean:
-	rm -f *~ */*~ a.out *.log *.key *.edf *.ps trace.dat  mult_32_synth_sky.v
-	rm -f *.bit *.json
-
-cleanall: clean
-	rm -rf build simulation/work simulation/transcript  simulation/vsim.wlf simulation/$(DESIGN)_TB.vvp simulation/$(DESIGN)_TB.vcd
-
-bits:           $(DESIGN).bit
-
-#
-# Synthesis
-#
-build/project.src:
-	@[ -d build ] || mkdir build
-	@[ -d simulation ] || mkdir simulation
-	@rm -f $@
-	for i in $(SRC); do echo verilog work ../$$i >> $@; done
-	for i in $(SRC_HDL); do echo VHDL work ../$$i >> $@; done
-
-build/project.xst: build/project.src
-	echo "run" > $@
-	echo "-top $(DESIGN) " >> $@
-	echo "-p $(DEVICE)" >> $@
-	echo "-opt_mode Area" >> $@
-	echo "-opt_level 1" >> $@
-	echo "-ifn project.src" >> $@
-	echo "-ifmt mixed" >> $@
-	echo "-ofn project.ngc" >> $@
-	echo "-ofmt NGC" >> $@
-	echo "-rtlview yes" >> $@
-
-build/project.ngc: build/project.xst $(SRC)
-	cd build && xst -ifn project.xst -ofn project.log
-
-build/project.ngd: build/project.ngc $(PINS)
-	cd build && ngdbuild -p $(DEVICE) project.ngc -uc ../$(PINS)
-
-build/project.ncd: build/project.ngd
-	cd build && map -pr b -p $(DEVICE) project
-
-build/project_r.ncd: build/project.ncd
-	cd build && par -w project project_r.ncd
-
-build/project_r.twr: build/project_r.ncd
-	cd build && trce -v 25 project_r.ncd project.pcf
-
-$(DESIGN).bit:  build/project_r.ncd build/project_r.twr
-	cd build && bitgen project_r.ncd -l -w $(BGFLAGS)
-	@mv -f build/project_r.bit $@
-
-build/project_r.v: build/project_r.ncd
-	cd build &&  ngd2ver project.ngd  -w project.v
-
-postsim: build/project.ngc
-	cd build &&  netgen -sim -ofmt verilog -w project.ngc
-	cd build && iverilog -Wall \
-	-y $(XILINXCADROOT)/verilog/src/unisims \
-	-y $(XILINXCADROOT)/verilog/src/XilinxCoreLib \
-	project.v ../$(DESIGN)_TB.v -o $(DESIGN).bin
-	cd build && vvp $(DESIGN).bin
-	gtkwave build/$(DESIGN)_TB.vcd&
+	rm -rf *.out *.vcd *.svg *.json $(TOP)_synth.v *.vpp *.asc $(TOP)_route.v synth.log
 
 
-iversim:  build/project.src
-	$(IVERILOG) -o simulation/$(DESIGN)_TB.vvp $(VINCDIR) $(SRC) $(SIM_SRC) -s $(DESIGN)_TB
-	vvp simulation/$(DESIGN)_TB.vvp; mv $(DESIGN)_TB.vcd simulation/
-	gtkwave simulation/$(DESIGN)_TB.vcd&
-	
-simcontrol: 
-	$(IVERILOG) -o simulation/control_TB.vvp control.v control_TB.v -s control_TB
-	vvp simulation/control_TB.vvp; mv control_TB.vcd simulation/
-	gtkwave simulation/control_TB.vcd&
+#https://stackoverflow.com/questions/35927650/is-it-possible-to-create-a-simulation-waveform-from-yosys-output
 
-	
-config: $(DESIGN).bit
-	djtgcfg init -d $(BOARD)
-	djtgcfg prog -d $(BOARD) --index 0 --file $(DESIGN).bit
