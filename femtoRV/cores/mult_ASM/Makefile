@@ -1,7 +1,7 @@
 TARGET=mult_32
 TOP=mult_32
 
-ICE40_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
+ICE40_SIM_CELLS=./lattice_sim/cells_sim_ecp5.v
 
 OBJS     = mult_32.v acc.v  comp.v  control_mult.v  lsr.v rsr.v
 SIM_OBJS =  ../../verilog_model/sky130_fd_sc_hd.v
@@ -32,9 +32,18 @@ $(TOP).json:
 ## post-synth simulation
 ## ---------------------
 sim_post_syn: $(TOP).json $(OBJS)
-	iverilog -o $@_PS.vpp -s $(TOP)_TB $(TARGET)_TB.v $(TOP)_synth.v $(ICE40_SIM_CELLS) 
-	vvp $@_PS.vpp
-	gtkwave $(TOP)_TB.vcd &
+	iverilog --I ./lattice_sim $(TOP)_TB $(TARGET)_TB.v $(TOP)_synth.v $(ICE40_SIM_CELLS) 
+	vvp a.out
+	gtkwave $(TARGET)_TB.vcd
+
+
+sim_post_syn:
+	yosys -v3 -l synth.log -p 'synth_ecp5 -top $(TARGET) -json $(TARGET).json; write_verilog -attr2comment $(TARGET)_synth.v' $(OBJS)
+	iverilog  -I ./lattice_sim  $(TARGET)_TB.v $(TARGET)_synth.v $(ICE40_SIM_CELLS) 
+	vvp a.out
+	gtkwave $(TARGET)_TB.vcd
+
+
 sim_post_syn_sky:
 	yosys -l synth.log -c synth.tcl
 	cp out.v $(TOP)_synth_sky.v 
@@ -42,7 +51,7 @@ sim_post_syn_sky:
 	vvp $@_PS.vpp
 	./$@_PS.vpp
 	gtkwave $(TOP)_TB.vcd &
-	#netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
+	#netlist2svg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
 	
 
 ## ---------------------
@@ -63,7 +72,7 @@ svg: $(OBJS)
 	yosys -p "prep -top ${TARGET}; write_json ${TARGET}.json" ${OBJS}
 	netlistsvg ${TARGET}.json -o ${TARGET}.svg  #--skin default.svg
 	yosys -p "prep -top ${TARGET} -flatten; write_json ${TARGET}_flat.json" ${OBJS}
-	netlistsvg ${TARGET}_flat.json -o ${TARGET}_flat.svg  #--skin default.svg
+	netlist2svg ${TARGET}_flat.json -o ${TARGET}_flat.svg  #--skin default.svg
 
 clean:
 	rm -rf *.out *.vcd *.svg *.json $(TOP)_synth.v *.vpp *.asc $(TOP)_route.v synth.log

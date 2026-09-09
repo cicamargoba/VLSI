@@ -1,10 +1,9 @@
 module control_mult( clk , rst , lsb_B , init , z , done , sh , reset , add );
 
-
  input clk;
  input rst;
  input lsb_B;
- input init; 
+ input init;
  input z;
 
  output reg done;
@@ -16,20 +15,18 @@ module control_mult( clk , rst , lsb_B , init , z , done , sh , reset , add );
  parameter START  = 3'b000;
  parameter CHECK  = 3'b001;
  parameter SHIFT  = 3'b010;
- parameter ADD  = 3'b011;
- parameter END  = 3'b100;
- 
+ parameter ADD    = 3'b011;
+ parameter END    = 3'b100;
+
  reg [2:0] state;
- 
+
  initial begin
-  done = 0;
-  sh = 0;
+  done  = 0;
+  sh    = 0;
   reset = 0;
-  add = 0;
+  add   = 0; 
   state = 0;
  end
-
-reg [3:0] count;
 
 always @(posedge clk) begin
     if (rst) begin
@@ -38,11 +35,6 @@ always @(posedge clk) begin
     case(state)
 
       START:begin
-        done = 0;
-        sh = 0;
-        reset = 1;
-        add = 0;
-        count=0;
         if(init)
           state = CHECK;
         else
@@ -50,39 +42,24 @@ always @(posedge clk) begin
       end
 
      CHECK: begin
-      done = 0;
-      sh = 0;
-      reset = 0;
-      add = 0;
       if(lsb_B)
         state = ADD;
       else
         state = SHIFT;
-     end   
+     end
+
      SHIFT: begin
-      done = 0;
-      sh = 1;
-      reset = 0;
-      add = 0;
       if(z)
         state = END;
       else
         state = CHECK;
      end
+
      ADD: begin
-        done = 0;
-        sh = 0;
-        reset = 0;
-        add = 1;
         state = SHIFT;
      end
      END:begin
-        done = 1;
-        sh = 0;
-        reset = 0;
-        add = 0;
-        count = count + 1;
-        state = (count>9) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
+        state = START;
      end
 
      default: state = START;
@@ -91,6 +68,50 @@ always @(posedge clk) begin
 end
 
 
+always@(*) begin
+    case(state)
+
+      START:begin
+        done  = 0;
+        sh    = 0;
+        reset = 1;
+        add   = 0;
+      end
+
+     CHECK: begin
+      done  = 0;
+      sh    = 0;
+      reset = 0;
+      add   = 0;
+     end
+
+     SHIFT: begin
+      done  = 0;
+      sh    = 1;
+      reset = 0;
+      add   = 0;
+     end
+     ADD: begin
+        done  = 0;
+        sh    = 0;
+        reset = 0;
+        add   = 1;
+     end
+     END:begin
+        done  = 1;
+        sh    = 0;
+        reset = 0;
+        add   = 0;
+     end
+
+     default: begin
+        done  = 0;
+        sh    = 0;
+        reset = 1;
+        add   = 0;
+     end
+   endcase
+end
 
 `ifdef BENCH
 reg [8*40:1] state_name;
