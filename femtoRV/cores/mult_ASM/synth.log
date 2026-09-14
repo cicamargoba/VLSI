@@ -1560,6 +1560,6 @@ Found and reported 0 problems.
 8.2. Executing DEMUXMAP pass.
 Dumping module `\mult_32'.
 
-End of script. Logfile hash: 491279d1ef, CPU: user 0.54s system 0.01s, MEM: 31.32 MB peak
+End of script. Logfile hash: 491279d1ef, CPU: user 0.53s system 0.02s, MEM: 31.96 MB peak
 Yosys 0.59+62 (git sha1 9aa2dde7e, g++ 14.2.0-19ubuntu2 -fPIC -O3)
-Time spent: 50% 31x read_verilog (0 sec), 9% 1x abc9_exe (0 sec), ...
+Time spent: 47% 31x read_verilog (0 sec), 9% 1x abc9_exe (0 sec), ...
