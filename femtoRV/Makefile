@@ -33,7 +33,7 @@ sim:
 	rm -f a.out *.vcd
 	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TOP)_TB.v ${OBJS} ${SIM_OBJS}
 	vvp a.out
-	gtkwave bench.vcd
+	gtkwave femto_TB.vcd
 #conda install -c conda-forge click
 # o sudo pip3 install Click
 
