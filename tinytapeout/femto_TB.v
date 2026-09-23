@@ -99,6 +99,12 @@ always #(tck/2) CLK <= ~CLK;
 `ifdef BENCH
     for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, bench.uut.CPU.registerFile[idx]);
     for(idx = 0; idx < 16; idx = idx +1)  $dumpvars(0, bench.uut.RAM.MEM[idx]);
+    $dumpvars(0, bench.spiflash.buffer,
+                 bench.spiflash.bitcount,
+                 bench.spiflash.bytecount,
+                 bench.spiflash.spi_addr,
+                 bench.spiflash.spi_cmd,
+                 bench.spiflash.mode);
 `endif
 
     #0   RXD   = 1;

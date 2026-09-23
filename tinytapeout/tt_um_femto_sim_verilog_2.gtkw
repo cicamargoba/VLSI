@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Wed Sep 23 12:42:29 2026
+[*] Wed Sep 23 16:44:46 2026
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Wed Sep 23 12:38:19 2026"
-[dumpfile_size] 55352693
+[dumpfile_mtime] "Wed Sep 23 16:44:22 2026"
+[dumpfile_size] 80412337
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog_2.gtkw"
 [timestart] 0
-[size] 1451 784
-[pos] -1 -185
-*-24.000000 22220000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 3440 1393
+[pos] -1 -1
+*-27.000000 1820000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [treeopen] tt_um_femto_TB.uut.femto0.
@@ -17,13 +17,18 @@
 [sst_width] 329
 [signals_width] 319
 [sst_expanded] 1
-[sst_vpaned_height] 484
+[sst_vpaned_height] 604
 @28
 tt_um_femto_TB.uut.resetn
 @22
 tt_um_femto_TB.uut.femto0.CPU.PC[23:0]
+tt_um_femto_TB.uut.femto0.CPU.instr[31:2]
+tt_um_femto_TB.uut.femto0.CPU.mem_rdata[31:0]
 @28
 tt_um_femto_TB.uut.femto0.TXD
+@820
+tt_um_femto_TB.uut.femto0.per_uart.uart0.tx_data[7:0]
+@28
 tt_um_femto_TB.uut.femto0.RXD
 @820
 tt_um_femto_TB.uut.femto0.per_uart.rx_data[7:0]
@@ -47,16 +52,23 @@ tt_um_femto_TB.uut.femto0.CPU.aluShamt[4:0]
 tt_um_femto_TB.uut.femto0.CPU.aluReg[31:0]
 @200
 -
--SPI_FLASH
-@28
-tt_um_femto_TB.uut.femto0.mapped_spi_flash.CLK
-tt_um_femto_TB.uut.femto0.mapped_spi_flash.CS_N
-tt_um_femto_TB.uut.femto0.mapped_spi_flash.MISO
+-mapped_spi_flash
 @23
-tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_data[31:0]
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.CLK
 @28
 [color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.CS_N
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.MISO
+[color] 2
 tt_um_femto_TB.uut.femto0.mapped_spi_flash.MOSI
+@22
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.snd_bitcount[5:0]
+[color] 2
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_bitcount[5:0]
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_data[31:0]
+@28
 tt_um_femto_TB.uut.femto0.mapped_spi_ram.state[2:0]
 @22
 [color] 3
@@ -86,39 +98,37 @@ tt_um_femto_TB.uut.femto0.flashram0.tempReg[7:0]
 @820
 [color] 3
 tt_um_femto_TB.uut.femto0.flashram0.state[176:1]
+@200
+-SPI_FLASH
+@28
+tt_um_femto_TB.uut.femto0.flashram0.mode[1:0]
+tt_um_femto_TB.flash0.powered_up
 @22
+[color] 5
+tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_data[31:0]
+@28
+[color] 2
+tt_um_femto_TB.flash0.io0
+[color] 2
+tt_um_femto_TB.flash0.io1
+tt_um_femto_TB.flash0.clk
+[color] 2
+tt_um_femto_TB.flash0.csb
+@22
+tt_um_femto_TB.flash0.spi_in[7:0]
 [color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[44][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[45][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[46][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[47][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[48][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[49][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[50][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[51][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[52][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[53][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[54][7:0]
-[color] 3
-tt_um_femto_TB.uut.femto0.flashram0.\mem[55][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[56][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[57][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[58][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[59][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[60][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[61][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[62][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[63][7:0]
-tt_um_femto_TB.uut.femto0.flashram0.\mem[64][7:0]
+tt_um_femto_TB.flash0.buffer[7:0]
+@420
+tt_um_femto_TB.flash0.bytecount
+@22
+[color] 7
+tt_um_femto_TB.flash0.spi_addr[23:0]
+[color] 1
+tt_um_femto_TB.flash0.spi_cmd[7:0]
+@420
+tt_um_femto_TB.flash0.bitcount
+@22
+tt_um_femto_TB.flash0.spi_in[7:0]
+tt_um_femto_TB.flash0.spi_out[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -22,6 +22,8 @@ wire VGND = 1'b0;
    wire spi_clk_ram;
    wire spi_miso_ram;
    wire spi_mosi_ram;
+  wire ena = 1'b1;      // diseño habilitado, como en el chip real
+  wire reset_n = 1'b1;  // VDD siempre alimentado
 
 tt_um_femto uut(
     .clk    (CLK),
@@ -104,12 +106,12 @@ always #(tck/2) CLK <= ~CLK;
        integer idx; 
    initial begin
 
-
     $dumpfile("tt_um_femto_TB.vcd");
-    $dumpvars(-1,uut);
+    $dumpvars(0, uut);
+    $dumpvars(1, flash0);
 `ifdef SIM
     for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.CPU.registerFile[idx]);
-    for(idx = 32; idx < 65; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.flashram0.mem[idx]);
+    for(idx = 16; idx < 65; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.flashram0.mem[idx]);
 `endif
 
     #0   RXD   = 1;
