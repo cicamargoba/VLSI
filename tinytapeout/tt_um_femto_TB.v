@@ -111,7 +111,7 @@ always #(tck/2) CLK <= ~CLK;
     $dumpvars(1, flash0);
 `ifdef SIM
     for(idx = 0; idx < 32; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.CPU.registerFile[idx]);
-    for(idx = 16; idx < 65; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.uut.femto0.flashram0.mem[idx]);
+    for(idx = 16; idx < 65; idx = idx +1)  $dumpvars(0, tt_um_femto_TB.flashram0.mem[idx]);
 `endif
 
     #0   RXD   = 1;

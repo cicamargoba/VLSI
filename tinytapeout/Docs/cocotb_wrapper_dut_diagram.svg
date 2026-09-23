@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 15px Arial, sans-serif; fill: #475569; }
+      .block-title { font: 700 18px Arial, sans-serif; fill: #0f172a; }
+      .text { font: 400 15px Arial, sans-serif; fill: #1e293b; }
+      .mono { font: 400 14px monospace; fill: #0f172a; }
+      .small { font: 400 13px Arial, sans-serif; fill: #334155; }
+      .container { fill: #f8fafc; stroke: #334155; stroke-width: 2; }
+      .driver { fill: #eaf2f8; stroke: #3b6280; stroke-width: 2; }
+      .wrapper { fill: #f6f8fb; stroke: #315b78; stroke-width: 3; }
+      .dut { fill: #fffdf5; stroke: #8a6d1d; stroke-width: 2; }
+      .inner { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+      .footer { fill: #e8edf3; stroke: #64748b; stroke-width: 1; }
+      .dut-footer { fill: #f4ead0; stroke: #8a6d1d; stroke-width: 1; }
+      .signal { fill: none; stroke: #334155; stroke-width: 2; marker-end: url(#arrow); }
+      .signal-label { font: 600 13px monospace; fill: #1e293b; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" fill="#ffffff"/>
+  <text x="50" y="48" class="title">Simulación cocotb: wrapper y DUT</text>
+  <text x="50" y="76" class="subtitle">Conexión VPI, adaptación de pines Tiny Tapeout y observación del procesador</text>
+
+  <rect x="50" y="150" width="285" height="500" class="driver"/>
+  <text x="72" y="185" class="block-title">Cocotb / Python</text>
+  <text x="72" y="211" class="mono">test_tt_um_femto.py</text>
+
+  <rect x="72" y="245" width="241" height="125" class="inner"/>
+  <text x="88" y="275" class="block-title">Estímulos</text>
+  <text x="88" y="303" class="text">• Reloj de 27 MHz</text>
+  <text x="88" y="328" class="text">• Reset</text>
+  <text x="88" y="353" class="text">• UART RX y RAM MISO</text>
+
+  <rect x="72" y="392" width="241" height="125" class="inner"/>
+  <text x="88" y="422" class="block-title">Modelo SPI Flash</text>
+  <text x="88" y="450" class="text">• Recibe 0x03 + dirección</text>
+  <text x="88" y="475" class="text">• Entrega instrucciones</text>
+  <text x="88" y="500" class="mono">flash_miso.value</text>
+
+  <rect x="72" y="539" width="241" height="82" class="inner"/>
+  <text x="88" y="569" class="block-title">Verificación</text>
+  <text x="88" y="596" class="text">SPI, PC, instrucción y x6</text>
+
+  <rect x="440" y="110" width="900" height="650" class="wrapper"/>
+  <text x="465" y="145" class="block-title">Top-level de simulación: tt_um_femto_cocotb</text>
+  <text x="465" y="170" class="mono">tt_um_femto_cocotb.v</text>
+
+  <rect x="470" y="205" width="300" height="180" class="inner"/>
+  <text x="490" y="237" class="block-title">Adaptación de entradas</text>
+  <text x="490" y="270" class="mono">ui_in[0] = flash_miso</text>
+  <text x="490" y="297" class="mono">ui_in[1] = ram_miso</text>
+  <text x="490" y="324" class="mono">ui_in[2] = uart_rx</text>
+  <text x="490" y="351" class="mono">ui_in[7:3] = 5'b0</text>
+
+  <rect x="805" y="205" width="500" height="390" class="dut"/>
+  <text x="830" y="240" class="block-title">DUT: tt_um_femto</text>
+  <text x="830" y="266" class="mono">../femto_UN/src/femto.v</text>
+
+  <rect x="835" y="295" width="440" height="210" class="inner"/>
+  <text x="855" y="327" class="block-title">SoC: femto</text>
+  <rect x="860" y="352" width="180" height="62" class="container"/>
+  <text x="878" y="389" class="text">FemtoRV32 CPU</text>
+  <rect x="1065" y="352" width="180" height="62" class="container"/>
+  <text x="1081" y="389" class="text">MappedSPIFlash</text>
+  <rect x="860" y="430" width="180" height="52" class="container"/>
+  <text x="890" y="462" class="text">UART</text>
+  <rect x="1065" y="430" width="180" height="52" class="container"/>
+  <text x="1080" y="462" class="text">MappedSPIRAM</text>
+
+  <rect x="835" y="522" width="440" height="48" class="dut-footer"/>
+  <text x="851" y="551" class="small">Entradas: ui_in[2:0]  |  Salidas: uo_out[7:0]</text>
+
+  <rect x="470" y="425" width="300" height="170" class="inner"/>
+  <text x="490" y="457" class="block-title">Mapeo de salidas</text>
+  <text x="490" y="490" class="mono">uo_out[0] → flash_mosi</text>
+  <text x="490" y="517" class="mono">uo_out[2] → flash_cs_n</text>
+  <text x="490" y="544" class="mono">uo_out[5] → flash_clk</text>
+  <text x="490" y="571" class="mono">uo_out[7] → uart_tx</text>
+
+  <rect x="470" y="630" width="835" height="92" class="footer"/>
+  <text x="490" y="660" class="block-title">Puertos visibles mediante VPI</text>
+  <text x="490" y="688" class="mono">Entradas: clk, rst_n, uart_rx, flash_miso, ram_miso</text>
+  <text x="490" y="711" class="mono">Salidas: flash_mosi, flash_cs_n, flash_clk, uart_tx, debug_pc, debug_instr, debug_x6</text>
+
+  <path d="M335 295 H400 V260 H440" class="signal"/>
+  <text x="346" y="247" class="signal-label">clk, rst_n, uart_rx</text>
+
+  <path d="M335 455 H390 V340 H440" class="signal"/>
+  <text x="344" y="435" class="signal-label">flash_miso</text>
+
+  <path d="M440 520 H390 V585 H335" class="signal"/>
+  <text x="344" y="554" class="signal-label">SPI + debug</text>
+
+  <text x="50" y="790" class="small">La asignación Python dut.flash_miso.value maneja directamente el puerto superior mediante VPI; el wrapper lo coloca en ui_in[0].</text>
+</svg>

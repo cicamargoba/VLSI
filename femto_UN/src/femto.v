@@ -101,17 +101,6 @@ module femto (
       .rdata(dpram_dout)
    );
 
-`ifdef BENCH
-  FRAM_SPI flashram0(
-   .CSB(spi_cs_n_ram),     // Chip Select (activo en bajo)
-   .SCK(spi_clk_ram),    // SPI Clock
-   .SI(spi_mosi_ram),     // Serial Input (MOSI)
-   .SO(spi_miso_ram),     // Serial Output (MISO)
-   .VDD(reset_n),
-   .WPB(1'b1)
-  );
-`endif
-
    MappedSPIFlash mapped_spi_flash(
       .clk(clk),
       .reset(resetn),

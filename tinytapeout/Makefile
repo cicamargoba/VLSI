@@ -36,6 +36,21 @@ sim:
 	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 tt_um_femto_TB.v ${OBJS} ${SIM_OBJS}
 	vvp a.out
 	gtkwave tt_um_femto_TB.vcd
+
+COCOTB_MAKEFILES := $(shell cocotb-config --makefiles)
+COCOTB_SOURCES := $(abspath tt_um_femto_cocotb.v $(OBJS))
+
+cocotb:
+	$(MAKE) -f $(COCOTB_MAKEFILES)/Makefile.sim \
+		SIM=icarus \
+		TOPLEVEL_LANG=verilog \
+		VERILOG_SOURCES="$(COCOTB_SOURCES)" \
+		COMPILE_ARGS="-DBENCH" \
+		TOPLEVEL=tt_um_femto_cocotb \
+		COCOTB_TEST_MODULES=test_tt_um_femto \
+		COCOTB_RESULTS_FILE=build/cocotb/results.xml \
+		SIM_BUILD=build/cocotb
+
 #conda install -c conda-forge click
 # o sudo pip3 install Click
 
