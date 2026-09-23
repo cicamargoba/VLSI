@@ -94,11 +94,25 @@ def apply_extra_shift_on_loads(data: bytearray, extra_bits: int, extra_dir: str,
     print(f"Instrucciones LOAD con corrimiento adicional: {len(offsets)}")
 
 
+def write_readmemh(data: bytes, path: str, bytes_per_line: int = 16):
+    """
+    Escribe un archivo .hex en formato $readmemh (mismo estilo usado por
+    los testbenches de sim_spi_flash/sim_spi_ram): una cabecera de
+    direccion inicial, seguida de los bytes en hex separados por
+    espacio, varios por linea.
+    """
+    with open(path, 'w') as f:
+        f.write("@00000000\n")
+        for i in range(0, len(data), bytes_per_line):
+            chunk = data[i:i + bytes_per_line]
+            f.write(" ".join(f"{b:02X}" for b in chunk) + "\n")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                   formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('input', help='firmware.bin original')
-    ap.add_argument('output', help='archivo de salida pre-desplazado')
+    ap.add_argument('output', help='archivo de salida pre-desplazado (.bin)')
     ap.add_argument('--bits', type=int, default=1,
                      help='corrimiento BASE, aplicado a todo el archivo (default 1)')
     ap.add_argument('--dir', choices=['left', 'right'], default='left',
@@ -118,6 +132,15 @@ def main():
     ap.add_argument('--extra-fill', choices=['0', '1'], default='0',
                      help='bit de relleno del corrimiento adicional')
     ap.add_argument('--objdump', default='riscv32-unknown-elf-objdump')
+
+    ap.add_argument('--hex-output', metavar='FIRMWARE_HEX', default=None,
+                     help='si se especifica, ademas del .bin de salida, '
+                          'escribe el resultado (ya con el corrimiento '
+                          'aplicado) en formato $readmemh en esta ruta, '
+                          'listo para usar en una simulacion (p.ej. como '
+                          'firmware_flash.hex para el modelo spiflash.v).')
+    ap.add_argument('--hex-bytes-per-line', type=int, default=16,
+                     help='bytes por linea en el .hex de salida (default 16)')
     args = ap.parse_args()
 
     with open(args.input, 'rb') as f:
@@ -136,12 +159,17 @@ def main():
     with open(args.output, 'wb') as f:
         f.write(corrected)
 
+    if args.hex_output:
+        write_readmemh(bytes(corrected), args.hex_output, args.hex_bytes_per_line)
+
     print(f"Entrada:  {len(data)} bytes")
     print(f"Salida:   {len(corrected)} bytes")
     print(f"Corrimiento base: {args.bits} bit(s) hacia la {args.dir}, relleno={args.fill}")
     if args.loads_only:
         print(f"Corrimiento extra en LOAD: {args.extra_bits} bit(s) hacia la "
               f"{args.extra_dir}, relleno={args.extra_fill}")
+    if args.hex_output:
+        print(f"Hex para simulacion: {args.hex_output}")
     print(f"Primeros 8 bytes original:  {data[:8].hex(' ')}")
     print(f"Primeros 8 bytes corregido: {bytes(corrected[:8]).hex(' ')}")
 

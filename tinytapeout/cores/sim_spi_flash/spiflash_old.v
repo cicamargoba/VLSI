@@ -1,7 +1,7 @@
 /*
  *  PicoSoC - A simple example SoC using PicoRV32
  *
- *  Copyright (C) 2017  Clifford Wolf <clifford@clifford.at>
+ *  Copyright (C) 2017  Claire Xenia Wolf <claire@yosyshq.com>
  *
  *  Permission to use, copy, modify, and/or distribute this software for any
  *  purpose with or without fee is hereby granted, provided that the above
@@ -32,6 +32,9 @@
 //    Cypress S25FL064L http://www.cypress.com/file/316661/download
 //    Cypress S25FL128L http://www.cypress.com/file/316171/download
 //
+// SPI flash used on iCEBreaker board:
+//    https://www.winbond.com/resource-files/w25q128jv%20dtr%20revb%2011042016.pdf
+//
 
 module spiflash (
 	input csb,
@@ -43,7 +46,7 @@ module spiflash (
 );
 	localparam verbose = 0;
 	localparam integer latency = 8;
-	
+
 	reg [7:0] buffer;
 	integer bitcount = 0;
 	integer bytecount = 0;
@@ -80,7 +83,7 @@ module spiflash (
 	reg io2_dout = 0;
 	reg io3_dout = 0;
 
-	assign #1 io0 = io0_oe ? io0_dout : 1'bz;
+	//assign #1 io0 = io0_oe ? io0_dout : 1'bz;
 	assign #1 io1 = io1_oe ? io1_dout : 1'bz;
 	assign #1 io2 = io2_oe ? io2_dout : 1'bz;
 	assign #1 io3 = io3_oe ? io3_dout : 1'bz;
@@ -270,7 +273,7 @@ module spiflash (
 			bytecount = 0;
 			mode = mode_spi;
 			io0_oe = 0;
-			io1_oe = 0;
+			io1_oe = 1;
 			io2_oe = 0;
 			io3_oe = 0;
 		end else
@@ -287,7 +290,7 @@ module spiflash (
 		if (!csb && !clk) begin
 			if (dummycount > 0) begin
 				io0_oe = 0;
-				io1_oe = 0;
+				io1_oe = 1;
 				io2_oe = 0;
 				io3_oe = 0;
 			end else
@@ -301,7 +304,7 @@ module spiflash (
 				end
 				mode_dspi_rd: begin
 					io0_oe = 0;
-					io1_oe = 0;
+					io1_oe = 1;
 					io2_oe = 0;
 					io3_oe = 0;
 				end
@@ -361,7 +364,7 @@ module spiflash (
 		end
 	end
 
-	always @(posedge clk) begin
+	always @(negedge clk) begin
 		if (!csb) begin
 			if (dummycount > 0) begin
 				dummycount = dummycount - 1;

@@ -2,6 +2,7 @@
 .global _start
 _start:
     lui   t1, 0x400
+    lui   t1, 0x400
     addi  t1, t1, 8          # t1 = 0x00400008  (UART registro de datos)
     lui   t2, 0x400
     addi  t2, t2, 16         # t2 = 0x00400010  (UART registro de control/estado)
