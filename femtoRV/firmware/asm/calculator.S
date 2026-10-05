@@ -5,28 +5,7 @@
 .globl put_hello
 
 calculator:
-   li   sp,0x10030
    li   sp,0x10030    
-
-    
-    li   t0, 300 #12C
-	sw   t0,0(sp)
-	sw   t0,4(sp)
-	sw   t0,8(sp)
-	sw   t0,12(sp)
-
-	li   t1, 600 #258
-    sw   t1,0(sp) 
-    lw   a0,0(sp)
-
-	li   t1, 700 #2BC
-    sw   t1,0(sp) 
-    lw   a0,0(sp)
-
-
-	li   t1, 500 #1F4
-    sw   t1,0(sp) 
-    lw   a0,0(sp)
 loopM:
 	la   a0, command
 	call putstring
