@@ -1,4 +1,3 @@
-.section .text
 .globl bin_to_bcd
 # a0 binary number
 bin_to_bcd:

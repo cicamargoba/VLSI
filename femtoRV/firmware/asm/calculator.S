@@ -1,4 +1,3 @@
-.equ DPRAM_BASE, 0x450000  
 .section .text
 .globl start 
 .globl blinker
