@@ -2,19 +2,7 @@
 Discarded input sections
 
  .riscv.attributes
-                0x0000000000000000       0x1a bin_to_bcd.o
- .riscv.attributes
-                0x0000000000000000       0x1a mult.o
- .riscv.attributes
-                0x0000000000000000       0x1a div.o
- .riscv.attributes
-                0x0000000000000000       0x1a wait.o
- .riscv.attributes
-                0x0000000000000000       0x1a putchar.o
- .riscv.attributes
-                0x0000000000000000       0x1a getchar.o
- .riscv.attributes
-                0x0000000000000000       0x1a calculator.o
+                0x0000000000000000       0x1a uart_full_demo.o
 
 Memory Configuration
 
@@ -25,43 +13,19 @@ BRAM             0x0000000000000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-everything      0x0000000000000000      0x2fc
+everything      0x0000000000000000      0x464
                 0x0000000000000000                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000000000       0xfc bin_to_bcd.o
-                0x0000000000000000                bin_to_bcd
- .text          0x00000000000000fc       0x78 mult.o
-                0x00000000000000fc                mult
-                0x0000000000000144                mult_hw
- .text          0x0000000000000174       0x60 div.o
-                0x0000000000000174                div
- .text          0x00000000000001d4       0x24 wait.o
-                0x00000000000001d4                wait
- .text          0x00000000000001f8       0x4c putchar.o
-                0x00000000000001f8                putchar
- .text          0x0000000000000244       0x44 getchar.o
-                0x0000000000000244                getchar
- .text          0x0000000000000288       0x74 calculator.o
+ .text          0x0000000000000000      0x464 uart_full_demo.o
+                0x0000000000000000                _start
  *(.rodata)
  *(.rodata.*)
 
-.data           0x00000000000002fc        0xc
- .data          0x00000000000002fc        0x0 bin_to_bcd.o
- .data          0x00000000000002fc        0x0 mult.o
- .data          0x00000000000002fc        0x0 div.o
- .data          0x00000000000002fc        0x0 wait.o
- .data          0x00000000000002fc        0x0 putchar.o
- .data          0x00000000000002fc        0x0 getchar.o
- .data          0x00000000000002fc        0xc calculator.o
+.data           0x0000000000000464        0x0
+ .data          0x0000000000000464        0x0 uart_full_demo.o
 
-.bss            0x0000000000000308        0x0
- .bss           0x0000000000000308        0x0 bin_to_bcd.o
- .bss           0x0000000000000308        0x0 mult.o
- .bss           0x0000000000000308        0x0 div.o
- .bss           0x0000000000000308        0x0 wait.o
- .bss           0x0000000000000308        0x0 putchar.o
- .bss           0x0000000000000308        0x0 getchar.o
- .bss           0x0000000000000308        0x0 calculator.o
+.bss            0x0000000000000464        0x0
+ .bss           0x0000000000000464        0x0 uart_full_demo.o
 
 /DISCARD/
  *(.riscv.attributes)
@@ -70,11 +34,5 @@ everything      0x0000000000000000      0x2fc
  *(.strtab)
  *(.shstrtab)
  *(.eh_frame)
-LOAD bin_to_bcd.o
-LOAD mult.o
-LOAD div.o
-LOAD wait.o
-LOAD putchar.o
-LOAD getchar.o
-LOAD calculator.o
+LOAD uart_full_demo.o
 OUTPUT(firmware.elf elf32-littleriscv)
