@@ -6,7 +6,8 @@ TINYTO_TOP=tt_um_femto
 SKY_LIB_TECH=$(HOME)/.volare/sky130A/libs.tech/openlane/
 
 OBJS = ../femto_UN/src/femto.v
-OBJS+= ../femto_UN/src/femtorv32_quark.v
+//OBJS+= ../femto_UN/src/femtorv32_quark.v
+OBJS+= ../femto_UN/src/femtorv32_quark_un_irq.v
 OBJS+= ../femto_UN/src/perip_uart.v
 OBJS+= ../femto_UN/src/uart.v
 OBJS+= ../femto_UN/src/perip_mult.v
