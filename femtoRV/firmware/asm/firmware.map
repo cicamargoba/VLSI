@@ -15,23 +15,23 @@ BRAM             0x0000000000000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-everything      0x0000000000000000      0x4f8
+everything      0x0000000000000000       0xcc
                 0x0000000000000000                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000000000      0x4ac uart_full_demo.o
+ .text          0x0000000000000000       0x80 uart_full_demo.o
                 0x0000000000000000                _start
- .text          0x00000000000004ac       0x4c putchar.o
-                0x00000000000004ac                putchar
+ .text          0x0000000000000080       0x4c putchar.o
+                0x0000000000000080                putchar
  *(.rodata)
  *(.rodata.*)
 
-.data           0x00000000000004f8        0xc
- .data          0x00000000000004f8        0xc uart_full_demo.o
- .data          0x0000000000000504        0x0 putchar.o
+.data           0x00000000000000cc       0x15
+ .data          0x00000000000000cc       0x15 uart_full_demo.o
+ .data          0x00000000000000e1        0x0 putchar.o
 
-.bss            0x0000000000000504        0x0
- .bss           0x0000000000000504        0x0 uart_full_demo.o
- .bss           0x0000000000000504        0x0 putchar.o
+.bss            0x00000000000000e1        0x0
+ .bss           0x00000000000000e1        0x0 uart_full_demo.o
+ .bss           0x00000000000000e1        0x0 putchar.o
 
 /DISCARD/
  *(.riscv.attributes)

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Wed Oct 14 01:01:01 2026
+[*] Wed Oct 14 01:22:04 2026
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Wed Oct 14 00:54:54 2026"
-[dumpfile_size] 22252308
+[dumpfile_mtime] "Wed Oct 14 01:18:41 2026"
+[dumpfile_size] 13529010
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog_2.gtkw"
-[timestart] 0
+[timestart] 1200000
 [size] 1920 1121
 [pos] -1 -1
-*-28.000000 50400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-26.000000 171900000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [treeopen] tt_um_femto_TB.uut.femto0.
@@ -82,7 +82,7 @@ tt_um_femto_TB.uut.femto0.CPU.interrupt_accepted
 tt_um_femto_TB.uut.femto0.CPU.interrupt_request
 tt_um_femto_TB.uut.femto0.CPU.interrupt_request_sticky
 tt_um_femto_TB.uut.femto0.CPU.interrupt_return
-@23
+@22
 tt_um_femto_TB.uut.femto0.CPU.mtvec[23:0]
 [pattern_trace] 1
 [pattern_trace] 0

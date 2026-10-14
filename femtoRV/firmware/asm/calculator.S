@@ -52,7 +52,7 @@ putstring:
 
 .section .data
 command:
-	.asciz "IN\n"
+	.asciz "Hello World\n"
 operator:
 	.asciz "Op\n"
 result:
