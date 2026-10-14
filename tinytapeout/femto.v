@@ -19,24 +19,25 @@ module tt_um_femto(
   /* verilator lint_off UNDRIVEN */
 	
 	femto femto0( 
-		.clk          (clk), 
-		.resetn       (resetn), 
-		.spi_mosi     (uo_out[0]),
-		.spi_mosi_ram (uo_out[1]),
-		.spi_cs_n     (uo_out[2]),
-		.spi_cs_n_ram (uo_out[3]),
-		.spi_clk_ram  (uo_out[4]),
-		.spi_clk      (uo_out[5]),
-		.LEDS         (uo_out[6]),
-		.TXD          (uo_out[7]),
+		.clk               (clk), 
+		.resetn            (resetn), 
+		.spi_mosi          (uo_out[0]),
+		.spi_mosi_ram      (uo_out[1]),
+		.spi_cs_n          (uo_out[2]),
+		.spi_cs_n_ram      (uo_out[3]),
+		.spi_clk_ram       (uo_out[4]),
+		.spi_clk           (uo_out[5]),
+		.LEDS              (uo_out[6]),
+		.TXD               (uo_out[7]),
 		
-		.spi_miso     (ui_in[0]),
-		.spi_miso_ram (ui_in[1]),
-		.RXD          (ui_in[2])
+		.spi_miso          (ui_in[0]),
+		.spi_miso_ram      (ui_in[1]),
+		.RXD               (ui_in[2]),
+      .interrupt_request (ui_in[3])
 		
 	);
 	
-	wire _unused = &{ena, uio_oe[7:0] , uio_in[7:0], uio_out[7:0], ui_in[7:3], 1'b0};
+	wire _unused = &{ena, uio_oe[7:0] , uio_in[7:0], uio_out[7:0], ui_in[7:4], 1'b0};
 	assign uio_out = 8'h00;
 	assign uio_oe = 8'h00;
 	
@@ -46,6 +47,7 @@ endmodule
 module femto (
    input 	     clk,    // system clock 
    input 	     resetn, // reset button
+   input         interrupt_request,
 
    output        spi_mosi,
    input         spi_miso,
@@ -78,26 +80,12 @@ module femto (
       .mem_wdata(mem_wdata),
       .mem_wmask(mem_wmask),
       .mem_rbusy(mapped_spi_flash_rbusy | spi_ram_rbusy),
-      .mem_wbusy(spi_ram_wbusy)
+      .mem_wbusy(spi_ram_wbusy),
+      .interrupt_request1(interrupt_request1),
    );
    wire [31:0] RAM_rdata;
    wire  wr = |mem_wmask;
    wire  rd = mem_rstrb; 
-
-/*
-   bram RAM(
-      .clk(clk),
-      .mem_addr(mem_address[6:2]),
-      .mem_rdata(dpram_dout),
-      .cs(cs[6]),
-      .rd(rd),
-      .wr(wr),
-      .mem_wdata(mem_wdata)
-      //.mem_wmask( { 4{ cs[6] } } & mem_wmask )
-   );
-
-*/
-
 
    wire spi_ram_rbusy;
    wire spi_ram_wbusy;

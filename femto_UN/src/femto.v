@@ -32,11 +32,13 @@ module tt_um_femto(
 		
 		.spi_miso     (ui_in[0]),
 		.spi_miso_ram (ui_in[1]),
-		.RXD          (ui_in[2])
+		.RXD          (ui_in[2]),
+      .interrupt_request (ui_in[3])
+
 		
 	);
 	
-	wire _unused = &{ena, uio_oe[7:0] , uio_in[7:0], uio_out[7:0], ui_in[7:3], 1'b0};
+	wire _unused = &{ena, uio_oe[7:0] , uio_in[7:0], uio_out[7:0], ui_in[7:4], 1'b0};
 	assign uio_out = 8'h00;
 	assign uio_oe = 8'h00;
 	
@@ -46,6 +48,7 @@ endmodule
 module femto (
    input 	     clk,    // system clock 
    input 	     resetn, // reset button
+   input         interrupt_request,
 
    output        spi_mosi,
    input         spi_miso,
@@ -78,7 +81,8 @@ module femto (
       .mem_wdata(mem_wdata),
       .mem_wmask(mem_wmask),
       .mem_rbusy(mapped_spi_flash_rbusy | spi_ram_rbusy),
-      .mem_wbusy(spi_ram_wbusy)
+      .mem_wbusy(spi_ram_wbusy),
+      .interrupt_request(interrupt_request)
    );
    wire [31:0] RAM_rdata;
    wire  wr = |mem_wmask;

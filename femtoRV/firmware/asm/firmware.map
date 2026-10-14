@@ -2,7 +2,9 @@
 Discarded input sections
 
  .riscv.attributes
-                0x0000000000000000       0x1a uart_full_demo.o
+                0x0000000000000000       0x1e uart_full_demo.o
+ .riscv.attributes
+                0x0000000000000000       0x1a putchar.o
 
 Memory Configuration
 
@@ -13,19 +15,23 @@ BRAM             0x0000000000000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-everything      0x0000000000000000      0x464
+everything      0x0000000000000000      0x4f8
                 0x0000000000000000                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000000000      0x464 uart_full_demo.o
+ .text          0x0000000000000000      0x4ac uart_full_demo.o
                 0x0000000000000000                _start
+ .text          0x00000000000004ac       0x4c putchar.o
+                0x00000000000004ac                putchar
  *(.rodata)
  *(.rodata.*)
 
-.data           0x0000000000000464        0x0
- .data          0x0000000000000464        0x0 uart_full_demo.o
+.data           0x00000000000004f8        0xc
+ .data          0x00000000000004f8        0xc uart_full_demo.o
+ .data          0x0000000000000504        0x0 putchar.o
 
-.bss            0x0000000000000464        0x0
- .bss           0x0000000000000464        0x0 uart_full_demo.o
+.bss            0x0000000000000504        0x0
+ .bss           0x0000000000000504        0x0 uart_full_demo.o
+ .bss           0x0000000000000504        0x0 putchar.o
 
 /DISCARD/
  *(.riscv.attributes)
@@ -35,4 +41,5 @@ everything      0x0000000000000000      0x464
  *(.shstrtab)
  *(.eh_frame)
 LOAD uart_full_demo.o
+LOAD putchar.o
 OUTPUT(firmware.elf elf32-littleriscv)

@@ -10,7 +10,7 @@
 # *************************************************
 #OBJECTS =  bin_to_bcd.o mult.o div.o wait.o putchar.o getchar.o calculator.o #hello.o 
 #OBJECTS =  blink.o 
-OBJECTS =  uart_full_demo.o
+OBJECTS =  uart_full_demo.o putchar.o
 #OBJECTS = test_ram_load.o
 #OBJECTS = test_load.o
 CROSS   = riscv32-unknown-elf

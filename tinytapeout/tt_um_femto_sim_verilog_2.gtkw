@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Mon Oct  5 13:11:07 2026
+[*] Wed Oct 14 01:01:01 2026
 [*]
 [dumpfile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_TB.vcd"
-[dumpfile_mtime] "Mon Oct  5 13:10:46 2026"
-[dumpfile_size] 59266669
+[dumpfile_mtime] "Wed Oct 14 00:54:54 2026"
+[dumpfile_size] 22252308
 [savefile] "/Work/VLSI/VLSI/tinytapeout/tt_um_femto_sim_verilog_2.gtkw"
 [timestart] 0
 [size] 1920 1121
 [pos] -1 -1
-*-32.000000 5410000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-28.000000 50400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tt_um_femto_TB.
 [treeopen] tt_um_femto_TB.uut.
 [treeopen] tt_um_femto_TB.uut.femto0.
@@ -47,6 +47,7 @@ tt_um_femto_TB.uut.femto0.CPU.\registerFile[13][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[14][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[15][31:0]
 tt_um_femto_TB.uut.femto0.CPU.\registerFile[31][31:0]
+tt_um_femto_TB.uut.femto0.CPU.\registerFile[18][31:0]
 [color] 2
 tt_um_femto_TB.uut.femto0.CPU.aluShamt[4:0]
 tt_um_femto_TB.uut.femto0.CPU.aluReg[31:0]
@@ -70,7 +71,18 @@ tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_bitcount[5:0]
 tt_um_femto_TB.uut.femto0.mapped_spi_flash.rcv_data[31:0]
 @28
 tt_um_femto_TB.uut.femto0.mapped_spi_ram.state[2:0]
-@23
+@22
 tt_um_femto_TB.uut.femto0.cs[6:0]
+@200
+-
+-INTERRUPT
+@28
+tt_um_femto_TB.uut.femto0.CPU.interrupt
+tt_um_femto_TB.uut.femto0.CPU.interrupt_accepted
+tt_um_femto_TB.uut.femto0.CPU.interrupt_request
+tt_um_femto_TB.uut.femto0.CPU.interrupt_request_sticky
+tt_um_femto_TB.uut.femto0.CPU.interrupt_return
+@23
+tt_um_femto_TB.uut.femto0.CPU.mtvec[23:0]
 [pattern_trace] 1
 [pattern_trace] 0
