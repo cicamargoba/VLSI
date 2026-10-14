@@ -15,7 +15,7 @@ BRAM             0x0000000000000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-everything      0x0000000000000000       0xcc
+everything      0x0000000000000000       0xe1
                 0x0000000000000000                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000000000000       0x80 uart_full_demo.o
@@ -23,10 +23,11 @@ everything      0x0000000000000000       0xcc
  .text          0x0000000000000080       0x4c putchar.o
                 0x0000000000000080                putchar
  *(.rodata)
+ .rodata        0x00000000000000cc       0x15 uart_full_demo.o
  *(.rodata.*)
 
-.data           0x00000000000000cc       0x15
- .data          0x00000000000000cc       0x15 uart_full_demo.o
+.data           0x00000000000000e1        0x0
+ .data          0x00000000000000e1        0x0 uart_full_demo.o
  .data          0x00000000000000e1        0x0 putchar.o
 
 .bss            0x00000000000000e1        0x0

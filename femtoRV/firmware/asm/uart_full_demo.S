@@ -8,7 +8,8 @@ _start:
     la    t0, isr           # mtvec <- dirección de la rutina de interrupción
     csrw  mtvec, t0
     li    s2, 0             # contador de interrupciones
-    csrsi mstatus, 8        # MIE = 1: habilita las interrupciones
+    csrsi mst	sw ra,0(sp)   # (need to do that for functions that call functions)
+atus, 8        # MIE = 1: habilita las interrupciones
 
     addi  t1, t1, 8          # t1 = 0x00400008  (UART registro de datos)
     lui   t2, 0x400
@@ -31,9 +32,6 @@ isr:
     mret
 
 
-
-
-
 putstring:
 	addi sp,sp,-4 # save ra on the stack
 	sw ra,0(sp)   # (need to do that for functions that call functions)
@@ -48,7 +46,7 @@ putstring:
 	addi sp,sp,4 # restore sp
 	ret	
 
-.section .data
+.section .rodata
 command:
 	.asciz "Hello World\n"
 operator:

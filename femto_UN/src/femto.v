@@ -25,7 +25,7 @@ module tt_um_femto(
 		.spi_mosi_ram (uo_out[1]),
 		.spi_cs_n     (uo_out[2]),
 		.spi_cs_n_ram (uo_out[3]),
-		.spi_clk_ram  (uo_out[4]),		
+		.spi_clk_ram  (uo_out[4]),
 		.spi_clk      (uo_out[5]),
 		.LEDS         (uo_out[6]),
 		.TXD          (uo_out[7]),

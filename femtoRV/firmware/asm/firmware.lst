@@ -3,10 +3,8 @@ firmware.elf:     file format elf32-littleriscv
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 everything    000000cc  00000000  00000000  00000054  2**2
+  0 everything    000000e1  00000000  00000000  00000054  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000015  000000cc  000000cc  00000120  2**0
-                  CONTENTS, ALLOC, LOAD, DATA
 
 Disassembly of section everything:
 
@@ -68,3 +66,18 @@ Disassembly of section everything:
   c0:	00012283          	lw	t0,0(sp)
   c4:	00c10113          	addi	sp,sp,12
   c8:	00008067          	ret
+
+000000cc <command>:
+  cc:	6548                	flw	fa0,12(a0)
+  ce:	6c6c                	flw	fa1,92(s0)
+  d0:	6f57206f          	j	72fc4 <result+0x72ee7>
+  d4:	6c72                	flw	fs8,28(sp)
+  d6:	0a64                	addi	s1,sp,284
+	...
+
+000000d9 <operator>:
+  d9:	000a704f          	fnmadd.s	ft0,fs4,ft0,ft0
+
+000000dd <result>:
+  dd:	3d52                	fld	fs10,304(sp)
+  df:	000a                	c.slli	zero,0x2
