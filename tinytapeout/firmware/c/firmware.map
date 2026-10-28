@@ -1,0 +1,146 @@
+Archive member included to satisfy reference by file (symbol)
+
+libfemtorv/libfemtorv.a(milliwait.o)
+                              hello.o (milliwait)
+libfemtorv/libfemtorv.a(wait_cycles.o)
+                              libfemtorv/libfemtorv.a(milliwait.o) (wait_cycles)
+libfemtorv/libfemtorv.a(femtorv32.o)
+                              libfemtorv/crt0_baremetal.o (exit)
+libfemtorv/libfemtorv.a(cycles_32.o)
+                              libfemtorv/libfemtorv.a(wait_cycles.o) (cycles)
+libfemtorv/libfemtorv.a(print.o)
+                              hello.o (print_hex)
+libfemtorv/libfemtorv.a(printf.o)
+                              hello.o (printf)
+libfemtorv/libfemtorv.a(uart.o)
+                              libfemtorv/libfemtorv.a(print.o) (putchar)
+/home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+                              libfemtorv/libfemtorv.a(print.o) (__divsi3)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+BRAM             0x0000000000000000 0x0000000000040000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+TARGET(elf32-littleriscv)
+
+.text           0x0000000000000000      0x71a
+ crt0_baremetal.o(.text)
+ .text          0x0000000000000000       0x18 libfemtorv/crt0_baremetal.o
+                0x0000000000000000                _start
+ *(.text)
+ .text          0x0000000000000018       0xbc hello.o
+                0x0000000000000018                main
+ .text          0x00000000000000d4       0x60 libfemtorv/libfemtorv.a(milliwait.o)
+                0x00000000000000d4                milliwait
+ .text          0x0000000000000134       0x5c libfemtorv/libfemtorv.a(wait_cycles.o)
+                0x0000000000000134                wait_cycles
+ .text          0x0000000000000190        0x8 libfemtorv/libfemtorv.a(femtorv32.o)
+                0x0000000000000190                abort
+                0x0000000000000190                exit
+ .text          0x0000000000000198       0xf0 libfemtorv/libfemtorv.a(cycles_32.o)
+                0x0000000000000198                cycles
+ .text          0x0000000000000288      0x250 libfemtorv/libfemtorv.a(print.o)
+                0x0000000000000288                print_string
+                0x00000000000002ec                puts
+                0x0000000000000330                print_dec
+                0x000000000000041c                print_hex
+                0x0000000000000454                print_hex_digits
+ .text          0x00000000000004d8      0x180 libfemtorv/libfemtorv.a(printf.o)
+                0x00000000000004d8                printf
+ .text          0x0000000000000658       0x44 libfemtorv/libfemtorv.a(uart.o)
+                0x0000000000000658                putchar
+                0x0000000000000680                getchar
+ .text          0x000000000000069c       0x7e /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+                0x000000000000069c                __divsi3
+                0x00000000000006a4                __udivsi3
+                0x00000000000006d0                __umodsi3
+                0x00000000000006f4                __modsi3
+                0x000000000000071a                _end = .
+LOAD hello.o
+LOAD libfemtorv/libfemtorv.a
+LOAD /home/carlos/miniconda3/envs/fpga/riscv32-elf/lib/rv32i/ilp32//libm.a
+LOAD /home/carlos/miniconda3/envs/fpga/riscv32-elf/lib/rv32i/ilp32//libc.a
+LOAD /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a
+LOAD libfemtorv/crt0_baremetal.o
+OUTPUT(firmware.elf elf32-littleriscv)
+
+.rodata         0x000000000000071c       0x29
+ .rodata        0x000000000000071c       0x17 hello.o
+ *fill*         0x0000000000000733        0x1 
+ .rodata        0x0000000000000734       0x11 libfemtorv/libfemtorv.a(print.o)
+
+.data           0x0000000000000745        0x0
+ .data          0x0000000000000745        0x0 libfemtorv/crt0_baremetal.o
+ .data          0x0000000000000745        0x0 hello.o
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(milliwait.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(wait_cycles.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(femtorv32.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(cycles_32.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(print.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(printf.o)
+ .data          0x0000000000000745        0x0 libfemtorv/libfemtorv.a(uart.o)
+ .data          0x0000000000000745        0x0 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.bss            0x0000000000000748        0xc
+ .bss           0x0000000000000748        0x0 libfemtorv/crt0_baremetal.o
+ .bss           0x0000000000000748        0x0 hello.o
+ .bss           0x0000000000000748        0x0 libfemtorv/libfemtorv.a(milliwait.o)
+ .bss           0x0000000000000748        0x0 libfemtorv/libfemtorv.a(wait_cycles.o)
+ .bss           0x0000000000000748        0x0 libfemtorv/libfemtorv.a(femtorv32.o)
+ .bss           0x0000000000000748        0xc libfemtorv/libfemtorv.a(cycles_32.o)
+ .bss           0x0000000000000754        0x0 libfemtorv/libfemtorv.a(print.o)
+ .bss           0x0000000000000754        0x0 libfemtorv/libfemtorv.a(printf.o)
+ .bss           0x0000000000000754        0x0 libfemtorv/libfemtorv.a(uart.o)
+ .bss           0x0000000000000754        0x0 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.riscv.attributes
+                0x0000000000000000       0x26
+ .riscv.attributes
+                0x0000000000000000       0x1a libfemtorv/crt0_baremetal.o
+ .riscv.attributes
+                0x000000000000001a       0x1c hello.o
+ .riscv.attributes
+                0x0000000000000036       0x1c libfemtorv/libfemtorv.a(milliwait.o)
+ .riscv.attributes
+                0x0000000000000052       0x1c libfemtorv/libfemtorv.a(wait_cycles.o)
+ .riscv.attributes
+                0x000000000000006e       0x1a libfemtorv/libfemtorv.a(femtorv32.o)
+ .riscv.attributes
+                0x0000000000000088       0x1c libfemtorv/libfemtorv.a(cycles_32.o)
+ .riscv.attributes
+                0x00000000000000a4       0x1c libfemtorv/libfemtorv.a(print.o)
+ .riscv.attributes
+                0x00000000000000c0       0x1c libfemtorv/libfemtorv.a(printf.o)
+ .riscv.attributes
+                0x00000000000000dc       0x1a libfemtorv/libfemtorv.a(uart.o)
+ .riscv.attributes
+                0x00000000000000f6       0x24 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.comment        0x0000000000000000       0x15
+ .comment       0x0000000000000000       0x15 hello.o
+                                         0x16 (size before relaxing)
+ .comment       0x0000000000000015       0x16 libfemtorv/libfemtorv.a(milliwait.o)
+ .comment       0x0000000000000015       0x16 libfemtorv/libfemtorv.a(wait_cycles.o)
+ .comment       0x0000000000000015       0x16 libfemtorv/libfemtorv.a(cycles_32.o)
+ .comment       0x0000000000000015       0x16 libfemtorv/libfemtorv.a(print.o)
+ .comment       0x0000000000000015       0x16 libfemtorv/libfemtorv.a(printf.o)
+
+.debug_line     0x0000000000000000      0x1cf
+ .debug_line    0x0000000000000000      0x1cf /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.debug_info     0x0000000000000000       0x26
+ .debug_info    0x0000000000000000       0x26 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)
+
+.debug_str      0x0000000000000000      0x140
+ .debug_str     0x0000000000000000      0x140 /home/carlos/miniconda3/envs/fpga/lib/gcc/riscv32-elf/10.1.0/rv32iac/ilp32//libgcc.a(div.o)

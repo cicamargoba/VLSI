@@ -1,0 +1,38 @@
+
+Discarded input sections
+
+ .riscv.attributes
+                0x0000000000000000       0x1a test_ram_load.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+BRAM             0x0000000000000000 0x0000000000004000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+everything      0x0000000000000000       0x88
+                0x0000000000000000                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0000000000000000       0x88 test_ram_load.o
+                0x0000000000000000                _start
+ *(.rodata)
+ *(.rodata.*)
+
+.data           0x0000000000000088        0x0
+ .data          0x0000000000000088        0x0 test_ram_load.o
+
+.bss            0x0000000000000088        0x0
+ .bss           0x0000000000000088        0x0 test_ram_load.o
+
+/DISCARD/
+ *(.riscv.attributes)
+ *(.comment)
+ *(.symtab)
+ *(.strtab)
+ *(.shstrtab)
+ *(.eh_frame)
+LOAD test_ram_load.o
+OUTPUT(firmware.elf elf32-littleriscv)

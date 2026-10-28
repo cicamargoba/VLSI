@@ -1,42 +1,37 @@
- `define SPI_FLASH_DUMMY_CLOCKS 0
+`define SPI_FLASH_DUMMY_CLOCKS 0
 
-module MappedSPIRAM( 
-    input wire 	        clk,           // system clock
+module MappedSPIRAM(
+    input wire         clk,           // system clock
     input wire          reset,         // system reset
-    input wire 	        rd,         // read strobe
+    input wire         rd,         // read strobe
     input wire          wr,         // write strobe		
-	input wire [15:0]   word_address,  // address of the word to be read
-
-	input wire [31:0]   wdata,         // data to be written
+    input wire [15:0]   word_address,  // address of the word to be read
+    input wire [31:0]   wdata,         // data to be written
     output wire [31:0]  rdata,         // data read
     output reg          rbusy,        // asserted if busy receiving data
     output reg          wbusy,         // asserted if busy writing data		    
-
-		             // SPI flash pins
     output reg         CLK,  // clock
     output reg         CS_N, // chip select negated (active low)		
     output wire        MOSI, // master out slave in (data to be sent to flash)
     input  wire        MISO  // master in slave out (data received from flash)
 );
 
+parameter START      = 3'b000;
+parameter WAIT_INST  = 3'b001;
+parameter SEND       = 3'b010;
+parameter RECEIVE    = 3'b011;
+parameter WAIT_SCLK  = 3'b100;
 
- parameter START      = 3'b000;
- parameter WAIT_INST  = 3'b001;
- parameter SEND       = 3'b010;
- parameter RECEIVE    = 3'b011;
- parameter WAIT_SCLK  = 3'b100;
+parameter divisor    = 10;
 
- parameter divisor    = 10;
-
- reg edge_CLK;
- reg [2:0] state;
- reg clk_div;
-
-   reg [8:0]  snd_bitcount;
-   reg [63:0] cmd_addr;
-   reg [5:0]  rcv_bitcount;
-   reg [31:0] rcv_data;
-   reg [5:0]  div_counter;
+reg edge_CLK;
+reg [2:0] state;
+reg clk_div;
+reg [8:0]  snd_bitcount;
+reg [63:0] cmd_addr;
+reg [5:0]  rcv_bitcount;
+reg [31:0] rcv_data;
+reg [5:0]  div_counter;
 
 always @(negedge clk) begin
     if (!reset) begin
@@ -56,7 +51,7 @@ always @(negedge clk) begin
 end
 
 always @(negedge clk) begin
-    if (!reset) begin
+    if (!reset|| state == WAIT_INST) begin
       CLK    <= 0;
     end
     else begin
@@ -80,7 +75,7 @@ always @(negedge clk) begin
       rbusy    <= 1'b0;
       wbusy    <= 1'b0;
       rcv_data <= 0;
-      CS_N     <= 1; 
+      CS_N     <= 1;
       cmd_addr <= 0;
     end else begin
     case(state)

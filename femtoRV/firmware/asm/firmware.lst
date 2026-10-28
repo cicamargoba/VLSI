@@ -3,7 +3,7 @@ firmware.elf:     file format elf32-littleriscv
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 everything    000000e1  00000000  00000000  00000054  2**2
+  0 everything    000000e5  00000000  00000000  00000054  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section everything:
@@ -12,7 +12,7 @@ Disassembly of section everything:
    0:	00400337          	lui	t1,0x400
    4:	00400337          	lui	t1,0x400
    8:	00010137          	lui	sp,0x10
-   c:	03010113          	addi	sp,sp,48 # 10030 <result+0xff53>
+   c:	03010113          	addi	sp,sp,48 # 10030 <result+0xff4f>
   10:	00000297          	auipc	t0,0x0
   14:	03c28293          	addi	t0,t0,60 # 4c <isr>
   18:	30529073          	csrw	mtvec,t0
@@ -21,11 +21,11 @@ Disassembly of section everything:
   24:	00830313          	addi	t1,t1,8 # 400008 <UART_BASE+0x8>
   28:	004003b7          	lui	t2,0x400
   2c:	01038393          	addi	t2,t2,16 # 400010 <UART_BASE+0x10>
-  30:	0cc00513          	li	a0,204
+  30:	0d000513          	li	a0,208
   34:	020000ef          	jal	ra,54 <putstring>
-  38:	0d900513          	li	a0,217
+  38:	0dd00513          	li	a0,221
   3c:	018000ef          	jal	ra,54 <putstring>
-  40:	0dd00513          	li	a0,221
+  40:	0e100513          	li	a0,225
   44:	010000ef          	jal	ra,54 <putstring>
   48:	fb9ff06f          	j	0 <_start>
 
@@ -36,48 +36,49 @@ Disassembly of section everything:
 00000054 <putstring>:
   54:	ffc10113          	addi	sp,sp,-4
   58:	00112023          	sw	ra,0(sp)
-  5c:	00050393          	mv	t2,a0
-  60:	0003c503          	lbu	a0,0(t2)
-  64:	00050863          	beqz	a0,74 <putstring+0x20>
-  68:	018000ef          	jal	ra,80 <putchar>
-  6c:	00138393          	addi	t2,t2,1
-  70:	ff1ff06f          	j	60 <putstring+0xc>
-  74:	00012083          	lw	ra,0(sp)
-  78:	00410113          	addi	sp,sp,4
-  7c:	00008067          	ret
+  5c:	00112023          	sw	ra,0(sp)
+  60:	00050393          	mv	t2,a0
+  64:	0003c503          	lbu	a0,0(t2)
+  68:	00050863          	beqz	a0,78 <putstring+0x24>
+  6c:	018000ef          	jal	ra,84 <putchar>
+  70:	00138393          	addi	t2,t2,1
+  74:	ff1ff06f          	j	64 <putstring+0x10>
+  78:	00012083          	lw	ra,0(sp)
+  7c:	00410113          	addi	sp,sp,4
+  80:	00008067          	ret
 
-00000080 <putchar>:
-  80:	ff410113          	addi	sp,sp,-12
-  84:	00512023          	sw	t0,0(sp)
-  88:	00612223          	sw	t1,4(sp)
-  8c:	00112423          	sw	ra,8(sp)
-  90:	004001b7          	lui	gp,0x400
-  94:	00a1a423          	sw	a0,8(gp) # 400008 <UART_BASE+0x8>
-  98:	00800293          	li	t0,8
-  9c:	0051a823          	sw	t0,16(gp)
-  a0:	00000293          	li	t0,0
-  a4:	0051a823          	sw	t0,16(gp)
-  a8:	20000293          	li	t0,512
-  ac:	0101a303          	lw	t1,16(gp)
-  b0:	00537333          	and	t1,t1,t0
-  b4:	fe031ce3          	bnez	t1,ac <putchar+0x2c>
-  b8:	00812083          	lw	ra,8(sp)
-  bc:	00412303          	lw	t1,4(sp)
-  c0:	00012283          	lw	t0,0(sp)
-  c4:	00c10113          	addi	sp,sp,12
-  c8:	00008067          	ret
+00000084 <putchar>:
+  84:	ff410113          	addi	sp,sp,-12
+  88:	00512023          	sw	t0,0(sp)
+  8c:	00612223          	sw	t1,4(sp)
+  90:	00112423          	sw	ra,8(sp)
+  94:	004001b7          	lui	gp,0x400
+  98:	00a1a423          	sw	a0,8(gp) # 400008 <UART_BASE+0x8>
+  9c:	00800293          	li	t0,8
+  a0:	0051a823          	sw	t0,16(gp)
+  a4:	00000293          	li	t0,0
+  a8:	0051a823          	sw	t0,16(gp)
+  ac:	20000293          	li	t0,512
+  b0:	0101a303          	lw	t1,16(gp)
+  b4:	00537333          	and	t1,t1,t0
+  b8:	fe031ce3          	bnez	t1,b0 <putchar+0x2c>
+  bc:	00812083          	lw	ra,8(sp)
+  c0:	00412303          	lw	t1,4(sp)
+  c4:	00012283          	lw	t0,0(sp)
+  c8:	00c10113          	addi	sp,sp,12
+  cc:	00008067          	ret
 
-000000cc <command>:
-  cc:	6548                	flw	fa0,12(a0)
-  ce:	6c6c                	flw	fa1,92(s0)
-  d0:	6f57206f          	j	72fc4 <result+0x72ee7>
-  d4:	6c72                	flw	fs8,28(sp)
-  d6:	0a64                	addi	s1,sp,284
+000000d0 <command>:
+  d0:	6548                	flw	fa0,12(a0)
+  d2:	6c6c                	flw	fa1,92(s0)
+  d4:	6f57206f          	j	72fc8 <result+0x72ee7>
+  d8:	6c72                	flw	fs8,28(sp)
+  da:	0a64                	addi	s1,sp,284
 	...
 
-000000d9 <operator>:
-  d9:	000a704f          	fnmadd.s	ft0,fs4,ft0,ft0
+000000dd <operator>:
+  dd:	000a704f          	fnmadd.s	ft0,fs4,ft0,ft0
 
-000000dd <result>:
-  dd:	3d52                	fld	fs10,304(sp)
-  df:	000a                	c.slli	zero,0x2
+000000e1 <result>:
+  e1:	3d52                	fld	fs10,304(sp)
+  e3:	000a                	c.slli	zero,0x2
