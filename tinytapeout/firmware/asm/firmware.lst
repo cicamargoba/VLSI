@@ -15,8 +15,8 @@ Disassembly of section everything:
    c:	004003b7          	lui	t2,0x400
   10:	01038393          	addi	t2,t2,16 # 400010 <wait_tx+0x3fffbc>
   14:	000102b7          	lui	t0,0x10
-  18:	6c6c6e37          	lui	t3,0x6c6c6
-  1c:	548e0e13          	addi	t3,t3,1352 # 6c6c6548 <wait_tx+0x6c6c64f4>
+  18:	fc6c6e37          	lui	t3,0xfc6c6
+  1c:	548e0e13          	addi	t3,t3,1352 # fc6c6548 <wait_tx+0xfc6c64f4>
   20:	01c2a023          	sw	t3,0(t0) # 10000 <wait_tx+0xffac>
   24:	6f572e37          	lui	t3,0x6f572
   28:	06fe0e13          	addi	t3,t3,111 # 6f57206f <wait_tx+0x6f57201b>

@@ -1,0 +1,16 @@
+{
+  "DESIGN_NAME": "tt_um_femto",
+  "VERILOG_FILES": [
+    "dir::femto.v",
+    "dir::MappedSPIRAM.v",
+    "dir::MappedSPIFlash.v",
+    "dir::perip_uart.v",
+    "dir::uart.v",
+    "dir::femtorv32_quark.v"
+  ],
+  "DIE_AREA": "0 0 682.64 225.76",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/sky130A/def/tt_block_4x2_pg.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "met4"
+}
